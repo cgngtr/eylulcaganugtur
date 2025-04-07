@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -67,7 +70,7 @@ export default {
 					DEFAULT: '#4ADE80',
 				},
 				purple: {
-					light: '#a78bfa',
+					light: '#b2a7fb',
 					DEFAULT: '#8b5cf6',
 					dark: '#7c3aed',
 				}
