@@ -31,9 +31,7 @@ const StatisticsSection = () => {
         </div>
         <div className="flex items-center text-muted-foreground mt-2">
           <Award className="w-4 h-4 mr-2 text-purple-light" />
-          <div>
-            Yrs<br />Expertise
-          </div>
+          <span>Yrs<br />Expertise</span>
         </div>
       </div>
     </div>

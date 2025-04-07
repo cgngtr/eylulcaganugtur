@@ -29,7 +29,13 @@ const TechStackSection = () => {
   return (
     <div className="card-gradient rounded-xl p-6">
       <div className="flex items-center space-x-2 mb-2">
-        <div className="bg-purple-400/20 text-purple-400 text-xl p-1 rounded">🧩</div>
+        <div className="bg-purple-400/20 text-purple-400 text-xl p-1 rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+            <line x1="8" x2="16" y1="21" y2="21"></line>
+            <line x1="12" x2="12" y1="17" y2="21"></line>
+          </svg>
+        </div>
         <h2 className="text-xl font-medium">My Tech Stack</h2>
       </div>
       <p className="text-muted-foreground text-sm mb-6">
@@ -43,12 +49,12 @@ const TechStackSection = () => {
           version="15+"
         />
         <TechItem 
-          icon="󱏿" 
+          icon="T" 
           name="Tailwind CSS" 
           version=""
         />
         <TechItem 
-          icon="⧉" 
+          icon="S" 
           name="ShadCN/UI" 
           version=""
         />

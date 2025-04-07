@@ -29,6 +29,7 @@ const ServicesSection = () => {
         <ServiceButton text="Web Security" />
         <ServiceButton text="Website Rework" />
         <ServiceButton text="Web Development" />
+        <ServiceButton text="Web Design" />
       </div>
     </div>
   );

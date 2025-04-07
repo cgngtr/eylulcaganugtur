@@ -16,7 +16,7 @@ const ProjectsSection = () => {
         Here are some of the projects I have worked on
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-3 gap-4 mb-6">
         <div className="relative rounded-xl overflow-hidden group">
           <img 
             src="https://via.placeholder.com/300x200/0f1118/666666?text=Project+1" 

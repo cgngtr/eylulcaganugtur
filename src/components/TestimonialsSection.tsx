@@ -19,7 +19,7 @@ const Testimonial = ({ name, company, text }: TestimonialProps) => {
         </div>
         <div className="flex">
           {[1, 2, 3, 4, 5].map((star) => (
-            <Star key={star} className="w-4 h-4 text-purple-light" fill="#a78bfa" />
+            <Star key={star} className="w-4 h-4 text-purple-light" fill="#b2a7fb" />
           ))}
         </div>
       </div>
