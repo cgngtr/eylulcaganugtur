@@ -7,7 +7,7 @@ const ProfileSection = () => {
     <div className="bg-[#0f0f10] rounded-lg p-4 flex flex-col space-y-3 max-w-[560px] border border-[#1e1e1f]">
       <div className="flex space-x-3">
         <img 
-          src="/lovable-uploads/82fe6ff0-15cf-42fb-8725-33bb1d5b7810.png" 
+          src="/lovable-uploads/pp.png" 
           alt="Profile" 
           className="w-20 h-20 rounded-lg"
         />
