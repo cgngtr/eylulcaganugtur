@@ -1,37 +1,101 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Users, MessageSquare, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const CallToActionSection = () => {
+  const phrases = [
+    'on internet.',
+    'to life.',
+    'alive.',
+    'to reality.',
+    'to fruition.',
+    'to existence.',
+    'to the screen.',
+    'to the digital world.',
+    'to the web.'
+  ];
+  
+  const [currentPhrase, setCurrentPhrase] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [cursorVisible, setCursorVisible] = useState(true);
+  
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setCursorVisible(prev => !prev);
+    }, 500);
+    
+    return () => clearInterval(cursorInterval);
+  }, []);
+  
+  // Typing effect
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // Current phrase to work with
+      const fullPhrase = phrases[currentIndex];
+      
+      // If deleting, remove a character, otherwise add a character
+      if (isDeleting) {
+        setCurrentPhrase(prev => prev.substring(0, prev.length - 1));
+        setTypingSpeed(50); // Faster when deleting
+      } else {
+        setCurrentPhrase(fullPhrase.substring(0, currentPhrase.length + 1));
+        setTypingSpeed(100); // Normal speed when typing
+      }
+      
+      // If completed typing the current phrase
+      if (!isDeleting && currentPhrase === fullPhrase) {
+        // Pause at the end of typing a complete phrase
+        setTimeout(() => setIsDeleting(true), 1500);
+        setTypingSpeed(200);
+      } 
+      // If deleted the entire phrase
+      else if (isDeleting && currentPhrase === '') {
+        setIsDeleting(false);
+        // Move to the next phrase
+        setCurrentIndex((currentIndex + 1) % phrases.length);
+        setTypingSpeed(200);
+      }
+    }, typingSpeed);
+    
+    return () => clearTimeout(timeout);
+  }, [currentPhrase, isDeleting, currentIndex, typingSpeed, phrases]);
+  
   return (
-    <div className="card-gradient rounded-lg p-4 text-center border border-[#1e1e1f] space-y-3">
-      <div className="bg-[#b2a7fb]/20 text-[#b2a7fb] text-xl p-3 rounded-full mx-auto w-14 h-14 flex items-center justify-center mb-2">
-        <Users className="w-7 h-7" />
+    <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
+      <div className="flex flex-col space-y-1.5 p-6">
+        <h2 className="text-2xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
+          <Users className="size-7 text-primary" fill="currentColor" />
+          Let's Work Together
+        </h2>
+        <p className="text-sm text-muted-foreground">Bringing your ideas to life</p>
       </div>
-      
-      <h2 className="text-2xl font-bold mb-2">Let's Work Together</h2>
-      <p className="text-muted-foreground mb-3">
-        and make your ideas come to <span className="text-[#b2a7fb] font-bold">on internet</span>
-      </p>
-      
-      <div className="flex justify-center space-x-4">
-        <Button variant="outline" className="border-gray-700 h-12 w-12 p-0 font-bold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"></path>
-            <polyline points="15,9 18,9 18,11"></polyline>
-            <path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2v0"></path>
-            <line x1="6" x2="7" y1="10" y2="10"></line>
-          </svg>
-        </Button>
-        <Button variant="outline" className="border-gray-700 h-12 w-12 p-0 font-bold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="m3 3 3 9-3 9 19-9Z"></path>
-            <path d="M6 12h16"></path>
-          </svg>
-        </Button>
-        <Button variant="outline" className="border-gray-700 h-12 w-12 p-0 font-bold">
-          <Github className="w-5 h-5" />
-        </Button>
+      <div className="p-6 pt-0 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <div className="text-2xl font-bold min-h-[4rem] flex items-center justify-center whitespace-nowrap overflow-hidden">
+            <span>and make your ideas come&nbsp;</span>
+            <span className="text-primary">{currentPhrase}</span>
+            <span className={`${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-0.5`}>|</span>
+          </div>
+          
+          <p className="text-muted-foreground max-w-md mx-auto">
+            Ready to start a project? I'm available for freelance work. Let's discuss your ideas and make them a reality.
+          </p>
+          
+          <div className="flex flex-wrap gap-3 justify-center mt-4">
+            <Button className="bg-primary hover:bg-primary/90 text-white">
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Contact Me
+            </Button>
+            
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+              <Github className="mr-2 h-4 w-4" />
+              View GitHub
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

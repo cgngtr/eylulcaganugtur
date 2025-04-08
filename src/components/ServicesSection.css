@@ -1,0 +1,28 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+.scroller {
+  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.bg-background\/90 {
+  background-color: rgba(23, 23, 23, 0.9);
+}
+
+.bg-background\/70:hover {
+  background-color: rgba(23, 23, 23, 0.7);
+}
+
+.text-primary {
+  color: #b2a7fb;
+}
