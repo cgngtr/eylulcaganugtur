@@ -40,12 +40,7 @@ const TechStackSection = () => {
         <div className="grid grid-cols-1 gap-2 max-md:w-full 2xl:grid-cols-2">
           <TechItem 
             icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-[#61DAFB]" viewBox="0 0 24 24">
-                <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
-                  <path d="M6.306 8.711c-3.028 1.74-4.306 3.865-4.306 6.289c0 3.14 2.35 5.86 5.83 7.825c3.48 1.959 7.861 2.165 11.67.626c3.465-1.396 6.5-4.25 6.5-8.451c0-2.63-1.67-4.95-5-7"></path>
-                  <path d="M12 22v-4m0-10V4m0 4c1.896 0 3 .854 3 4s-1.104 4-3 4s-3-.854-3-4s1.104-4 3-4s3 .854 3 4Z"></path>
-                </g>
-              </svg>
+              <img src="/icons/react.svg" alt="React" className="size-6" />
             }
             name="React"
             version="18.2.0"
@@ -61,9 +56,7 @@ const TechStackSection = () => {
           />
           <TechItem 
             icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-[#38BDF8]" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8m-6 7.2c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8c.913.228 1.565.89 2.288 1.624c1.177 1.194 2.538 2.576 5.512 2.576c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12"></path>
-              </svg>
+              <img src="/icons/tailwindcss.svg" alt="Tailwind CSS" className="size-6" />
             }
             name="Tailwind CSS"
             version="3.3.3"
@@ -79,21 +72,17 @@ const TechStackSection = () => {
           />
           <TechItem 
             icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-[#00DC82]" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M17.89 17.86V13.54c0-1.86-1.4-2.97-3.4-2.97c-1.94 0-3.4 1.35-3.4 3.05v4.23h-2.26V6.14h2.26v4.21c.64-1.3 2.2-1.97 3.77-1.97c2.65 0 5.3 1.97 5.3 4.89v4.59zM6.99 17.86H4.48V6.14h2.51zM4.92 1C3.86 1 3 1.86 3 2.92a1.92 1.92 0 1 0 3.83 0c0-1.06-.86-1.92-1.92-1.92z"></path>
-              </svg>
+              <img src="/icons/nextjs.svg" alt="Next.js" className="size-6" />
             }
-            name="Nuxt.js"
-            version="3.6.5"
+            name="Next.js"
+            version="14.0.0"
           />
           <TechItem 
             icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-[#FF4785]" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M16.71 0h2.357l.117 4.107l-.017-.147c-.146-1.258-.632-2.15-1.479-2.678c-.517-.319-1.119-.48-1.801-.48c-.693 0-1.346.161-1.957.483c-.595.31-1.082.761-1.462 1.353c-.371.586-.557 1.27-.557 2.05c0 .747.179 1.405.537 1.975c.358.57.845 1.012 1.462 1.326c.615.31 1.314.465 2.095.465c.332 0 .644-.044.937-.132c.293-.088.576-.212.849-.372c.273-.16.537-.352.791-.578c.254-.225.503-.481.747-.767l1.339 1.079a6.5 6.5 0 0 1-.747.825c-.264.25-.552.474-.864.673c-.312.2-.649.361-1.011.483a4.71 4.71 0 0 1-1.192.183c-1.089 0-2.057-.244-2.905-.732c-.849-.488-1.513-1.159-1.992-2.013c-.479-.854-.718-1.83-.718-2.927c0-1.079.244-2.045.732-2.899c.488-.854 1.167-1.525 2.036-2.013C13.891.244 14.858 0 15.921 0zm-8.062.879h2.344l-4.132 9.12l-4.132-9.12h2.344l2.891 6.35zM24 10.67v2.344h-8.005V10.67z"></path>
-              </svg>
+              <img src="/icons/shadcn.svg" alt="Shadcn UI" className="size-6" />
             }
-            name="Storybook"
-            version="7.0.27"
+            name="Shadcn UI"
+            version="0.5.0"
           />
         </div>
       </div>
