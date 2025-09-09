@@ -8,6 +8,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CallToActionSection from '@/components/CallToActionSection';
 import FooterSection from '@/components/FooterSection';
+import SpotifyNowPlaying from '@/components/SpotifyNowPlaying';
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
           <TechStackSection />
           <StatisticsSection />
           <CallToActionSection />
+          <SpotifyNowPlaying />
         </div>
         
         {/* Third column */}
