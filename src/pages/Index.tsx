@@ -13,16 +13,16 @@ import SpotifyNowPlaying from '@/components/SpotifyNowPlaying';
 const Index = () => {
   return (
     <div className="min-h-screen py-4 px-2 sm:px-3 md:px-4 mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        {/* First column */}
-        <div className="space-y-4 md:space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        {/* First column - wider */}
+        <div className="space-y-4 md:space-y-6 md:col-span-4">
           <ProfileSection />
           <ServicesSection />
           <ProjectsSection />
         </div>
         
-        {/* Second column */}
-        <div className="space-y-4 md:space-y-6">
+        {/* Second column - centered */}
+        <div className="space-y-4 md:space-y-6 md:col-span-4">
           <TechStackSection />
           <StatisticsSection />
           <CallToActionSection />
@@ -30,7 +30,7 @@ const Index = () => {
         </div>
         
         {/* Third column */}
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-4 md:space-y-6 md:col-span-4">
           <WorkProcessSection />
           <TestimonialsSection />
         </div>
