@@ -95,7 +95,7 @@ const ProfileSection = () => {
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M7 3v3m10-3v3"></path>
             </g>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">21y/o</p>
+          <p className="text-sm font-semibold text-gray-400">22y/o</p>
         </div>
       </div>    
     </div>
