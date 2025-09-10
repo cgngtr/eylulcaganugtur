@@ -27,16 +27,16 @@ const TechItem = ({ icon, name, version }: TechItemProps) => {
 const TechStackSection = () => {
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
-      <div className="flex flex-col space-y-1.5 p-6">
-        <h2 className="text-2xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" className="iconify iconify--fa6-solid size-7 text-primary" width="1.13em" height="1em" viewBox="0 0 576 512">
+      <div className="flex flex-col space-y-1.5 p-4">
+        <h2 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" className="iconify iconify--fa6-solid size-6 text-primary" width="1.13em" height="1em" viewBox="0 0 576 512">
             <path fill="currentColor" d="M248 0h-40c-26.5 0-48 21.5-48 48v112c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64V48c0-26.5-21.5-48-48-48h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16zM64 256c-35.3 0-64 28.7-64 64v128c0 35.3 28.7 64 64 64h160c35.3 0 64-28.7 64-64V320c0-35.3-28.7-64-64-64h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16v-80zm288 256h160c35.3 0 64-28.7 64-64V320c0-35.3-28.7-64-64-64h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16v-80h-40c-15 0-28.8 5.1-39.7 13.8c4.9 10.4 7.7 22 7.7 34.2v160c0 12.2-2.8 23.8-7.7 34.2C323.2 506.9 337 512 352 512"></path>
           </svg>
           My Tech Stack
         </h2>
         <p className="text-sm text-muted-foreground">My favorite tech stack I use on my projects</p>
       </div>
-      <div className="p-6 pt-0">
+      <div className="p-4 pt-0">
         <div className="grid grid-cols-1 gap-2 max-md:w-full 2xl:grid-cols-2">
           <TechItem 
             icon={

@@ -65,16 +65,16 @@ const CallToActionSection = () => {
   
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
-      <div className="flex flex-col space-y-1.5 p-6">
-        <h2 className="text-2xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
-          <Users className="size-7 text-primary" fill="currentColor" />
+      <div className="flex flex-col space-y-1.5 p-4">
+        <h2 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
+          <Users className="size-6 text-primary" fill="currentColor" />
           Let's Work Together
         </h2>
         <p className="text-sm text-muted-foreground">Bringing your ideas to life</p>
       </div>
-      <div className="p-6 pt-0 text-center">
+      <div className="p-4 pt-0 text-center">
         <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="text-2xl font-bold min-h-[4rem] flex items-center justify-center whitespace-nowrap overflow-hidden">
+          <div className="text-xl font-bold min-h-[3.5rem] flex items-center justify-center whitespace-nowrap overflow-hidden">
             <span>and make your ideas come&nbsp;</span>
             <span className="text-primary">{currentPhrase}</span>
             <span className={`${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 ml-0.5`}>|</span>

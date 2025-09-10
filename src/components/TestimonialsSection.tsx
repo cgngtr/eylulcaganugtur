@@ -11,7 +11,7 @@ interface TestimonialProps {
 
 const Testimonial = ({ name, company, text, blurred = false }: TestimonialProps) => {
   return (
-    <div className={`relative ${blurred ? 'mb-0' : 'mb-3'} bg-[#0d0c0d] p-4 rounded-xl flex flex-col space-y-2`}>
+    <div className={`relative ${blurred ? 'mb-0' : 'mb-2'} bg-[#0d0c0d] p-3 rounded-xl flex flex-col space-y-1.5`}>
       <div className="flex justify-between items-center">
         <div>
           <h3 className="font-bold text-[#fafafa]">{name}</h3>
@@ -35,15 +35,15 @@ const Testimonial = ({ name, company, text, blurred = false }: TestimonialProps)
 const TestimonialsSection = () => {
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
-      <div className="flex flex-col space-y-1.5 p-6">
-        <h2 className="text-2xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
-          <MessageSquare className="size-7 text-primary" />
+      <div className="flex flex-col space-y-1.5 p-4">
+        <h2 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
+          <MessageSquare className="size-6 text-primary" />
           Testimonials
         </h2>
         <p className="text-sm text-muted-foreground">What my clients say about me</p>
       </div>
       
-      <div className="p-6 pt-0">
+      <div className="p-4 pt-0">
         <div className="relative overflow-hidden">
           <Testimonial 
             name="Anom"

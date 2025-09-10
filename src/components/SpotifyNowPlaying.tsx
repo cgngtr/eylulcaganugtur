@@ -80,7 +80,7 @@ const SpotifyNowPlaying: React.FC = () => {
   if (loading) {
     return (
       <Card className="w-full">
-        <CardContent className="p-4 pb-6">
+        <CardContent className="p-3 pb-4">
           <div className="flex items-center space-x-3">
             <div className="animate-pulse bg-gray-700 rounded-full p-2">
               <Music className="h-5 w-5 text-gray-500" />
@@ -98,7 +98,7 @@ const SpotifyNowPlaying: React.FC = () => {
   if (error) {
     return (
       <Card className="w-full">
-        <CardContent className="p-4 pb-6">
+        <CardContent className="p-3 pb-4">
           <div className="flex items-center space-x-3">
             <VolumeX className="h-5 w-5 text-red-500" />
             <div className="flex-1">
@@ -113,7 +113,7 @@ const SpotifyNowPlaying: React.FC = () => {
   if (!displayData || !displayData.item) {
     return (
       <Card className="w-full">
-        <CardContent className="p-4 pb-6">
+        <CardContent className="p-3 pb-4">
           <div className="flex items-center space-x-3">
             <Music className="h-5 w-5 text-green-500" />
             <div className="flex-1">
@@ -146,12 +146,12 @@ const SpotifyNowPlaying: React.FC = () => {
               <img
                 src={track.album.images[0].url}
                 alt={`${track.name} album art`}
-                className="w-12 h-12 rounded-lg object-cover"
+                className="w-16 h-16 rounded-lg object-cover"
               />
             )}
           </div>
           
-          <div className="flex-1 min-w-0 w-48"> {/* Fixed width for text area */}
+          <div className="flex-1 min-w-0 w-40"> {/* Fixed width for text area */}
             <div className="flex items-center space-x-2 mb-1">
               <h3 className="text-sm font-medium text-gray-300 truncate">
                 {track.name}
