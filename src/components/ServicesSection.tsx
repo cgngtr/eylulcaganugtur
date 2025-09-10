@@ -4,7 +4,7 @@ import './ServicesSection.css';
 
 const ServiceItem = ({ text }: { text: string }) => {
   return (
-    <li className="group relative flex cursor-pointer flex-row items-center gap-2 rounded-xl bg-background/90 px-4 py-1.5 transition hover:bg-background/70">
+    <li className="group relative flex cursor-pointer flex-row items-center gap-2 rounded-xl bg-background/90 px-5 py-2 transition hover:bg-background/70">
       <h1 className="font-black text-primary">{text}</h1>
     </li>
   );

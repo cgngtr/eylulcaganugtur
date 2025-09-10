@@ -138,7 +138,7 @@ const SpotifyNowPlaying: React.FC = () => {
   const duration = formatDuration(track.duration_ms);
 
   return (
-    <Card className="w-full hover:bg-gray-800/50 transition-colors">
+    <Card className="w-full">
       <CardContent className="p-4 pb-6">
         <div className="flex items-center space-x-3">
           <div>
