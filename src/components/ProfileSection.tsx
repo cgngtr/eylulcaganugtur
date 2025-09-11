@@ -1,8 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Briefcase, Github } from 'lucide-react';
+import { Briefcase, Github, Mail, MessageSquare, X, Send, CheckCircle } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const ProfileSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Use proxy endpoint to avoid CORS
+      const response = await fetch('/api/send-to-slack', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden relative">
       {/* Add subtle background pattern */}
@@ -101,18 +163,121 @@ const ProfileSection = () => {
     </div>
         
         <div className="mt-3 flex flex-row items-center gap-2">
-          <Button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-3 py-2 w-full gap-1 relative overflow-hidden group">
-            {/* Add hover effect */}
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
-            {/* Briefcase Icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" className="size-6 relative z-10" width="1em" height="1em" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M2 11.25C2 8.35 4.015 6 6.5 6S11 8.35 11 11.25V20H4.233C3 20 2 18.834 2 17.395z" opacity=".5"></path>
-              <path fill="currentColor" d="M11 11.25V20h8.793C21.012 20 22 18.847 22 17.425V11.25C22 8.35 19.985 6 17.5 6h-11C8.985 6 11 8.35 11 11.25" opacity=".8"></path>
-              <path fill="currentColor" d="M9.5 20v2a.75.75 0 0 0 1.5 0v-2zm5.5 0h-1.5v2a.75.75 0 0 0 1.5 0z"></path>
-              <path fill="currentColor" fillRule="evenodd" d="M4.25 16a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75m13.135-9.415l.256-.052a2.2 2.2 0 0 1 1.24.115c.69.277 1.446.328 2.165.148l.061-.015c.524-.131.893-.618.893-1.178v-2.13c0-.738-.664-1.282-1.355-1.109c-.396.1-.812.071-1.193-.081l-.073-.03a3.5 3.5 0 0 0-2-.185l-.449.09c-.54.108-.93.6-.93 1.17v6.953c0 .397.31.719.692.719a.706.706 0 0 0 .693-.72z" clipRule="evenodd"></path>
-            </svg>
-            <span className="relative z-10">Hire Me</span>
-          </Button>
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogTrigger asChild>
+              <Button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-3 py-2 w-full gap-1 relative overflow-hidden group">
+                {/* Add hover effect */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                {/* Briefcase Icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-6 relative z-10" width="1em" height="1em" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M2 11.25C2 8.35 4.015 6 6.5 6S11 8.35 11 11.25V20H4.233C3 20 2 18.834 2 17.395z" opacity=".5"></path>
+                  <path fill="currentColor" d="M11 11.25V20h8.793C21.012 20 22 18.847 22 17.425V11.25C22 8.35 19.985 6 17.5 6h-11C8.985 6 11 8.35 11 11.25" opacity=".8"></path>
+                  <path fill="currentColor" d="M9.5 20v2a.75.75 0 0 0 1.5 0v-2zm5.5 0h-1.5v2a.75.75 0 0 0 1.5 0z"></path>
+                  <path fill="currentColor" fillRule="evenodd" d="M4.25 16a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75m13.135-9.415l.256-.052a2.2 2.2 0 0 1 1.24.115c.69.277 1.446.328 2.165.148l.061-.015c.524-.131.893-.618.893-1.178v-2.13c0-.738-.664-1.282-1.355-1.109c-.396.1-.812.071-1.193-.081l-.073-.03a3.5 3.5 0 0 0-2-.185l-.449.09c-.54.108-.93.6-.93 1.17v6.953c0 .397.31.719.692.719a.706.706 0 0 0 .693-.72z" clipRule="evenodd"></path>
+                </svg>
+                <span className="relative z-10">Hire Me</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] border-primary/20 bg-background">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2 text-primary">
+                  <Mail className="h-5 w-5" />
+                  Let's Work Together
+                </DialogTitle>
+                <DialogDescription>
+                  Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
+                </DialogDescription>
+              </DialogHeader>
+              
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center py-8 space-y-4">
+                  <CheckCircle className="h-16 w-16 text-green-500" />
+                  <div className="text-center space-y-2">
+                    <h3 className="text-lg font-semibold text-foreground">Message Sent Successfully!</h3>
+                    <p className="text-muted-foreground">I'll get back to you as soon as possible.</p>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      required
+                      className="border-primary/20 focus:border-primary focus:ring-primary/20"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your.email@example.com"
+                      required
+                      className="border-primary/20 focus:border-primary focus:ring-primary/20"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project, timeline, and budget..."
+                      rows={4}
+                      required
+                      className="border-primary/20 focus:border-primary focus:ring-primary/20"
+                    />
+                  </div>
+                  
+                  <div className="flex gap-2 pt-4">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 bg-primary hover:bg-primary/90 text-white"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                    
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setIsOpen(false)}
+                      className="border-primary/20 text-primary hover:bg-primary/10"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </form>
+              )}
+            </DialogContent>
+          </Dialog>
           <Button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-3 py-2 w-full gap-2 relative overflow-hidden group">
             {/* Add hover effect */}
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-secondary/0 via-white/10 to-secondary/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>

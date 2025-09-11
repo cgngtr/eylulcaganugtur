@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .cursor
 .env
+.env.local
+.env.production
+.claude
+.mcp.json
