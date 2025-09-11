@@ -22,6 +22,8 @@ export default async function handler(req, res) {
 
     const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL || 'https://hooks.slack.com/services/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';
     
+    console.log('Environment variable SLACK_WEBHOOK_URL:', process.env.SLACK_WEBHOOK_URL);
+    console.log('Using webhook URL:', slackWebhookUrl);
     console.log('Sending to Slack webhook...');
     
     const payload = {
