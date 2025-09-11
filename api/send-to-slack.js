@@ -21,9 +21,11 @@ export default async function handler(req, res) {
     }
 
     // Use the same Slack webhook URL as local development
-    const slackWebhookUrl = 'https://hooks.slack.com/services/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';
+    const slackWebhookUrl = process.env.VITE_SLACK_WEBHOOK_URL || 'https://hooks.slack.com/services/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';
     
     console.log('Backend proxy: Sending to Slack webhook...');
+    console.log('Environment variable VITE_SLACK_WEBHOOK_URL:', process.env.VITE_SLACK_WEBHOOK_URL);
+    console.log('Using webhook URL:', slackWebhookUrl);
     console.log('Form data:', { name, email, message: message.substring(0, 100) + '...' });
     
     const payload = {
