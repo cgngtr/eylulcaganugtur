@@ -1,4 +1,4 @@
-// Vercel Serverless Function for Slack webhook
+// Vercel Serverless Function - Backend Proxy for Slack webhook
 export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,11 +20,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL || 'https://hooks.slack.com/services/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';
+    // Use the same Slack webhook URL as local development
+    const slackWebhookUrl = 'https://hooks.slack.com/services/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';
     
-    console.log('Environment variable SLACK_WEBHOOK_URL:', process.env.SLACK_WEBHOOK_URL);
-    console.log('Using webhook URL:', slackWebhookUrl);
-    console.log('Sending to Slack webhook...');
+    console.log('Backend proxy: Sending to Slack webhook...');
+    console.log('Form data:', { name, email, message: message.substring(0, 100) + '...' });
     
     const payload = {
       text: `📧 New Contact Form Submission from ${name}`,
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
           elements: [
             {
               type: "mrkdwn",
-              text: `Submitted on ${new Date().toLocaleString('en-US', { 
+              text: `Submitted from Vercel proxy on ${new Date().toLocaleString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric', 
@@ -82,19 +82,34 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'Vercel-Proxy/1.0'
       },
       body: JSON.stringify(payload),
     });
 
     console.log('Slack response status:', response.status);
+    console.log('Slack response headers:', Object.fromEntries(response.headers));
     
     if (!response.ok) {
-      throw new Error(`Failed to send to Slack: ${response.status}`);
+      const responseText = await response.text();
+      console.log('Slack error response:', responseText);
+      throw new Error(`Failed to send to Slack: ${response.status} - ${responseText}`);
     }
 
-    res.status(200).json({ success: true, message: 'Message sent successfully' });
+    const responseData = await response.text();
+    console.log('Slack success response:', responseData);
+
+    res.status(200).json({ 
+      success: true, 
+      message: 'Message sent successfully via proxy',
+      proxy: 'Vercel'
+    });
   } catch (error) {
-    console.error('Error sending to Slack:', error);
-    res.status(500).json({ error: 'Failed to send message', details: error.message });
+    console.error('Backend proxy error:', error);
+    res.status(500).json({ 
+      error: 'Failed to send message', 
+      details: error.message,
+      proxy: 'Vercel'
+    });
   }
 }
