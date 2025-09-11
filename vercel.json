@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/send-to-slack/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/send-to-slack",
