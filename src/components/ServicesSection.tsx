@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Wrench } from 'lucide-react';
 import './ServicesSection.css';
 
@@ -11,13 +12,14 @@ const ServiceItem = ({ text }: { text: string }) => {
 };
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
   const services = [
-    'Web Development',
-    'Web Design',
-    'SEO Optimization',
-    'Hosting Guide',
-    'Web Security',
-    'Website Rework'
+    t('services.web_development'),
+    t('services.web_design'),
+    t('services.seo_optimization'),
+    t('services.hosting_guide'),
+    t('services.web_security'),
+    t('services.website_rework')
   ];
 
   return (
@@ -25,9 +27,9 @@ const ServicesSection = () => {
       <div className="flex flex-col space-y-1.5 p-4">
         <h3 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
           <Wrench className="size-6 text-primary" fill="currentColor" />
-          Services
+          {t('services.title')}
         </h3>
-        <p className="text-sm text-muted-foreground">My services are tailored to your needs and budget</p>
+        <p className="text-sm text-muted-foreground">{t('services.description')}</p>
       </div>
       <div className="p-4 pt-0">
         <div className="group mx-auto max-w-full items-center justify-center">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Users, Code2, FlaskConical, Rocket } from 'lucide-react';
 
 interface ProcessStepProps {
@@ -28,42 +29,43 @@ const ProcessStep = ({ number, title, description, icon }: ProcessStepProps) => 
 };
 
 const WorkProcessSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
       <div className="flex flex-col space-y-1.5 p-4">
         <h3 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
           <Users className="size-6 text-primary" fill="currentColor" />
-          Work Process
+          {t('work_process.title')}
         </h3>
-        <p className="text-sm text-muted-foreground">The work process explained in 4 simple steps</p>
+        <p className="text-sm text-muted-foreground">{t('work_process.description')}</p>
       </div>
       <div className="p-4 pt-0">
         <div className="grid grid-cols-1 gap-3">
           <ProcessStep
             number="1"
-            title="Project Brief"
-            description="We will discuss your project and its goals."
+            title={t('work_process.project_brief')}
+            description={t('work_process.project_brief_desc')}
             icon={<Users className="size-8 text-primary" fill="currentColor" />}
           />
 
           <ProcessStep
             number="2"
-            title="Design & Develop"
-            description="I will design and develop your website according to your needs."
+            title={t('work_process.design_develop')}
+            description={t('work_process.design_develop_desc')}
             icon={<Code2 className="size-8 text-primary" fill="currentColor" />}
           />
 
           <ProcessStep
             number="3"
-            title="Testing & Review"
-            description="I will let you test the website and make any changes if needed."
+            title={t('work_process.testing_review')}
+            description={t('work_process.testing_review_desc')}
             icon={<FlaskConical className="size-8 text-primary" fill="currentColor" />}
           />
 
           <ProcessStep
             number="4"
-            title="Launch"
-            description="I will give you the source code and help you with the launch."
+            title={t('work_process.launch')}
+            description={t('work_process.launch_desc')}
             icon={<Rocket className="size-8 text-primary" fill="currentColor" />}
           />
         </div>

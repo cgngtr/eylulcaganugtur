@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "projects": "Projelerim",
+    "github": "GitHub",
+    "hire_me": "Çalışma Teklifi Et"
+  },
+  "profile": {
+    "available_to_work": "Yeni Projeler için Açık",
+    "name": "Çağan",
+    "title": "Full Stack Geliştiriciyim",
+    "language": "İngilizce & Türkçe",
+    "location": "Türkiye",
+    "timezone": "UTC+3",
+    "night_owl": "Gece Çalışan",
+    "coffee_addict": "Kahve Sever",
+    "freelancer": "Serbest Çalışan",
+    "age": "22 Yaşında"
+  },
+  "contact": {
+    "title": "İletişime Geçelim",
+    "description": "Projeniz hakkında konuşmak ister misiniz? Fikirlerinizi hayata geçirmek için birlikte çalışalım.",
+    "name": "Adınız Soyadınız",
+    "email": "E-posta Adresiniz",
+    "message": "Mesajınız",
+    "name_placeholder": "Adınızı ve soyadınızı girin",
+    "email_placeholder": "eposta@adresiniz.com",
+    "message_placeholder": "Projeniz, zaman planı ve bütçeniz hakkında detaylı bilgi verin...",
+    "send_message": "Mesajı Gönder",
+    "sending": "Gönderiliyor...",
+    "success_title": "Mesajınız Başarıyla Gönderildi!",
+    "success_message": "En kısa sürede size dönüş yapacağım."
+  },
+  "projects": {
+    "title": "Projelerim",
+    "view_all": "Tüm Projeleri Görüntüle",
+    "view_project": "Projeyi İncele",
+    "description": "Çalıştığım bazı projeler"
+  },
+  "services": {
+    "title": "Hizmetlerim",
+    "description": "İhtiyaçlarınıza ve bütçenize özel çözümler",
+    "web_development": "Web Geliştirme",
+    "web_design": "Web Tasarımı",
+    "seo_optimization": "SEO Optimizasyonu",
+    "hosting_guide": "Hosting Danışmanlığı",
+    "web_security": "Web Güvenliği",
+    "website_rework": "Site Yenileme"
+  },
+  "tech_stack": {
+    "title": "Teknoloji Seçimlerim",
+    "description": "Projelerimde kullandığım teknolojiler",
+    "subtitle": "Projelerimde en sık kullandığım teknoloji yığını"
+  },
+  "work_process": {
+    "title": "Çalışma Sürecim",
+    "description": "4 basit adımda çalışma prensibim",
+    "project_brief": "Proje Tanımı",
+    "project_brief_desc": "Projenizi ve hedeflerinizi birlikte konuşalım.",
+    "design_develop": "Tasarım ve Geliştirme",
+    "design_develop_desc": "İhtiyaçlarınıza uygun web sitenizi tasarlayıp geliştireyim.",
+    "testing_review": "Test ve Değerlendirme",
+    "testing_review_desc": "Sitenizi test edin, gerekli düzenlemeleri birlikte yapalım.",
+    "launch": "Yayına Alma",
+    "launch_desc": "Kaynak kodlarını teslim edeyim ve yayın sürecinde destek olayım."
+  },
+  "statistics": {
+    "title": "İstatistikler",
+    "description": "Önemli sayılar ve başarılarım",
+    "projects": "Proje",
+    "clients": "Müşteri",
+    "years_experience": "Yıllık Deneyim"
+  },
+  "testimonials": {
+    "title": "Müşteri Yorumları",
+    "description": "Müşterilerim benim hakkında ne diyor:",
+    "view_all": "Tüm Yorumları Görüntüle"
+  },
+  "call_to_action": {
+    "title": "Fikirlerinizi Hayata Geçirelim",
+    "subtitle": "Harika işler çıkaralım",
+    "description": "Projeniz için hazır mısınız? Freelance işlere açığım. Fikirlerinizi konuşalım ve gerçeğe dönüştürelim.",
+    "animated_text": "ve fikirlerinizi",
+    "contact_me": "İletişime Geç",
+    "view_github": "GitHub'ı Görüntüle",
+    "phrases": {
+      "internet": "internet.",
+      "life": "hayata geçirelim",
+      "alive": "canlandıralım.",
+      "reality": "gerçeğe dönüştürelim.",
+      "fruition": "meyveye.",
+      "existence": "varlığa.",
+      "screen": "ekranlara getirelim.",
+      "digital_world": "dijital dünyaya getirelim.",
+      "web": "web'e getirelim."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Tüm hakları saklıdır.",
+    "made_with": "tarafından",
+    "by": "ile yapıldı"
+  },
+  "spotify": {
+    "title": "Spotify'da Şu An",
+    "nothing_playing": "Şu an çalınan yok",
+    "loading": "Yükleniyor...",
+    "unavailable": "Spotify erişilemiyor",
+    "playing": "Çalıyor",
+    "paused": "Duraklatıldı"
+  },
+  "errors": {
+    "404_title": "404",
+    "404_message": "Oops! Sayfa bulunamadı",
+    "404_back_home": "Ana Sayfaya Dön"
+  }
+}

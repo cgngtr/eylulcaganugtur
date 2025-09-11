@@ -1,15 +1,30 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const FooterSection = () => {
+  const { t, i18n } = useTranslation();
+  const isTurkish = i18n.language?.toLowerCase().startsWith('tr');
+
   return (
     <div className="text-center text-sm text-[#7b7a7f] mt-8">
-      <div className="flex items-center justify-center mb-1">
-        <span>Made with</span>
-        <Heart className="w-4 h-4 text-red-500 mx-1" fill="#ef4444" />
-        <span>by <span className="text-[#b2a7fb]">Çağan</span></span>
+      <div className="flex items-center justify-center gap-1 mb-1">
+        {isTurkish ? (
+          <>
+            <span className="glow-accent font-semibold">Çağan</span>
+            <span>{t('footer.made_with')}</span>
+            <span role="img" aria-label="heart">❤️</span>
+            <span>{t('footer.by')}</span>
+          </>
+        ) : (
+          <>
+            <span>{t('footer.made_with')}</span>
+            <span role="img" aria-label="heart">❤️</span>
+            <span>{t('footer.by')}</span>
+            <span className="glow-accent font-semibold">Çağan</span>
+          </>
+        )}
       </div>
-      <div>© 2025 All rights reserved</div>
+      <div>{t('footer.copyright')}</div>
     </div>
   );
 };

@@ -1,17 +1,19 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Briefcase, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
       <div className="flex flex-col space-y-1.5 p-4">
         <h2 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
           <Briefcase className="size-6 text-primary" fill="currentColor" />
-          Projects
+          {t('projects.title')}
         </h2>
-        <p className="text-sm text-muted-foreground">Here are some of the projects I have worked on</p>
+        <p className="text-sm text-muted-foreground">{t('projects.description')}</p>
       </div>
       <div className="p-4 pt-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
@@ -59,7 +61,7 @@ const ProjectsSection = () => {
           <Link to="/projects">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
               <Eye className="mr-2 h-4 w-4" />
-              View All Projects
+              {t('projects.view_all')}
             </Button>
           </Link>
         </div>

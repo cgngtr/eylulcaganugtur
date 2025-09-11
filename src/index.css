@@ -45,4 +45,9 @@
   .text-gradient {
     @apply bg-gradient-to-br from-[#b2a7fb] via-[#b2a7fb]/90 to-[#b2a7fb]/70 bg-clip-text text-transparent;
   }
+
+  .glow-accent {
+    @apply text-primary;
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.75), 0 0 20px hsl(var(--accent) / 0.45);
+  }
 }

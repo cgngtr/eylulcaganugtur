@@ -1,14 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface TechItemProps {
   icon: React.ReactNode;
   name: string;
   version?: string;
+  url: string;
 }
 
-const TechItem = ({ icon, name, version }: TechItemProps) => {
+const TechItem = ({ icon, name, version, url }: TechItemProps) => {
   return (
-    <button type="button" className="group relative flex cursor-pointer flex-row items-center gap-2 rounded-2xl bg-background/90 p-2 transition hover:bg-background/70">
+    <a href={url} target="_blank" rel="noopener noreferrer" className="group relative flex cursor-pointer flex-row items-center gap-2 rounded-2xl bg-background/90 p-2 transition hover:bg-background/70">
       <div className="flex flex-row items-center gap-1 rounded-xl border border-secondary bg-secondary/50 p-2">
         {icon}
       </div>
@@ -20,11 +22,12 @@ const TechItem = ({ icon, name, version }: TechItemProps) => {
         <path fill="currentColor" d="M20 11a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6a1 1 0 0 0 0-2H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-6a1 1 0 0 0-1-1"></path>
         <path fill="currentColor" d="M16 5h1.58l-6.29 6.28a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L19 6.42V8a1 1 0 0 0 1 1a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-4a1 1 0 0 0 0 2"></path>
       </svg>
-    </button>
+    </a>
   );
 };
 
 const TechStackSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
       <div className="flex flex-col space-y-1.5 p-4">
@@ -32,9 +35,9 @@ const TechStackSection = () => {
           <svg xmlns="http://www.w3.org/2000/svg" className="iconify iconify--fa6-solid size-6 text-primary" width="1.13em" height="1em" viewBox="0 0 576 512">
             <path fill="currentColor" d="M248 0h-40c-26.5 0-48 21.5-48 48v112c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64V48c0-26.5-21.5-48-48-48h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16zM64 256c-35.3 0-64 28.7-64 64v128c0 35.3 28.7 64 64 64h160c35.3 0 64-28.7 64-64V320c0-35.3-28.7-64-64-64h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16v-80zm288 256h160c35.3 0 64-28.7 64-64V320c0-35.3-28.7-64-64-64h-40v80c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16v-80h-40c-15 0-28.8 5.1-39.7 13.8c4.9 10.4 7.7 22 7.7 34.2v160c0 12.2-2.8 23.8-7.7 34.2C323.2 506.9 337 512 352 512"></path>
           </svg>
-          My Tech Stack
+          {t('tech_stack.title')}
         </h2>
-        <p className="text-sm text-muted-foreground">My favorite tech stack I use on my projects</p>
+        <p className="text-sm text-muted-foreground">{t('tech_stack.subtitle')}</p>
       </div>
       <div className="p-4 pt-0">
         <div className="grid grid-cols-1 gap-2 max-md:w-full 2xl:grid-cols-2">
@@ -44,6 +47,7 @@ const TechStackSection = () => {
             }
             name="React"
             version="18.2.0"
+            url="https://react.dev"
           />
           <TechItem 
             icon={
@@ -53,6 +57,7 @@ const TechStackSection = () => {
             }
             name="TypeScript"
             version="5.0.4"
+            url="https://www.typescriptlang.org"
           />
           <TechItem 
             icon={
@@ -60,6 +65,7 @@ const TechStackSection = () => {
             }
             name="Tailwind CSS"
             version="3.3.3"
+            url="https://tailwindcss.com"
           />
           <TechItem 
             icon={
@@ -69,6 +75,7 @@ const TechStackSection = () => {
             }
             name="JavaScript"
             version="ES2022"
+            url="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
           />
           <TechItem 
             icon={
@@ -76,6 +83,7 @@ const TechStackSection = () => {
             }
             name="Next.js"
             version="14.0.0"
+            url="https://nextjs.org"
           />
           <TechItem 
             icon={
@@ -83,6 +91,7 @@ const TechStackSection = () => {
             }
             name="Shadcn UI"
             version="0.5.0"
+            url="https://ui.shadcn.com"
           />
         </div>
       </div>

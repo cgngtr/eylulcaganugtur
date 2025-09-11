@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Music, Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { getCurrentlyPlaying, formatDuration, type SpotifyCurrentlyPlaying } from '@/lib/spotify';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const SpotifyNowPlaying: React.FC = () => {
+  const { t } = useTranslation();
   const [currentlyPlaying, setCurrentlyPlaying] = useState<SpotifyCurrentlyPlaying | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +32,7 @@ const SpotifyNowPlaying: React.FC = () => {
       setCurrentlyPlaying(data);
       setError(null);
     } catch (err) {
-      setError('Failed to fetch Spotify data');
+      setError(t('spotify.unavailable'));
       console.error(err);
     } finally {
       setLoading(false);
@@ -102,7 +104,7 @@ const SpotifyNowPlaying: React.FC = () => {
           <div className="flex items-center space-x-3">
             <VolumeX className="h-5 w-5 text-red-500" />
             <div className="flex-1">
-              <p className="text-sm text-gray-400">Spotify unavailable</p>
+              <p className="text-sm text-gray-400">{t('spotify.unavailable')}</p>
             </div>
           </div>
         </CardContent>
@@ -117,8 +119,8 @@ const SpotifyNowPlaying: React.FC = () => {
           <div className="flex items-center space-x-3">
             <Music className="h-5 w-5 text-green-500" />
             <div className="flex-1">
-              <p className="text-sm font-medium text-gray-300">Not playing</p>
-              <p className="text-xs text-gray-500">No track currently playing</p>
+              <p className="text-sm font-medium text-gray-300">{t('spotify.nothing_playing')}</p>
+              <p className="text-xs text-gray-500">{t('spotify.nothing_playing')}</p>
             </div>
             <button
               onClick={handleRefresh}
@@ -157,7 +159,7 @@ const SpotifyNowPlaying: React.FC = () => {
                 {track.name}
               </h3>
               <Badge variant="secondary" className="text-xs">
-                {isPlaying ? 'Playing' : 'Paused'}
+                {isPlaying ? t('spotify.playing') : t('spotify.paused')}
               </Badge>
             </div>
             

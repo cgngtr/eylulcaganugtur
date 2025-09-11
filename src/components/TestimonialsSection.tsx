@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MessageSquare, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -34,14 +35,15 @@ const Testimonial = ({ name, company, text, blurred = false }: TestimonialProps)
 };
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm relative">
       <div className="flex flex-col space-y-1.5 p-4">
         <h2 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
           <MessageSquare className="size-6 text-primary" />
-          Testimonials
+          {t('testimonials.title')}
         </h2>
-        <p className="text-sm text-muted-foreground">What my clients say about me</p>
+        <p className="text-sm text-muted-foreground">{t('testimonials.description')}</p>
       </div>
       
       <div className="p-4 pt-4 -m-4">
@@ -52,7 +54,7 @@ const TestimonialsSection = () => {
               <Button className="bg-[#b2a7fb]/10 border-none hover:bg-[#b2a7fb]/20 rounded-xl py-2 px-4">
                 <span className="text-[#b2a7fb] font-bold flex items-center">
                   <Star className="w-5 h-5 mr-2 text-[#b2a7fb]" fill="#b2a7fb" />
-                  View All Testimonials
+                  {t('testimonials.view_all')}
                 </span>
               </Button>
             </a>

@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "projects": "My Projects",
+    "github": "GitHub",
+    "hire_me": "Hire Me"
+  },
+  "profile": {
+    "available_to_work": "Available for New Projects",
+    "name": "Çağan",
+    "title": "Full Stack Developer",
+    "intro": "I'm a Full Stack Developer",
+    "language": "English & Turkish",
+    "location": "Türkiye",
+    "timezone": "UTC+3",
+    "night_owl": "Night Owl",
+    "coffee_addict": "Coffee Enthusiast",
+    "freelancer": "Freelancer",
+    "age": "22 years old"
+  },
+  "contact": {
+    "title": "Let's Get in Touch",
+    "description": "Want to discuss your project? Let's work together to bring your ideas to life.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "message": "Message",
+    "name_placeholder": "Enter your full name",
+    "email_placeholder": "your.email@example.com",
+    "message_placeholder": "Tell me about your project, timeline, and budget in detail...",
+    "send_message": "Send Message",
+    "sending": "Sending...",
+    "success_title": "Message Sent Successfully!",
+    "success_message": "I'll get back to you as soon as possible."
+  },
+  "projects": {
+    "title": "My Projects",
+    "view_all": "View All Projects",
+    "view_project": "View Project",
+    "description": "Here are some of the projects I have worked on"
+  },
+  "services": {
+    "title": "My Services",
+    "description": "Solutions tailored to your needs and budget",
+    "web_development": "Web Development",
+    "web_design": "Web Design",
+    "seo_optimization": "SEO Optimization",
+    "hosting_guide": "Hosting Consultation",
+    "web_security": "Web Security",
+    "website_rework": "Website Redesign"
+  },
+  "tech_stack": {
+    "title": "My Tech Stack",
+    "description": "Technologies I work with",
+    "subtitle": "My favorite tech stack I use on my projects"
+  },
+  "work_process": {
+    "title": "My Work Process",
+    "description": "My work principle in 4 simple steps",
+    "project_brief": "Project Brief",
+    "project_brief_desc": "We will discuss your project and its goals.",
+    "design_develop": "Design & Develop",
+    "design_develop_desc": "I will design and develop your website according to your needs.",
+    "testing_review": "Testing & Review",
+    "testing_review_desc": "I will let you test the website and make any changes if needed.",
+    "launch": "Launch",
+    "launch_desc": "I will give you the source code and help you with the launch."
+  },
+  "statistics": {
+    "title": "Statistics",
+    "description": "Important numbers and achievements",
+    "projects": "Projects",
+    "clients": "Clients",
+    "years_experience": "Yrs Experience"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "description": "What my clients say about me",
+    "view_all": "View All Testimonials"
+  },
+  "call_to_action": {
+    "title": "Let's Bring Your Ideas to Life",
+    "subtitle": "Let's create amazing things",
+    "description": "Ready to start a project? I'm available for freelance work. Let's discuss your ideas and make them a reality.",
+    "animated_text": "and make your ideas come",
+    "contact_me": "Contact Me",
+    "view_github": "View GitHub",
+    "phrases": {
+      "internet": "on internet.",
+      "life": "to life.",
+      "alive": "alive.",
+      "reality": "to reality.",
+      "fruition": "to fruition.",
+      "existence": "to existence.",
+      "screen": "to the screen.",
+      "digital_world": "to the digital world.",
+      "web": "to the web."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 All rights reserved.",
+    "made_with": "Made with",
+    "by": "by"
+  },
+  "spotify": {
+    "title": "Now Playing on Spotify",
+    "nothing_playing": "Nothing playing",
+    "loading": "Loading...",
+    "unavailable": "Spotify unavailable",
+    "playing": "Playing",
+    "paused": "Paused"
+  },
+  "errors": {
+    "404_title": "404",
+    "404_message": "Oops! Page not found",
+    "404_back_home": "Return to Home"
+  }
+}

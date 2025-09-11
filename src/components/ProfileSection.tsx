@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
 import { Briefcase, Github, Mail, X, CheckCircle } from 'lucide-react';
 import {
@@ -13,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const ProfileSection = () => {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -31,11 +33,7 @@ const ProfileSection = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       setIsSubmitted(true);
-      setTimeout(() => {
-        setIsOpen(false);
-        setIsSubmitted(false);
-        setFormData({ name: '', email: '', message: '' });
-      }, 2000);
+      // Don't auto-close modal, let user close it manually
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to send message. Please try again later.');
@@ -68,14 +66,22 @@ const ProfileSection = () => {
           </div>
           <div className="ml-4 flex flex-col gap-y-1">
             <div className="rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-secondary/80 mb-auto flex w-fit items-center justify-center gap-1 bg-green-500/20 text-green-500 relative">
-              <span className="font-semibold relative z-10">Available To Work</span>
+              <span className="font-semibold relative z-10">{t('profile.available_to_work')}</span>
               {/* Add subtle pulse animation */}
               <span className="absolute inset-0 rounded-full bg-green-500/10 animate-pulse"></span>
             </div>
-            <h1 className="text-xl font-bold text-primary">Çağan</h1>
+            <h1 className="text-xl font-bold text-primary">{t('profile.name')}</h1>
             <div className="font-semibold text-gray-400">
               <div className="flex flex-col gap-1 md:flex-row md:items-center">
-                I'm a <span className="font-bold text-primary ml-1">Full Stack Developer</span>
+                {i18n.language?.toLowerCase().startsWith('tr') ? (
+                  <>
+                    Ben <span className="font-bold text-primary">{t('profile.title')}</span>
+                  </>
+                ) : (
+                  <>
+                    I'm a <span className="font-bold text-primary">{t('profile.title')}</span>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -91,14 +97,14 @@ const ProfileSection = () => {
               <path fill="currentColor" d="M18.667 1.547a1 1 0 1 0-1.334 1.49A8 8 0 0 1 12.011 17h-.022a7.99 7.99 0 0 1-6.656-3.577a1 1 0 0 0-1.666 1.107A10 10 0 0 0 11 18.95V20H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-1.05c5.053-.501 9-4.765 9-9.95a9.98 9.98 0 0 0-3.333-7.453M12 2a7 7 0 1 0 0 14a7 7 0 0 0 0-14"></path>
             </g>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">English & Turkish</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.language')}</p>
         </div>
         <div className="flex flex-row items-center gap-1 rounded-xl bg-secondary/60 py-1 pl-3 pr-4 transition duration-300 hover:scale-105">
           {/* Location Icon */}
           <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-primary" width="1em" height="1em" viewBox="0 0 24 24">
             <path fill="currentColor" d="m19.184 7.805l-2.965-2.967c-2.027-2.03-3.04-3.043-4.129-2.803s-1.581 1.587-2.568 4.28l-.668 1.823c-.263.718-.395 1.077-.632 1.355a2 2 0 0 1-.36.332c-.296.213-.664.314-1.4.517c-1.66.458-2.491.687-2.804 1.23a1.53 1.53 0 0 0-.204.773c.004.627.613 1.236 1.83 2.455L6.7 16.216l-4.476 4.48a.764.764 0 0 0 1.08 1.08l4.475-4.48l1.466 1.468c1.226 1.226 1.839 1.84 2.47 1.84c.265 0 .526-.068.757-.2c.548-.313.778-1.149 1.239-2.822c.202-.735.303-1.102.515-1.399q.14-.194.322-.352c.275-.238.632-.372 1.345-.64l1.844-.693c2.664-1 3.996-1.501 4.23-2.586c.235-1.086-.77-2.093-2.783-4.107"></path>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">Türkiye</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.location')}</p>
         </div>
         <div className="flex flex-row items-center gap-1 rounded-xl bg-secondary/60 py-1 pl-3 pr-4 transition duration-300 hover:scale-105">
           {/* Clock Icon */}
@@ -106,14 +112,14 @@ const ProfileSection = () => {
             <path fill="currentColor" d="M17.5 13a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9m.5 2.5v1.793l.854.853a.5.5 0 0 1-.708.708l-1-1A.5.5 0 0 1 17 17.5v-2a.5.5 0 0 1 1 0"></path>
             <path fill="currentColor" d="M2 11.75a9.75 9.75 0 0 0 9.75 9.75q.309 0 .611-.019A6.47 6.47 0 0 1 11 17.5v2.337c-.73-.311-1.478-1.072-2.124-2.283a11.3 11.3 0 0 1-.904-2.322c.943.14 1.963.23 3.028.258v2.01c0-1.58.563-3.027 1.5-4.154V9.511c1.215.034 2.35.15 3.358.33c.065.44.108.888.129 1.336q.721-.173 1.493-.177a15 15 0 0 0-.065-.803q.24.07.462.143c.77.257 1.34.546 1.701.831c.13.102.22.192.282.27c.587.23 1.132.54 1.621.92q.02-.303.019-.611C21.5 6.365 17.135 2 11.75 2S2 6.365 2 11.75m3.149-2.833a9 9 0 0 0-1.33.552a8.27 8.27 0 0 1 4.266-5.112q-.288.424-.532.883c-.523.981-.935 2.126-1.202 3.338q-.641.152-1.202.34m3.727-2.971C9.522 4.736 10.27 3.974 11 3.663V8.01a25 25 0 0 0-3.028.258a11.3 11.3 0 0 1 .904-2.322M7.642 9.84A23 23 0 0 1 11 9.511v4.478a23 23 0 0 1-3.358-.33A13 13 0 0 1 7.5 11.75c0-.639.05-1.28.142-1.909m-3.823 4.19c.398.207.847.39 1.33.552q.56.187 1.202.34c.267 1.211.679 2.356 1.202 3.337q.243.459.532.883a8.27 8.27 0 0 1-4.266-5.112m1.804-.871c-.77-.257-1.34-.546-1.702-.831c-.37-.292-.421-.493-.421-.579s.052-.287.421-.579c.362-.285.932-.574 1.702-.83q-.222-.075.462-.144a14.4 14.4 0 0 0 0 3.106q-.24.07-.462.143m10.324-7.92a10 10 0 0 0-.532-.883a8.27 8.27 0 0 1 4.266 5.112a9 9 0 0 0-1.33-.552a14 14 0 0 0-1.202-.34c-.267-1.211-.679-2.356-1.202-3.337M12.5 8.01V3.663c.73.311 1.478 1.072 2.124 2.283c.366.687.673 1.476.904 2.322c-.943-.14-1.963-.23-3.028-.258"></path>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">UTC+3</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.timezone')}</p>
         </div>
         <div className="flex flex-row items-center gap-1 rounded-xl bg-secondary/60 py-1 pl-3 pr-4 transition duration-300 hover:scale-105">
           {/* Moon Icon for Night Owl */}
           <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-primary" width="1em" height="1em" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 21q-3.75 0-6.375-2.625T3 12t2.625-6.375T12 3q.35 0 .688.025t.662.075q-1.025.725-1.638 1.888T11.1 7.5q0 2.25 1.575 3.825T16.5 12.9q1.375 0 2.525-.613T20.9 10.65q.05.325.075.662T21 12q0 3.75-2.625 6.375T12 21"></path>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">Night Owl</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.night_owl')}</p>
         </div>
       </div>
       <div className="flex gap-2">
@@ -125,7 +131,7 @@ const ProfileSection = () => {
               <path d="M10.53 1.47a.75.75 0 0 1 0 1.06a.666.666 0 0 0 0 .94a2.164 2.164 0 0 1 0 3.06a.75.75 0 0 1-1.06-1.06c.26-.26.26-.68 0-.94a2.164 2.164 0 0 1 0-3.06a.75.75 0 0 1 1.06 0m-4.5 1.5a.75.75 0 0 1 0 1.06l-.116.116a.69.69 0 0 0-.064.904a2.19 2.19 0 0 1-.203 2.864l-.116.116A.75.75 0 0 1 4.47 6.97l.116-.116a.69.69 0 0 0 .064-.904a2.19 2.19 0 0 1 .204-2.864l.116-.116a.75.75 0 0 1 1.06 0m9.5 0a.75.75 0 0 1 0 1.06l-.116.116a.69.69 0 0 0-.064.904a2.19 2.19 0 0 1-.203 2.864l-.117.116a.75.75 0 0 1-1.06-1.06l.116-.116a.69.69 0 0 0 .064-.904a2.19 2.19 0 0 1 .204-2.864l.116-.116a.75.75 0 0 1 1.06 0" opacity=".5"></path>
             </g>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">Coffee Addict</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.coffee_addict')}</p>
         </div>
         <div className="flex flex-row items-center gap-1 rounded-xl bg-secondary/60 py-1 pl-3 pr-4 transition duration-300 hover:scale-105">
           {/* Home Icon */}
@@ -133,7 +139,7 @@ const ProfileSection = () => {
             <path fill="currentColor" d="M14.16 10.4l-5-3.57c-.7-.5-1.63-.5-2.32 0l-5 3.57c-.53.38-.84.98-.84 1.63V20c0 .55.45 1 1 1h4v-6h4v6h4c.55 0 1-.45 1-1v-7.97c0-.65-.31-1.25-.84-1.63"></path>
             <path fill="currentColor" d="M21.03 3h-9.06C10.88 3 10 3.88 10 4.97l.09.09c.08.05.16.09.24.14l5 3.57c.76.54 1.3 1.34 1.54 2.23H19v2h-2v2h2v2h-2v4h4.03c1.09 0 1.97-.88 1.97-1.97V4.97C23 3.88 22.12 3 21.03 3M19 9h-2V7h2z"></path>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">Freelancer</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.freelancer')}</p>
         </div>
         <div className="flex flex-row items-center gap-1 rounded-xl bg-secondary/60 py-1 pl-3 pr-4 transition duration-300 hover:scale-105">
           {/* Calendar Icon */}
@@ -143,7 +149,7 @@ const ProfileSection = () => {
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M7 3v3m10-3v3"></path>
             </g>
           </svg>
-          <p className="text-sm font-semibold text-gray-400">22y/o</p>
+          <p className="text-sm font-semibold text-gray-400">{t('profile.age')}</p>
         </div>
       </div>    
     </div>
@@ -161,17 +167,17 @@ const ProfileSection = () => {
                   <path fill="currentColor" d="M9.5 20v2a.75.75 0 0 0 1.5 0v-2zm5.5 0h-1.5v2a.75.75 0 0 0 1.5 0z"></path>
                   <path fill="currentColor" fillRule="evenodd" d="M4.25 16a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75m13.135-9.415l.256-.052a2.2 2.2 0 0 1 1.24.115c.69.277 1.446.328 2.165.148l.061-.015c.524-.131.893-.618.893-1.178v-2.13c0-.738-.664-1.282-1.355-1.109c-.396.1-.812.071-1.193-.081l-.073-.03a3.5 3.5 0 0 0-2-.185l-.449.09c-.54.108-.93.6-.93 1.17v6.953c0 .397.31.719.692.719a.706.706 0 0 0 .693-.72z" clipRule="evenodd"></path>
                 </svg>
-                <span className="relative z-10">Hire Me</span>
+                <span className="relative z-10">{t('nav.hire_me')}</span>
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] border-primary/20 bg-background">
               <DialogHeader>
                 <DialogTitle className="flex items-center gap-2 text-primary">
                   <Mail className="h-5 w-5" />
-                  Let's Work Together
+                  {t('contact.title')}
                 </DialogTitle>
                 <DialogDescription>
-                  Have a project in mind? Send me a message and let's discuss how we can bring your ideas to life.
+                  {t('contact.description')}
                 </DialogDescription>
               </DialogHeader>
               
@@ -179,22 +185,23 @@ const ProfileSection = () => {
                 <div className="flex flex-col items-center justify-center py-8 space-y-4">
                   <CheckCircle className="h-16 w-16 text-green-500" />
                   <div className="text-center space-y-2">
-                    <h3 className="text-lg font-semibold text-foreground">Message Sent Successfully!</h3>
-                    <p className="text-muted-foreground">I'll get back to you as soon as possible.</p>
+                    <h3 className="text-lg font-semibold text-foreground">{t('contact.success_title')}</h3>
+                    <p className="text-muted-foreground">{t('contact.success_message')}</p>
                   </div>
+                  
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
-                      Name
+                      {t('contact.name')}
                     </label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your full name"
+                      placeholder={t('contact.name_placeholder')}
                       required
                       className="border-primary/20 focus:border-primary focus:ring-primary/20"
                     />
@@ -202,7 +209,7 @@ const ProfileSection = () => {
                   
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-foreground">
-                      Email
+                      {t('contact.email')}
                     </label>
                     <Input
                       id="email"
@@ -210,7 +217,7 @@ const ProfileSection = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="your.email@example.com"
+                      placeholder={t('contact.email_placeholder')}
                       required
                       className="border-primary/20 focus:border-primary focus:ring-primary/20"
                     />
@@ -218,14 +225,14 @@ const ProfileSection = () => {
                   
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-foreground">
-                      Message
+                      {t('contact.message')}
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell me about your project, timeline, and budget..."
+                      placeholder={t('contact.message_placeholder')}
                       rows={4}
                       required
                       className="border-primary/20 focus:border-primary focus:ring-primary/20"
@@ -241,12 +248,12 @@ const ProfileSection = () => {
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Sending...
+                          {t('contact.sending')}
                         </>
                       ) : (
                         <>
                           <Mail className="mr-2 h-4 w-4" />
-                          Send Message
+                          {t('contact.send_message')}
                         </>
                       )}
                     </Button>
@@ -264,15 +271,15 @@ const ProfileSection = () => {
               )}
             </DialogContent>
           </Dialog>
-          <Button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-3 py-2 w-full gap-2 relative overflow-hidden group">
+          <a href="https://github.com/cgngtr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-3 py-2 w-full gap-2 relative overflow-hidden group">
             {/* Add hover effect */}
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-secondary/0 via-white/10 to-secondary/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
             {/* GitHub Icon */}
             <svg xmlns="http://www.w3.org/2000/svg" className="size-7 relative z-10" width="1em" height="1em" viewBox="0 0 24 24">
               <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path>
             </svg>
-            <span className="relative z-10">GitHub</span>
-          </Button>
+            <span className="relative z-10">{t('nav.github')}</span>
+          </a>
         </div>
       </div>
     </div>

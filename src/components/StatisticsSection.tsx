@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const StatisticsSection = () => {
+  const { t } = useTranslation();
   return (
     <div className="grid w-full grid-cols-3 gap-4 max-md:w-full max-md:grid-cols-2">
       <div className="rounded-lg border bg-card text-card-foreground shadow-sm max-md:h-full">
@@ -19,7 +21,7 @@ const StatisticsSection = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="iconify iconify--ic size-6 text-primary" width="1em" height="1em" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2m-6 0h-4V4h4z"></path>
               </svg>
-              <span className="text-sm font-semibold text-gray-400">Projects</span>
+              <span className="text-sm font-semibold text-gray-400">{t('statistics.projects')}</span>
             </div>
           </button>
         </div>
@@ -40,7 +42,7 @@ const StatisticsSection = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="iconify iconify--fluent size-6 text-primary" width="1em" height="1em" viewBox="0 0 12 12">
                 <path fill="currentColor" d="M4 6a2 2 0 1 0 0-4a2 2 0 0 0 0 4m4.5 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M2.25 7C1.56 7 1 7.56 1 8.25c0 0 0 2.25 3 2.25c2.378 0 2.871-1.414 2.973-2C7 8.347 7 8.25 7 8.25C7 7.56 6.44 7 5.75 7zm5.746 1.6q-.003.06-.012.142a2.9 2.9 0 0 1-.42 1.16c.265.061.574.098.935.098c2.5 0 2.5-1.75 2.5-1.75c0-.69-.56-1.25-1.25-1.25H7.62c.24.358.379.787.379 1.25v.25z"></path>
               </svg>
-              <span className="text-sm font-semibold text-gray-400">Clients</span>
+              <span className="text-sm font-semibold text-gray-400">{t('statistics.clients')}</span>
             </div>
           </button>
         </div>
@@ -62,7 +64,7 @@ const StatisticsSection = () => {
                 <path fill="currentColor" d="M18.483 16.767A8.5 8.5 0 0 1 8.118 7.081a1 1 0 0 1-.113.097c-.28.213-.63.292-1.33.45l-.635.144c-2.46.557-3.69.835-3.983 1.776c-.292.94.546 1.921 2.223 3.882l.434.507c.476.557.715.836.822 1.18c.107.345.071.717-.001 1.46l-.066.677c-.253 2.617-.38 3.925.386 4.506s1.918.052 4.22-1.009l.597-.274c.654-.302.981-.452 1.328-.452s.674.15 1.329.452l.595.274c2.303 1.06 3.455 1.59 4.22 1.01c.767-.582.64-1.89.387-4.507z"></path>
                 <path fill="currentColor" d="m9.153 5.408l-.328.588c-.36.646-.54.969-.82 1.182q.06-.045.113-.097a8.5 8.5 0 0 0 10.366 9.686l-.02-.19c-.071-.743-.107-1.115 0-1.46c.107-.344.345-.623.822-1.18l.434-.507c1.677-1.96 2.515-2.941 2.222-3.882c-.292-.941-1.522-1.22-3.982-1.776l-.636-.144c-.699-.158-1.049-.237-1.33-.45c-.28-.213-.46-.536-.82-1.182l-.327-.588C13.58 3.136 12.947 2 12 2s-1.58 1.136-2.847 3.408" opacity=".5"></path>
               </svg>
-              <span className="text-sm font-semibold text-gray-400">Yrs Expertise</span>
+              <span className="text-sm font-semibold text-gray-400">{t('statistics.years_experience')}</span>
             </div>
           </button>
         </div>
