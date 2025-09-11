@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Briefcase, Github, Mail, MessageSquare, X, Send, CheckCircle } from 'lucide-react';
+import { Briefcase, Github, Mail, X, CheckCircle } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -27,23 +27,9 @@ const ProfileSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Use proxy endpoint to avoid CORS
-      const response = await fetch('/api/send-to-slack', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
+      // Simple success response - no external API calls
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setIsSubmitted(true);
       setTimeout(() => {
         setIsOpen(false);
@@ -259,7 +245,7 @@ const ProfileSection = () => {
                         </>
                       ) : (
                         <>
-                          <Send className="mr-2 h-4 w-4" />
+                          <Mail className="mr-2 h-4 w-4" />
                           Send Message
                         </>
                       )}
