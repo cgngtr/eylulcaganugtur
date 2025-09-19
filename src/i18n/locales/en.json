@@ -45,7 +45,8 @@
     "seo_optimization": "SEO Optimization",
     "hosting_guide": "Hosting Consultation",
     "web_security": "Web Security",
-    "website_rework": "Website Redesign"
+    "website_rework": "Website Redesign",
+    "view_services": "View Services Page"
   },
   "tech_stack": {
     "title": "My Tech Stack",
@@ -334,34 +335,61 @@
       "phases": {
         "discovery": {
           "title": "Discovery & Planning (Days 1-3)",
-          "deliverables": ["Requirements gathering", "Technical architecture planning", "Project timeline finalization"],
+          "deliverables": [
+            "Requirements gathering",
+            "Technical architecture planning",
+            "Project timeline finalization"
+          ],
           "outcome": "Clear project scope and technical roadmap"
         },
         "design": {
           "title": "Design Phase (Days 4-7)",
-          "deliverables": ["Wireframes and mockups", "UI/UX design approval", "Design system documentation"],
+          "deliverables": [
+            "Wireframes and mockups",
+            "UI/UX design approval",
+            "Design system documentation"
+          ],
           "outcome": "Visually approved design ready for development"
         },
         "development": {
           "title": "Development Phase (Days 8-18)",
-          "deliverables": ["Frontend development", "Backend integration", "Database setup", "Feature implementation"],
+          "deliverables": [
+            "Frontend development",
+            "Backend integration",
+            "Database setup",
+            "Feature implementation"
+          ],
           "outcome": "Fully functional website with all core features"
         },
         "testing": {
           "title": "Testing & Refinement (Days 19-21)",
-          "deliverables": ["Functionality testing", "Cross-browser compatibility", "Performance optimization", "Content integration"],
+          "deliverables": [
+            "Functionality testing",
+            "Cross-browser compatibility",
+            "Performance optimization",
+            "Content integration"
+          ],
           "outcome": "Polished, production-ready website"
         },
         "launch": {
           "title": "Launch & Training (Day 21)",
-          "deliverables": ["Production deployment", "Client training session", "Documentation handover", "Final payment"],
+          "deliverables": [
+            "Production deployment",
+            "Client training session",
+            "Documentation handover",
+            "Final payment"
+          ],
           "outcome": "Live website with client empowered to manage content"
         }
       },
       "communication": {
         "title": "Communication & Updates",
         "frequency": "Regular updates every 2-3 days",
-        "methods": ["Email updates", "Video calls for major milestones", "Real-time progress tracking"],
+        "methods": [
+          "Email updates",
+          "Video calls for major milestones",
+          "Real-time progress tracking"
+        ],
         "availability": "Available for questions and feedback during business hours"
       }
     },
@@ -371,13 +399,25 @@
       "warranty": {
         "title": "Warranty Period",
         "duration": "30 days after launch",
-        "coverage": ["Bug fixes", "Technical issues", "Browser compatibility problems"],
-        "exclusions": ["New feature requests", "Content updates", "Third-party service issues"]
+        "coverage": [
+          "Bug fixes",
+          "Technical issues",
+          "Browser compatibility problems"
+        ],
+        "exclusions": [
+          "New feature requests",
+          "Content updates",
+          "Third-party service issues"
+        ]
       },
       "training": {
         "title": "Client Training",
         "session": "1-hour training session included",
-        "topics": ["Content management system usage", "Basic maintenance tasks", "Analytics dashboard overview"],
+        "topics": [
+          "Content management system usage",
+          "Basic maintenance tasks",
+          "Analytics dashboard overview"
+        ],
         "materials": "Video recordings and documentation provided"
       },
       "documentation": {
