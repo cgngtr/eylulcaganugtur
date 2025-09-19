@@ -5,7 +5,7 @@
     "hire_me": "Hire Me"
   },
   "profile": {
-    "available_to_work": "Available for New Projects",
+    "available_to_work": "Open to Work",
     "name": "Çağan",
     "title": "Full Stack Developer",
     "intro": "I'm a Full Stack Developer",
@@ -37,7 +37,7 @@
     "view_project": "View Project",
     "description": "Here are some of the projects I have worked on"
   },
-  "services": {
+  "services_list": {
     "title": "My Services",
     "description": "Solutions tailored to your needs and budget",
     "web_development": "Web Development",
@@ -112,5 +112,511 @@
     "404_title": "404",
     "404_message": "Oops! Page not found",
     "404_back_home": "Return to Home"
+  },
+  "services": {
+    "title": "Professional Web Development Services",
+    "subtitle": "Transform your business with modern, responsive websites tailored to your needs",
+    "hero_title": "Let's Build Something Amazing Together",
+    "hero_description": "I specialize in creating custom web solutions that drive results and exceed expectations.",
+    "cta_button": "Start Your Project",
+    "description": "Solutions tailored to your needs and budget",
+    "features": {
+      "title": "What I Offer",
+      "custom_design": "Custom Design",
+      "custom_design_desc": "Unique, modern designs that reflect your brand identity",
+      "responsive": "Responsive Development",
+      "responsive_desc": "Websites that work perfectly on all devices",
+      "seo_friendly": "SEO Optimized",
+      "seo_friendly_desc": "Built with search engine optimization in mind",
+      "performance": "High Performance",
+      "performance_desc": "Fast loading times and smooth user experience",
+      "maintenance": "Ongoing Support",
+      "maintenance_desc": "Optional maintenance and updates to keep your site running smoothly"
+    },
+    "process": {
+      "title": "My Process",
+      "description": "A proven methodology that ensures your project's success from concept to launch",
+      "consultation": "Initial Consultation",
+      "consultation_desc": "We discuss your goals, requirements, and vision",
+      "planning": "Planning & Design",
+      "planning_desc": "Creating a detailed plan and design mockups",
+      "development": "Development",
+      "development_desc": "Building your website with modern technologies",
+      "testing": "Testing & Launch",
+      "testing_desc": "Thorough testing and successful deployment"
+    },
+    "pricing": {
+      "title": "Choose Your Package",
+      "subtitle": "Professional web development solutions tailored to your needs and budget",
+      "basic": {
+        "name": "Basic Package",
+        "medal": "🥉",
+        "subtitle": "Modern & Quick Presentation Website",
+        "description": "Perfect for individuals looking to establish their personal brand, portfolio, or small business online.",
+        "price": "$350",
+        "delivery": "10 Days",
+        "revisions": "5 Revisions",
+        "cta": "Get Started",
+        "features": {
+          "functional_website": "Functional Website",
+          "pages": "Up to 5 Pages",
+          "design": "Modern & Professional Design",
+          "mobile": "Mobile Responsive",
+          "cms": "Admin Panel (CMS)",
+          "content_upload": "Content Upload",
+          "optimization": "Speed Optimization",
+          "hosting_setup": "Hosting Setup",
+          "integrations": "Up to 2 Plugins/Integrations",
+          "integrations_examples": "(e.g., Contact form, gallery)",
+          "ecommerce": "E-commerce Function",
+          "payment": "Payment Integration"
+        }
+      },
+      "standard": {
+        "name": "Standard Package",
+        "medal": "🥈",
+        "subtitle": "Functional & Growth-Ready Website",
+        "description": "Ideal for growing businesses looking to sell services, take appointments, or start small e-commerce.",
+        "price": "$750",
+        "delivery": "21 Days",
+        "revisions": "10 Revisions",
+        "cta": "Get Started",
+        "features": {
+          "functional_website": "Functional Website",
+          "pages": "Up to 10 Pages",
+          "design": "Advanced & Brand-Focused Design",
+          "mobile": "Mobile Responsive",
+          "cms": "Admin Panel (CMS)",
+          "content_upload": "Content Upload",
+          "optimization": "Speed Optimization",
+          "hosting_setup": "Hosting Setup",
+          "integrations": "Up to 5 Plugins/Integrations",
+          "integrations_examples": "(e.g., Booking, SEO plugins)",
+          "ecommerce": "E-commerce Function",
+          "ecommerce_limit": "(Up to 20 products)",
+          "payment": "Payment Integration",
+          "payment_limit": "(Single provider, e.g., Iyzico)"
+        }
+      },
+      "premium": {
+        "name": "Premium Package",
+        "medal": "🥇",
+        "subtitle": "Comprehensive & Custom-Developed Platform",
+        "description": "For full-scale e-commerce, marketplace, or online platform projects with custom requirements.",
+        "price": "$1500+",
+        "price_note": "Starting Price",
+        "delivery": "30+ Days",
+        "delivery_note": "Project-based",
+        "revisions": "Unlimited Revisions",
+        "revisions_note": "Based on project phases",
+        "cta": "Get Started",
+        "features": {
+          "functional_website": "Functional Website",
+          "pages": "Unlimited / Custom Development",
+          "design": "Custom Design from Scratch (UI/UX)",
+          "mobile": "Mobile Responsive",
+          "cms": "Admin Panel (CMS)",
+          "cms_note": "(Customized Panel)",
+          "content_upload": "Content Upload",
+          "optimization": "Speed Optimization",
+          "optimization_note": "(Advanced Performance)",
+          "hosting_setup": "Hosting Setup",
+          "integrations": "Unlimited / Need-Based",
+          "integrations_note": "Plugins/Integrations",
+          "ecommerce": "E-commerce Function",
+          "ecommerce_note": "(Advanced & Full-Scale)",
+          "payment": "Payment Integration",
+          "payment_note": "(Multiple providers & methods)"
+        }
+      }
+    },
+    "cta_section": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how we can bring your vision to life with a professional website that drives results.",
+      "button": "Get Started Now",
+      "contact_alt": "Or contact me directly if you have questions"
+    },
+    "hero_enhanced": {
+      "subtitle": "Transparent Process • Modern Technologies • Professional Results",
+      "trust_points": {
+        "experience": "5+ Years Experience",
+        "projects": "100+ Projects Completed",
+        "satisfaction": "100% Client Satisfaction"
+      }
+    },
+    "tech_stack": {
+      "title": "Technology Stack",
+      "subtitle": "I use cutting-edge technologies to build fast, secure, and scalable websites",
+      "frontend": {
+        "title": "Frontend",
+        "react": "React 18 with TypeScript",
+        "react_desc": "Modern, component-based architecture for interactive user interfaces",
+        "styling": "Tailwind CSS + Shadcn/UI",
+        "styling_desc": "Utility-first CSS framework with beautiful, accessible components",
+        "performance": "Vite + React Router",
+        "performance_desc": "Fast development and optimized build process"
+      },
+      "backend": {
+        "title": "Backend & Database",
+        "supabase": "Supabase",
+        "supabase_desc": "Open-source Firebase alternative with PostgreSQL database, authentication, and real-time capabilities",
+        "features": "Real-time Database • Authentication • File Storage • Edge Functions",
+        "benefits": "Scalable • Secure • Real-time • Cost-effective"
+      },
+      "hosting": {
+        "title": "Hosting & Deployment",
+        "netlify": "Netlify/Vercel",
+        "netlify_desc": "Fast, secure global CDN with automatic deployments and SSL certificates",
+        "features": "Global CDN • Automatic HTTPS • Continuous Deployment • Form Handling"
+      },
+      "why_this_stack": {
+        "title": "Why This Technology Stack?",
+        "performance": "Lightning-fast load times and smooth user experience",
+        "scalability": "Easily scales as your business grows",
+        "security": "Built-in security features and best practices",
+        "maintenance": "Easy to maintain and update",
+        "cost": "Cost-effective solution without compromising quality"
+      }
+    },
+    "payment_terms": {
+      "title": "Payment Terms & Process",
+      "subtitle": "Clear and transparent payment structure for your peace of mind",
+      "down_payment": {
+        "title": "Down Payment",
+        "percentage": "35% of Total Price",
+        "description": "Initial payment to secure your spot in the development schedule and begin work",
+        "purpose": "Covers initial planning, design mockups, and project setup"
+      },
+      "payment_schedule": {
+        "title": "Payment Schedule",
+        "basic": {
+          "title": "Basic Package ($350)",
+          "down_payment": "$122.50 (35%) - To start project",
+          "final_payment": "$227.50 (65%) - Upon completion",
+          "timeline": "10 days total"
+        },
+        "standard": {
+          "title": "Standard Package ($750)",
+          "down_payment": "$262.50 (35%) - To start project",
+          "milestone": "$225.00 (30%) - At development midpoint",
+          "final_payment": "$262.50 (35%) - Upon completion",
+          "timeline": "21 days total"
+        },
+        "premium": {
+          "title": "Premium Package ($1500+)",
+          "down_payment": "35% - To start project",
+          "milestone1": "25% - Design approval",
+          "milestone2": "25% - Development milestone",
+          "final_payment": "15% - Upon completion",
+          "timeline": "30+ days, project-based"
+        }
+      },
+      "payment_methods": {
+        "title": "Accepted Payment Methods",
+        "bank_transfer": "Bank Transfer (Türkiye)",
+        "credit_card": "Credit/Debit Card",
+        "crypto": "Cryptocurrency (USDT, BTC)",
+        "wise": "Wise (International)",
+        "note": "All payments are processed securely and invoices are provided"
+      },
+      "contract_terms": {
+        "title": "Working Agreement",
+        "scope": "Clear project scope defined in writing",
+        "timeline": "Realistic delivery timeline with buffer for revisions",
+        "communication": "Regular progress updates via email/video calls",
+        "revisions": "Number of revisions included in each package",
+        "ownership": "You own 100% of the final code and design"
+      }
+    },
+    "project_timeline": {
+      "title": "Project Timeline & Deliverables",
+      "subtitle": "A clear roadmap from concept to launch",
+      "phases": {
+        "discovery": {
+          "title": "Discovery & Planning (Days 1-3)",
+          "deliverables": ["Requirements gathering", "Technical architecture planning", "Project timeline finalization"],
+          "outcome": "Clear project scope and technical roadmap"
+        },
+        "design": {
+          "title": "Design Phase (Days 4-7)",
+          "deliverables": ["Wireframes and mockups", "UI/UX design approval", "Design system documentation"],
+          "outcome": "Visually approved design ready for development"
+        },
+        "development": {
+          "title": "Development Phase (Days 8-18)",
+          "deliverables": ["Frontend development", "Backend integration", "Database setup", "Feature implementation"],
+          "outcome": "Fully functional website with all core features"
+        },
+        "testing": {
+          "title": "Testing & Refinement (Days 19-21)",
+          "deliverables": ["Functionality testing", "Cross-browser compatibility", "Performance optimization", "Content integration"],
+          "outcome": "Polished, production-ready website"
+        },
+        "launch": {
+          "title": "Launch & Training (Day 21)",
+          "deliverables": ["Production deployment", "Client training session", "Documentation handover", "Final payment"],
+          "outcome": "Live website with client empowered to manage content"
+        }
+      },
+      "communication": {
+        "title": "Communication & Updates",
+        "frequency": "Regular updates every 2-3 days",
+        "methods": ["Email updates", "Video calls for major milestones", "Real-time progress tracking"],
+        "availability": "Available for questions and feedback during business hours"
+      }
+    },
+    "post_launch": {
+      "title": "Post-Launch Support",
+      "subtitle": "Continued support after your website goes live",
+      "warranty": {
+        "title": "Warranty Period",
+        "duration": "30 days after launch",
+        "coverage": ["Bug fixes", "Technical issues", "Browser compatibility problems"],
+        "exclusions": ["New feature requests", "Content updates", "Third-party service issues"]
+      },
+      "training": {
+        "title": "Client Training",
+        "session": "1-hour training session included",
+        "topics": ["Content management system usage", "Basic maintenance tasks", "Analytics dashboard overview"],
+        "materials": "Video recordings and documentation provided"
+      },
+      "documentation": {
+        "title": "Documentation Provided",
+        "technical": "Technical documentation and architecture overview",
+        "user": "User guide for content management",
+        "access": "All login credentials and access information",
+        "source": "Complete source code and design files"
+      },
+      "maintenance": {
+        "title": "Optional Maintenance Package",
+        "price": "$50/month or $500/year (20% discount)",
+        "services": [
+          "Regular security updates",
+          "Performance monitoring and optimization",
+          "Backup management",
+          "Minor content updates (up to 2 hours/month)",
+          "Technical support via email"
+        ],
+        "response": "24-48 hour response time for issues"
+      }
+    },
+    "legal_info": {
+      "title": "Legal & Business Information",
+      "subtitle": "Important information about our working relationship",
+      "ownership": {
+        "title": "Code & Design Ownership",
+        "description": "You own 100% of the final code, design, and intellectual property",
+        "rights": [
+          "Full commercial rights to use the website",
+          "Ownership of all custom code and design",
+          "Rights to modify and extend the website",
+          "No licensing fees or royalties"
+        ]
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "description": "Your business information and project details are kept strictly confidential",
+        "protection": [
+          "Non-disclosure of business strategies",
+          "Protection of sensitive information",
+          "Secure data handling practices",
+          "No sharing of project details without permission"
+        ]
+      },
+      "security": {
+        "title": "Security & Backup",
+        "measures": [
+          "Secure development practices",
+          "Regular security updates",
+          "Data backup procedures",
+          "GDPR compliance for EU customers",
+          "Secure payment processing"
+        ]
+      },
+      "compliance": {
+        "title": "Compliance & Standards",
+        "standards": [
+          "Web accessibility standards (WCAG)",
+          "Data protection regulations",
+          "Industry best practices",
+          "Search engine optimization guidelines"
+        ]
+      }
+    },
+    "whats_included": {
+      "title": "What's Included vs Additional Costs",
+      "subtitle": "Clear breakdown of services and potential extra charges",
+      "included": {
+        "title": "Included in All Packages",
+        "services": [
+          "Custom website design and development",
+          "Responsive design for all devices",
+          "Basic SEO optimization",
+          "Content management system",
+          "Contact form integration",
+          "Social media integration",
+          "Google Analytics setup",
+          "Website hosting setup assistance",
+          "Basic training and documentation"
+        ]
+      },
+      "additional_costs": {
+        "title": "Additional Costs (Client Responsibility)",
+        "hosting": "Website hosting ($5-20/month)",
+        "domain": "Domain name registration ($10-15/year)",
+        "content": "Professional content writing (if needed)",
+        "images": "Stock photos or custom photography",
+        "premium": "Premium plugins or themes (if required)",
+        "maintenance": "Ongoing maintenance (optional)",
+        "ssl": "SSL certificate (often free with hosting)"
+      },
+      "client_responsibilities": {
+        "title": "Client Responsibilities",
+        "content": "Providing text content and images",
+        "feedback": "Timely feedback and approvals",
+        "hosting": "Purchasing hosting and domain",
+        "testing": "Participating in testing and review",
+        "payment": "Making payments according to schedule"
+      },
+      "third_party": {
+        "title": "Third-Party Services",
+        "description": "Some services require client accounts:",
+        "services": [
+          "Hosting provider account",
+          "Domain registrar account",
+          "Google Analytics account",
+          "Email service provider (if needed)",
+          "Payment processor accounts (for e-commerce)"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Answers to common questions about my services",
+      "questions": [
+        {
+          "question": "How long does a typical project take?",
+          "answer": "Project timelines vary: Basic packages take 10 days, Standard packages take 21 days, and Premium projects take 30+ days depending on complexity."
+        },
+        {
+          "question": "What happens if I need changes after the project is completed?",
+          "answer": "Minor adjustments within the original scope are covered during the 30-day warranty period. Major changes or new features can be quoted separately."
+        },
+        {
+          "question": "Do you provide ongoing support?",
+          "answer": "Yes, I offer optional maintenance packages starting at $50/month, including security updates, backups, and technical support."
+        },
+        {
+          "question": "Can I update the website content myself?",
+          "answer": "Yes! All websites include a user-friendly content management system (CMS) that allows you to update text, images, and pages easily."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "I accept bank transfers (Türkiye), credit/debit cards, cryptocurrency (USDT, BTC), and Wise for international payments."
+        },
+        {
+          "question": "Do you work with international clients?",
+          "answer": "Absolutely! I work with clients worldwide and can accommodate different time zones for communication."
+        },
+        {
+          "question": "What makes your technology stack special?",
+          "answer": "Using React + Supabase provides a perfect balance of performance, scalability, and cost-effectiveness. It's modern, secure, and easy to maintain."
+        },
+        {
+          "question": "Can you help with website content and copywriting?",
+          "answer": "While I focus on technical development, I can recommend professional copywriters or help you structure your content effectively."
+        }
+      ]
+    }
+  },
+  "client_form": {
+    "title": "Client Information Form",
+    "subtitle": "Please fill out this form to help us understand your project requirements",
+    "back_to_services": "Back to Services",
+    "steps": {
+      "brand": "Brand & Products",
+      "design": "Design",
+      "payment": "Payment & Shipping",
+      "technical": "Technical Information",
+      "review": "Review"
+    },
+    "brand": {
+      "title": "Brand and Product Information",
+      "brand_name": "Brand Name",
+      "brand_name_placeholder": "Enter your brand name",
+      "products": "Products to be sold",
+      "products_placeholder": "What products will you sell?",
+      "olive_oil": "Olive Oil",
+      "other_products": "Other products",
+      "other_products_specify": "Please specify other products",
+      "product_photos": "Product Photos",
+      "product_photos_available": "Yes, I have ready product photos",
+      "product_photos_needed": "No, I need photo shooting services",
+      "product_details": "Product Details",
+      "product_details_placeholder": "Please provide product names, descriptions, and variations (size, weight, etc.)",
+      "next": "Next: Design",
+      "previous": "Previous"
+    },
+    "design": {
+      "title": "Design Preferences",
+      "color_theme": "Color Theme Preferences",
+      "color_theme_placeholder": "Any specific colors or themes?",
+      "fonts": "Font Preferences",
+      "fonts_placeholder": "Any preferred fonts or typography styles?",
+      "brand_identity": "Brand Identity",
+      "brand_identity_available": "Yes, I have existing brand materials (logo, colors)",
+      "brand_identity_needed": "No, I need brand identity design",
+      "reference_sites": "Reference Websites",
+      "reference_sites_placeholder": "Any websites you like as reference? Please provide URLs",
+      "next": "Next: Payment",
+      "previous": "Previous"
+    },
+    "payment": {
+      "title": "Payment and Shipping Information",
+      "payment_methods": "Payment Methods",
+      "credit_card": "Credit Card",
+      "bank_transfer": "Bank Transfer",
+      "cash_on_delivery": "Cash on Delivery",
+      "paytr": "PayTR",
+      "iyzico": "iyzico",
+      "shipping": "Shipping Process",
+      "shipping_company": "Shipping Company",
+      "shipping_company_placeholder": "Do you have a preferred shipping company?",
+      "shipping_cost": "Shipping Cost",
+      "shipping_cost_customer": "Customer pays",
+      "shipping_cost_merchant": "We pay",
+      "return_policy": "Return Policy",
+      "return_policy_placeholder": "Describe your return and exchange policy",
+      "next": "Next: Technical",
+      "previous": "Previous"
+    },
+    "technical": {
+      "title": "Technical Information",
+      "tech_stack": "Technology Stack",
+      "react_supabase": "React + Supabase (recommended)",
+      "maintenance": "Maintenance Service",
+      "maintenance_title": "Optional Maintenance Service",
+      "maintenance_price": "Monthly 2.000 ₺",
+      "maintenance_includes": "Security updates, bug fixes, and small improvements",
+      "maintenance_yes": "Yes, I want maintenance service",
+      "maintenance_no": "No, thank you",
+      "hosting": "Hosting Information",
+      "hosting_title": "Hosting and Domain",
+      "hosting_description": "The client will purchase hosting and domain from Hostinger, then provide access credentials",
+      "hosting_agree": "I understand and agree to purchase hosting and domain",
+      "next": "Next: Review",
+      "previous": "Previous"
+    },
+    "review": {
+      "title": "Review Your Information",
+      "subtitle": "Please review all your information before submitting",
+      "submit": "Submit Form",
+      "submitting": "Submitting...",
+      "success_title": "Thank You!",
+      "success_message": "Your information has been received successfully. I will contact you soon to discuss the next steps.",
+      "error_title": "Error",
+      "error_message": "There was an error submitting your form. Please try again.",
+      "previous": "Previous"
+    }
   }
 }
