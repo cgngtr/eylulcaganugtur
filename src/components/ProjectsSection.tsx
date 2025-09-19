@@ -58,12 +58,15 @@ const ProjectsSection = () => {
         </div>
         
         <div className="flex justify-center">
-          <Link to="/projects">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              <Eye className="mr-2 h-4 w-4" />
+          <Button
+            asChild
+            className="bg-[#b2a7fb]/10 border-none hover:bg-[#b2a7fb]/20 rounded-xl py-2 px-4"
+          >
+            <Link to="/projects" className="flex items-center text-[#b2a7fb] font-bold">
+              <Eye className="w-5 h-5 mr-2 text-[#b2a7fb]" />
               {t('projects.view_all')}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

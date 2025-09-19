@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Wrench } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import './ServicesSection.css';
 
 const ServiceItem = ({ text }: { text: string }) => {
@@ -67,6 +69,17 @@ const ServicesSection = () => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className="mt-4 flex justify-center">
+          <Button
+            asChild
+            className="bg-[#b2a7fb]/10 border-none hover:bg-[#b2a7fb]/20 rounded-xl py-2 px-4"
+          >
+            <Link to="/services" className="flex items-center text-[#b2a7fb] font-bold">
+              <Wrench className="w-5 h-5 mr-2 text-[#b2a7fb]" />
+              {t('services_list.view_services')}
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
