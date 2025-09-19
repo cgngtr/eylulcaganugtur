@@ -28,3 +28,4 @@ dist-ssr
 .env.production
 .claude
 .mcp.json
+AGENTS.md
