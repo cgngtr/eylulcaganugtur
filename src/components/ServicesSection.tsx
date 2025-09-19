@@ -14,12 +14,12 @@ const ServiceItem = ({ text }: { text: string }) => {
 const ServicesSection = () => {
   const { t } = useTranslation();
   const services = [
-    t('services.web_development'),
-    t('services.web_design'),
-    t('services.seo_optimization'),
-    t('services.hosting_guide'),
-    t('services.web_security'),
-    t('services.website_rework')
+    t('services_list.web_development'),
+    t('services_list.web_design'),
+    t('services_list.seo_optimization'),
+    t('services_list.hosting_guide'),
+    t('services_list.web_security'),
+    t('services_list.website_rework')
   ];
 
   return (
@@ -27,9 +27,9 @@ const ServicesSection = () => {
       <div className="flex flex-col space-y-1.5 p-4">
         <h3 className="text-xl font-semibold leading-none tracking-tight flex flex-row items-center gap-1">
           <Wrench className="size-6 text-primary" fill="currentColor" />
-          {t('services.title')}
+          {t('services_list.title')}
         </h3>
-        <p className="text-sm text-muted-foreground">{t('services.description')}</p>
+        <p className="text-sm text-muted-foreground">{t('services_list.description')}</p>
       </div>
       <div className="p-4 pt-0">
         <div className="group mx-auto max-w-full items-center justify-center">
