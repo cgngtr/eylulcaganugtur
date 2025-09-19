@@ -2,17 +2,17 @@
   "nav": {
     "projects": "Projelerim",
     "github": "GitHub",
-    "hire_me": "Çalışma Teklifi Et"
+    "hire_me": "Benimle Çalışın"
   },
   "profile": {
-    "available_to_work": "Yeni Projeler için Açık",
+    "available_to_work": "Yeni Projelere Açığım",
     "name": "Çağan",
     "title": "Full Stack Geliştiriciyim",
     "language": "İngilizce & Türkçe",
     "location": "Türkiye",
     "timezone": "UTC+3",
-    "night_owl": "Gece Çalışan",
-    "coffee_addict": "Kahve Sever",
+    "night_owl": "Gece Kuşu",
+    "coffee_addict": "Kahve Tutkunu",
     "freelancer": "Serbest Çalışan",
     "age": "22 Yaşında"
   },
@@ -22,94 +22,640 @@
     "name": "Adınız Soyadınız",
     "email": "E-posta Adresiniz",
     "message": "Mesajınız",
-    "name_placeholder": "Adınızı ve soyadınızı girin",
+    "name_placeholder": "Adınızı ve soyadınızı yazın",
     "email_placeholder": "eposta@adresiniz.com",
-    "message_placeholder": "Projeniz, zaman planı ve bütçeniz hakkında detaylı bilgi verin...",
+    "message_placeholder": "Projenizin kapsamını, zaman planını ve bütçenizi anlatın...",
     "send_message": "Mesajı Gönder",
     "sending": "Gönderiliyor...",
-    "success_title": "Mesajınız Başarıyla Gönderildi!",
-    "success_message": "En kısa sürede size dönüş yapacağım."
+    "success_title": "Mesajınız başarıyla gönderildi!",
+    "success_message": "Size en kısa sürede geri döneceğim."
   },
   "projects": {
     "title": "Projelerim",
     "view_all": "Tüm Projeleri Görüntüle",
     "view_project": "Projeyi İncele",
-    "description": "Çalıştığım bazı projeler"
+    "description": "Üzerinde çalıştığım projelerden bazıları"
   },
-  "services": {
+  "services_list": {
     "title": "Hizmetlerim",
-    "description": "İhtiyaçlarınıza ve bütçenize özel çözümler",
+    "description": "İhtiyaçlarınıza ve bütçenize göre çözümler",
     "web_development": "Web Geliştirme",
     "web_design": "Web Tasarımı",
     "seo_optimization": "SEO Optimizasyonu",
     "hosting_guide": "Hosting Danışmanlığı",
     "web_security": "Web Güvenliği",
-    "website_rework": "Site Yenileme"
+    "website_rework": "Web Sitesi Yenileme"
   },
   "tech_stack": {
-    "title": "Teknoloji Seçimlerim",
-    "description": "Projelerimde kullandığım teknolojiler",
+    "title": "Kullandığım Teknolojiler",
+    "description": "Projelerimde tercih ettiğim teknolojiler",
     "subtitle": "Projelerimde en sık kullandığım teknoloji yığını"
   },
   "work_process": {
     "title": "Çalışma Sürecim",
-    "description": "4 basit adımda çalışma prensibim",
+    "description": "Dört adımda çalışma prensibim",
     "project_brief": "Proje Tanımı",
     "project_brief_desc": "Projenizi ve hedeflerinizi birlikte konuşalım.",
     "design_develop": "Tasarım ve Geliştirme",
     "design_develop_desc": "İhtiyaçlarınıza uygun web sitenizi tasarlayıp geliştireyim.",
-    "testing_review": "Test ve Değerlendirme",
-    "testing_review_desc": "Sitenizi test edin, gerekli düzenlemeleri birlikte yapalım.",
-    "launch": "Yayına Alma",
-    "launch_desc": "Kaynak kodlarını teslim edeyim ve yayın sürecinde destek olayım."
+    "testing_review": "Test ve İnceleme",
+    "testing_review_desc": "Web sitesini birlikte test ediyor, gerekli revizyonları yapıyoruz.",
+    "launch": "Yayınlama",
+    "launch_desc": "Kaynak kodunu teslim ediyor, yayına alma sürecinde destek oluyorum."
   },
   "statistics": {
     "title": "İstatistikler",
-    "description": "Önemli sayılar ve başarılarım",
-    "projects": "Proje",
-    "clients": "Müşteri",
+    "description": "Öne çıkan sayılar ve başarılar",
+    "projects": "Projeler",
+    "clients": "Müşteriler",
     "years_experience": "Yıllık Deneyim"
   },
   "testimonials": {
-    "title": "Müşteri Yorumları",
-    "description": "Müşterilerim benim hakkında ne diyor:",
-    "view_all": "Tüm Yorumları Görüntüle"
+    "title": "Referanslar",
+    "description": "Müşterilerimin hakkımda söyledikleri",
+    "view_all": "Tüm Referansları Görüntüle"
   },
   "call_to_action": {
     "title": "Fikirlerinizi Hayata Geçirelim",
-    "subtitle": "Harika işler çıkaralım",
-    "description": "Projeniz için hazır mısınız? Freelance işlere açığım. Fikirlerinizi konuşalım ve gerçeğe dönüştürelim.",
+    "subtitle": "Birlikte harika işler çıkaralım",
+    "description": "Bir proje başlatmaya hazır mısınız? Serbest olarak çalışmaya hazırım. Fikirlerinizi konuşalım ve gerçeğe dönüştürelim.",
     "animated_text": "ve fikirlerinizi",
     "contact_me": "İletişime Geç",
-    "view_github": "GitHub'ı Görüntüle",
+    "view_github": "GitHub Profilimi Gör",
     "phrases": {
-      "internet": "internet.",
-      "life": "hayata geçirelim",
+      "internet": "internete taşıyalım.",
+      "life": "hayata geçirelim.",
       "alive": "canlandıralım.",
       "reality": "gerçeğe dönüştürelim.",
-      "fruition": "meyveye.",
-      "existence": "varlığa.",
-      "screen": "ekranlara getirelim.",
-      "digital_world": "dijital dünyaya getirelim.",
-      "web": "web'e getirelim."
+      "fruition": "gerçekleştirelim.",
+      "existence": "var edelim.",
+      "screen": "ekrana taşıyalım.",
+      "digital_world": "dijital dünyaya taşıyalım.",
+      "web": "web’e taşıyalım."
     }
   },
   "footer": {
     "copyright": "© 2025 Tüm hakları saklıdır.",
     "made_with": "tarafından",
-    "by": "ile yapıldı"
+    "by": "ile hazırlandı"
   },
   "spotify": {
-    "title": "Spotify'da Şu An",
-    "nothing_playing": "Şu an çalınan yok",
+    "title": "Spotify’da Şu An Çalan",
+    "nothing_playing": "Şu anda bir şey çalmıyor",
     "loading": "Yükleniyor...",
-    "unavailable": "Spotify erişilemiyor",
+    "unavailable": "Spotify şu anda kullanılamıyor",
     "playing": "Çalıyor",
     "paused": "Duraklatıldı"
   },
   "errors": {
     "404_title": "404",
-    "404_message": "Oops! Sayfa bulunamadı",
-    "404_back_home": "Ana Sayfaya Dön"
+    "404_message": "Üzgünüz, aradığınız sayfa bulunamadı",
+    "404_back_home": "Ana sayfaya dön"
+  },
+  "services": {
+    "title": "Profesyonel Web Geliştirme Hizmetleri",
+    "subtitle": "İşinizi modern ve duyarlı web siteleriyle güçlendirin",
+    "hero_title": "Birlikte Olağanüstü Bir İş Yapalım",
+    "hero_description": "Beklentileri aşan, sonuç odaklı özel web çözümleri geliştiriyorum.",
+    "cta_button": "Projenizi Başlatın",
+    "description": "İhtiyaçlarınıza ve bütçenize göre şekillenen çözümler",
+    "features": {
+      "title": "Sunduğum Hizmetler",
+      "custom_design": "Özel Tasarım",
+      "custom_design_desc": "Marka kimliğinizi yansıtan özgün ve modern arayüzler",
+      "responsive": "Duyarlı Geliştirme",
+      "responsive_desc": "Tüm cihazlarda kusursuz çalışan web siteleri",
+      "seo_friendly": "SEO Odaklı",
+      "seo_friendly_desc": "Arama motoru optimizasyonu gözetilerek hazırlanan altyapı",
+      "performance": "Yüksek Performans",
+      "performance_desc": "Hızlı yükleme süreleri ve akıcı kullanıcı deneyimi",
+      "maintenance": "Sürekli Destek",
+      "maintenance_desc": "Sitenizin sorunsuz çalışması için isteğe bağlı bakım ve güncellemeler"
+    },
+    "process": {
+      "title": "İşleyişim",
+      "description": "Fikirden yayına kadar başarıyı garanti eden kanıtlanmış süreç",
+      "consultation": "Ön Görüşme",
+      "consultation_desc": "Hedeflerinizi, ihtiyaçlarınızı ve vizyonunuzu birlikte konuşuyoruz.",
+      "planning": "Planlama ve Tasarım",
+      "planning_desc": "Detaylı plan ve tasarım taslaklarıyla proje yol haritasını oluşturuyorum.",
+      "development": "Geliştirme",
+      "development_desc": "Modern teknolojilerle web sitenizi hayata geçiriyorum.",
+      "testing": "Test ve Yayına Hazırlık",
+      "testing_desc": "Kapsamlı testlerin ardından sorunsuz bir yayına hazır hale getiriyorum."
+    },
+    "pricing": {
+      "title": "Size Uygun Paketi Seçin",
+      "subtitle": "İhtiyaçlarınıza ve bütçenize göre profesyonel web geliştirme paketleri",
+      "basic": {
+        "name": "Başlangıç Paketi",
+        "medal": "🥉",
+        "subtitle": "Modern ve hızlı tanıtım sitesi",
+        "description": "Kişisel markasını, portföyünü veya küçük işletmesini dijitale taşımak isteyenler için ideal.",
+        "price": "$350",
+        "delivery": "10 Gün",
+        "revisions": "5 Revizyon",
+        "cta": "Başlayalım",
+        "features": {
+          "functional_website": "Fonksiyonel web sitesi",
+          "pages": "En fazla 5 sayfa",
+          "design": "Modern ve profesyonel tasarım",
+          "mobile": "Mobil uyumlu",
+          "cms": "Yönetim paneli (CMS)",
+          "content_upload": "İçerik yükleme",
+          "optimization": "Hız optimizasyonu",
+          "hosting_setup": "Hosting kurulumu",
+          "integrations": "En fazla 2 entegrasyon",
+          "integrations_examples": "(Örn. iletişim formu, galeri)",
+          "ecommerce": "E-ticaret fonksiyonu",
+          "payment": "Ödeme entegrasyonu"
+        }
+      },
+      "standard": {
+        "name": "Standart Paket",
+        "medal": "🥈",
+        "subtitle": "Fonksiyonel ve büyümeye hazır web sitesi",
+        "description": "Hizmet satmak, randevu almak veya küçük e-ticaret süreçlerine başlamak isteyen işletmeler için ideal.",
+        "price": "$750",
+        "delivery": "21 Gün",
+        "revisions": "10 Revizyon",
+        "cta": "Başlayalım",
+        "features": {
+          "functional_website": "Fonksiyonel web sitesi",
+          "pages": "En fazla 10 sayfa",
+          "design": "Gelişmiş, marka odaklı tasarım",
+          "mobile": "Mobil uyumlu",
+          "cms": "Yönetim paneli (CMS)",
+          "content_upload": "İçerik yükleme",
+          "optimization": "Hız optimizasyonu",
+          "hosting_setup": "Hosting kurulumu",
+          "integrations": "En fazla 5 entegrasyon",
+          "integrations_examples": "(Örn. rezervasyon, SEO eklentileri)",
+          "ecommerce": "E-ticaret fonksiyonu",
+          "ecommerce_limit": "(20 ürüne kadar)",
+          "payment": "Ödeme entegrasyonu",
+          "payment_limit": "(Tek sağlayıcı, örn. iyzico)"
+        }
+      },
+      "premium": {
+        "name": "Premium Paket",
+        "medal": "🥇",
+        "subtitle": "Kapsamlı ve özel geliştirilmiş platform",
+        "description": "Özel gereksinimleri olan tam ölçekli e-ticaret, pazar yeri veya platform projeleri için.",
+        "price": "$1500+",
+        "price_note": "Başlangıç fiyatı",
+        "delivery": "30+ Gün",
+        "delivery_note": "Projeye göre şekillenir",
+        "revisions": "Sınırsız revizyon",
+        "revisions_note": "Proje aşamalarına göre",
+        "cta": "Başlayalım",
+        "features": {
+          "functional_website": "Fonksiyonel web sitesi",
+          "pages": "Sınırsız sayfa / özel geliştirme",
+          "design": "Sıfırdan özel tasarım (UI/UX)",
+          "mobile": "Mobil uyumlu",
+          "cms": "Yönetim paneli (CMS)",
+          "cms_note": "(Özelleştirilmiş panel)",
+          "content_upload": "İçerik yükleme",
+          "optimization": "Hız optimizasyonu",
+          "optimization_note": "(Gelişmiş performans)",
+          "hosting_setup": "Hosting kurulumu",
+          "integrations": "Sınırsız entegrasyon",
+          "integrations_note": "İhtiyaca göre çözümler",
+          "ecommerce": "E-ticaret fonksiyonu",
+          "ecommerce_note": "(Gelişmiş ve tam kapsamlı)",
+          "payment": "Ödeme entegrasyonu",
+          "payment_note": "(Çoklu sağlayıcı ve yöntemler)"
+        }
+      }
+    },
+    "cta_section": {
+      "title": "Projenize Başlamaya Hazır mısınız?",
+      "description": "Vizyonunuzu güçlü bir web sitesiyle gerçeğe dönüştürmek için konuşalım.",
+      "button": "Hemen Başlayın",
+      "contact_alt": "Sorularınız varsa doğrudan benimle iletişime geçebilirsiniz"
+    },
+    "hero_enhanced": {
+      "subtitle": "Şeffaf süreç • Modern teknolojiler • Profesyonel sonuçlar",
+      "trust_points": {
+        "experience": "5+ yıl deneyim",
+        "projects": "100+ tamamlanan proje",
+        "satisfaction": "%100 müşteri memnuniyeti"
+      }
+    },
+    "tech_stack": {
+      "title": "Teknoloji Yığını",
+      "subtitle": "Hızlı, güvenli ve ölçeklenebilir web siteleri için en güncel teknolojileri kullanıyorum",
+      "frontend": {
+        "title": "Ön Yüz",
+        "react": "React 18 ve TypeScript",
+        "react_desc": "Etkileşimli arayüzler için modern, bileşen tabanlı mimari",
+        "styling": "Tailwind CSS + shadcn/ui",
+        "styling_desc": "Şık ve erişilebilir bileşenlerle yardımcı sınıf öncelikli CSS yapısı",
+        "performance": "Vite + React Router",
+        "performance_desc": "Hızlı geliştirme ve optimize edilmiş derleme süreci"
+      },
+      "backend": {
+        "title": "Arka Uç ve Veritabanı",
+        "supabase": "Supabase",
+        "supabase_desc": "PostgreSQL veritabanı, kimlik doğrulama ve gerçek zamanlı özelliklerle açık kaynak Firebase alternatifi",
+        "features": "Gerçek zamanlı veritabanı • Kimlik doğrulama • Dosya depolama • Edge fonksiyonları",
+        "benefits": "Ölçeklenebilir • Güvenli • Gerçek zamanlı • Maliyet etkin"
+      },
+      "hosting": {
+        "title": "Hosting ve Dağıtım",
+        "netlify": "Netlify / Vercel",
+        "netlify_desc": "Otomatik dağıtım ve SSL sertifikalarıyla hızlı, güvenli küresel CDN",
+        "features": "Küresel CDN • Otomatik HTTPS • Sürekli dağıtım • Form işleme"
+      },
+      "why_this_stack": {
+        "title": "Neden Bu Yığın?",
+        "performance": "Işık hızında yükleme süreleri ve akıcı kullanıcı deneyimi",
+        "scalability": "İşiniz büyüdükçe kolayca ölçeklenir",
+        "security": "Yerleşik güvenlik özellikleri ve en iyi uygulamalar",
+        "maintenance": "Kolay bakım ve güncelleme",
+        "cost": "Kaliteden ödün vermeden maliyet etkin çözüm"
+      }
+    },
+    "payment_terms": {
+      "title": "Ödeme Koşulları ve Süreç",
+      "subtitle": "İçinizin rahat etmesi için şeffaf ve net bir ödeme yapısı",
+      "down_payment": {
+        "title": "Peşinat",
+        "percentage": "Toplam bedelin %35’i",
+        "description": "Geliştirme takviminde yerinizi ayırtmak ve çalışmaya başlamak için ilk ödeme",
+        "purpose": "İlk planlama, tasarım taslakları ve proje kurulumunu kapsar"
+      },
+      "payment_schedule": {
+        "title": "Ödeme Takvimi",
+        "basic": {
+          "title": "Başlangıç Paketi ($350)",
+          "down_payment": "$122.50 (%35) – Proje başlangıcı",
+          "final_payment": "$227.50 (%65) – Teslimde",
+          "timeline": "Toplam 10 gün"
+        },
+        "standard": {
+          "title": "Standart Paket ($750)",
+          "down_payment": "$262.50 (%35) – Proje başlangıcı",
+          "milestone": "$225.00 (%30) – Geliştirme orta noktası",
+          "final_payment": "$262.50 (%35) – Teslimde",
+          "timeline": "Toplam 21 gün"
+        },
+        "premium": {
+          "title": "Premium Paket ($1500+)",
+          "down_payment": "%35 – Proje başlangıcı",
+          "milestone1": "%25 – Tasarım onayı",
+          "milestone2": "%25 – Geliştirme kilometre taşı",
+          "final_payment": "%15 – Teslimde",
+          "timeline": "30+ gün, projeye göre"
+        }
+      },
+      "payment_methods": {
+        "title": "Kabul Edilen Ödeme Yöntemleri",
+        "bank_transfer": "Banka havalesi (Türkiye)",
+        "credit_card": "Kredi / banka kartı",
+        "crypto": "Kripto para (USDT, BTC)",
+        "wise": "Wise (uluslararası)",
+        "note": "Tüm ödemeler güvenli şekilde işlenir ve fatura düzenlenir"
+      },
+      "contract_terms": {
+        "title": "Çalışma Anlaşması",
+        "scope": "Yazılı olarak tanımlanmış net proje kapsamı",
+        "timeline": "Revizyonlar için pay bırakılmış gerçekçi teslim planı",
+        "communication": "E-posta / görüntülü görüşmelerle düzenli durum güncellemeleri",
+        "revisions": "Her pakete dahil edilen revizyon sayısı",
+        "ownership": "Final kod ve tasarımın %100 sahipliği sizde"
+      }
+    },
+    "project_timeline": {
+      "title": "Proje Zaman Çizelgesi ve Teslimler",
+      "subtitle": "Fikirden yayına uzanan net bir yol haritası",
+      "phases": {
+        "discovery": {
+          "title": "Keşif ve Planlama (1-3. günler)",
+          "deliverables": [
+            "Gereksinim analizi",
+            "Teknik mimari planı",
+            "Proje zaman çizelgesinin netleştirilmesi"
+          ],
+          "outcome": "Net proje kapsamı ve teknik yol haritası"
+        },
+        "design": {
+          "title": "Tasarım Aşaması (4-7. günler)",
+          "deliverables": [
+            "Wireframe ve mockuplar",
+            "UI/UX tasarım onayı",
+            "Tasarım sistemi dokümantasyonu"
+          ],
+          "outcome": "Geliştirmeye hazır onaylı tasarım"
+        },
+        "development": {
+          "title": "Geliştirme Aşaması (8-18. günler)",
+          "deliverables": [
+            "Ön yüz geliştirme",
+            "Arka uç entegrasyonu",
+            "Veritabanı kurulumu",
+            "Özellik uygulamaları"
+          ],
+          "outcome": "Tüm temel özellikleriyle çalışan bir web sitesi"
+        },
+        "testing": {
+          "title": "Test ve İyileştirme (19-21. günler)",
+          "deliverables": [
+            "Fonksiyon testleri",
+            "Tarayıcı uyumluluğu",
+            "Performans optimizasyonu",
+            "İçerik entegrasyonu"
+          ],
+          "outcome": "Parlatılmış, yayına hazır ürün"
+        },
+        "launch": {
+          "title": "Yayın ve Eğitim (21. gün)",
+          "deliverables": [
+            "Canlı ortama geçiş",
+            "Müşteri eğitim oturumu",
+            "Dokümantasyon teslimi",
+            "Final ödeme"
+          ],
+          "outcome": "İçeriğini yönetebileceğiniz canlı web sitesi"
+        }
+      },
+      "communication": {
+        "title": "İletişim ve Güncellemeler",
+        "frequency": "Her 2-3 günde düzenli durum güncellemeleri",
+        "methods": [
+          "E-posta bilgilendirmeleri",
+          "Kilit aşamalarda video görüşmeleri",
+          "Gerçek zamanlı ilerleme takibi"
+        ],
+        "availability": "Mesai saatlerinde soru ve geri bildirimler için ulaşılabilir"
+      }
+    },
+    "post_launch": {
+      "title": "Yayın Sonrası Destek",
+      "subtitle": "Web sitesi yayına girdikten sonra da yanınızdayım",
+      "warranty": {
+        "title": "Garanti Süresi",
+        "duration": "Yayından sonra 30 gün",
+        "coverage": [
+          "Hata düzeltmeleri",
+          "Teknik sorunlar",
+          "Tarayıcı uyumluluk problemleri"
+        ],
+        "exclusions": [
+          "Yeni özellik talepleri",
+          "İçerik güncellemeleri",
+          "Üçüncü taraf hizmet sorunları"
+        ]
+      },
+      "training": {
+        "title": "Müşteri Eğitimi",
+        "session": "1 saatlik eğitim oturumu dahildir",
+        "topics": [
+          "İçerik yönetim sistemi kullanımı",
+          "Temel bakım görevleri",
+          "Analitik paneline genel bakış"
+        ],
+        "materials": "Video kayıtları ve dokümantasyon paylaşılır"
+      },
+      "documentation": {
+        "title": "Sağlanan Dokümanlar",
+        "technical": "Teknik dokümantasyon ve mimari özeti",
+        "user": "İçerik yönetimine yönelik kullanıcı rehberi",
+        "access": "Tüm giriş bilgileri ve erişim detayları",
+        "source": "Tüm kaynak kodu ve tasarım dosyaları"
+      },
+      "maintenance": {
+        "title": "Opsiyonel Bakım Paketi",
+        "price": "$50/ay veya $500/yıl (%20 indirim)",
+        "services": [
+          "Düzenli güvenlik güncellemeleri",
+          "Performans izleme ve optimizasyon",
+          "Yedekleme yönetimi",
+          "Küçük içerik güncellemeleri (ayda 2 saate kadar)",
+          "E-posta ile teknik destek"
+        ],
+        "response": "Sorunlar için 24-48 saat içinde dönüş"
+      }
+    },
+    "legal_info": {
+      "title": "Yasal ve İş Bilgileri",
+      "subtitle": "Çalışma ilişkimiz hakkında önemli bilgiler",
+      "ownership": {
+        "title": "Kod ve Tasarım Sahipliği",
+        "description": "Final kod, tasarım ve fikri mülkiyetin tamamı size aittir",
+        "rights": [
+          "Web sitesini kullanma konusunda tam ticari haklar",
+          "Tüm özel kod ve tasarımın sahipliği",
+          "Web sitesini değiştirme ve genişletme hakları",
+          "Ek lisans veya telif ücreti yok"
+        ]
+      },
+      "confidentiality": {
+        "title": "Gizlilik",
+        "description": "İş bilgileriniz ve proje detaylarınız gizlilikle korunur",
+        "protection": [
+          "İş stratejilerinin üçüncü kişilerle paylaşılmaması",
+          "Hassas bilgilerin korunması",
+          "Güvenli veri işleme uygulamaları",
+          "İzniniz olmadan proje detaylarının açıklanmaması"
+        ]
+      },
+      "security": {
+        "title": "Güvenlik ve Yedekleme",
+        "measures": [
+          "Güvenli geliştirme standartları",
+          "Düzenli güvenlik güncellemeleri",
+          "Veri yedekleme prosedürleri",
+          "AB müşterileri için GDPR uyumluluğu",
+          "Güvenli ödeme altyapısı"
+        ]
+      },
+      "compliance": {
+        "title": "Uyumluluk ve Standartlar",
+        "standards": [
+          "Web erişilebilirlik standartları (WCAG)",
+          "Veri koruma düzenlemeleri",
+          "Sektörün en iyi uygulamaları",
+          "Arama motoru optimizasyonu yönergeleri"
+        ]
+      }
+    },
+    "whats_included": {
+      "title": "Dahil Olanlar ve Ek Maliyetler",
+      "subtitle": "Hizmetlerin ve olası ek ücretlerin açık özeti",
+      "included": {
+        "title": "Tüm Paketlere Dahil",
+        "services": [
+          "Özel web tasarımı ve geliştirme",
+          "Tüm cihazlara uyumlu tasarım",
+          "Temel SEO optimizasyonu",
+          "İçerik yönetim sistemi",
+          "İletişim formu entegrasyonu",
+          "Sosyal medya entegrasyonu",
+          "Google Analytics kurulumu",
+          "Web hosting kurulum desteği",
+          "Temel eğitim ve dokümantasyon"
+        ]
+      },
+      "additional_costs": {
+        "title": "Ek Maliyetler (Müşteri Sorumluluğu)",
+        "hosting": "Web hosting (aylık $5-20)",
+        "domain": "Alan adı kaydı (yıllık $10-15)",
+        "content": "Profesyonel içerik yazımı (gerekirse)",
+        "images": "Stok görseller veya özel fotoğrafçılık",
+        "premium": "Premium eklenti veya temalar (gerekirse)",
+        "maintenance": "Sürekli bakım (isteğe bağlı)",
+        "ssl": "SSL sertifikası (çoğu hosting ile ücretsiz)",
+        "note": "Gerektiğinde maliyet tahmini önceden paylaşılır"
+      },
+      "client_responsibilities": {
+        "title": "Müşteri Sorumlulukları",
+        "content": "Metin içeriklerini ve görselleri sağlamak",
+        "feedback": "Zamanında geri bildirim ve onay vermek",
+        "hosting": "Hosting ve alan adı satın almak",
+        "testing": "Test ve inceleme süreçlerine katılmak",
+        "payment": "Ödeme takvimine uymak"
+      },
+      "third_party": {
+        "title": "Üçüncü Taraf Hizmetler",
+        "description": "Bazı hizmetler müşteri hesabı gerektirir:",
+        "services": [
+          "Hosting sağlayıcı hesabı",
+          "Domain kayıt hesabı",
+          "Google Analytics hesabı",
+          "E-posta hizmet sağlayıcısı (gerekirse)",
+          "Ödeme altyapısı hesapları (e-ticaret için)"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "Hizmetlerimle ilgili en merak edilen konuların yanıtları",
+      "questions": [
+        {
+          "question": "Tipik bir proje ne kadar sürer?",
+          "answer": "Paketlere göre değişir: Başlangıç paketleri 10 gün, Standart paketler 21 gün, Premium projeler ise karmaşıklığa bağlı olarak 30 günden fazla sürebilir."
+        },
+        {
+          "question": "Proje tamamlandıktan sonra değişiklik yapmak istersem ne olur?",
+          "answer": "Orijinal kapsam içindeki küçük düzenlemeler 30 günlük garanti süresi boyunca ücretsizdir. Daha kapsamlı istekler veya yeni özellikler için ayrı bir teklif hazırlarım."
+        },
+        {
+          "question": "Yayın sonrası destek sağlıyor musunuz?",
+          "answer": "Evet. Güvenlik güncellemeleri, yedeklemeler ve teknik destek içeren aylık $50’dan başlayan isteğe bağlı bakım paketleri sunuyorum."
+        },
+        {
+          "question": "Web sitesinin içeriğini kendim güncelleyebilir miyim?",
+          "answer": "Kesinlikle. Tüm web siteleri, metinleri, görselleri ve sayfaları kolayca yönetebileceğiniz kullanıcı dostu bir içerik yönetim sistemiyle teslim edilir."
+        },
+        {
+          "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+          "answer": "Banka havalesi (Türkiye), kredi/banka kartı, kripto para (USDT, BTC) ve uluslararası ödemeler için Wise kabul ediyorum."
+        },
+        {
+          "question": "Uluslararası müşterilerle çalışıyor musunuz?",
+          "answer": "Evet. Dünyanın farklı bölgelerinden müşterilerle çalışıyorum ve iletişim için farklı saat dilimlerine uyum sağlayabiliyorum."
+        },
+        {
+          "question": "Teknoloji yığınınızın avantajı nedir?",
+          "answer": "React ve Supabase kombinasyonu performans, ölçeklenebilirlik ve maliyet dengesi açısından çok güçlü. Modern, güvenli ve bakımı kolay bir altyapı sunuyor."
+        },
+        {
+          "question": "Web sitesi içeriği ve metin yazarlığı konusunda destek olur musunuz?",
+          "answer": "Teknik geliştirmeye odaklansam da güvendiğim metin yazarlarını önerebilir veya içeriğinizi nasıl yapılandırabileceğiniz konusunda birlikte çalışabiliriz."
+        }
+      ]
+    }
+  },
+  "client_form": {
+    "title": "Müşteri Bilgi Formu",
+    "subtitle": "Proje gereksinimlerinizi daha iyi anlayabilmem için lütfen formu doldurun",
+    "back_to_services": "Hizmetlere dön",
+    "steps": {
+      "brand": "Marka ve Ürünler",
+      "design": "Tasarım",
+      "payment": "Ödeme ve Kargo",
+      "technical": "Teknik Bilgiler",
+      "review": "Kontrol"
+    },
+    "brand": {
+      "title": "Marka ve Ürün Bilgileri",
+      "brand_name": "Marka Adı",
+      "brand_name_placeholder": "Marka adınızı yazın",
+      "products": "Satılacak ürünler",
+      "products_placeholder": "Hangi ürünleri satacaksınız?",
+      "olive_oil": "Zeytinyağı",
+      "other_products": "Diğer ürünler",
+      "other_products_specify": "Lütfen diğer ürünleri belirtin",
+      "product_photos": "Ürün fotoğrafları",
+      "product_photos_available": "Evet, hazır ürün fotoğraflarım var",
+      "product_photos_needed": "Hayır, fotoğraf çekimi desteğine ihtiyacım var",
+      "product_details": "Ürün detayları",
+      "product_details_placeholder": "Ürün adları, açıklamaları ve varyasyonları (boyut, ağırlık vb.) hakkında bilgi verin",
+      "next": "Sonraki: Tasarım",
+      "previous": "Önceki"
+    },
+    "design": {
+      "title": "Tasarım Tercihleri",
+      "color_theme": "Renk teması",
+      "color_theme_placeholder": "Belirli renk ya da temalar var mı?",
+      "fonts": "Yazı tipi tercihleri",
+      "fonts_placeholder": "Tercih ettiğiniz yazı tipleri veya tipografi stilleri var mı?",
+      "brand_identity": "Marka kimliği",
+      "brand_identity_available": "Evet, mevcut marka materyallerim var (logo, renkler vb.)",
+      "brand_identity_needed": "Hayır, marka kimliği tasarımına ihtiyacım var",
+      "reference_sites": "Referans web siteleri",
+      "reference_sites_placeholder": "Beğendiğiniz örnek siteler varsa URL’leri paylaşın",
+      "next": "Sonraki: Ödeme",
+      "previous": "Önceki"
+    },
+    "payment": {
+      "title": "Ödeme ve Kargo Bilgileri",
+      "payment_methods": "Ödeme yöntemleri",
+      "credit_card": "Kredi kartı",
+      "bank_transfer": "Banka havalesi",
+      "cash_on_delivery": "Kapıda ödeme",
+      "paytr": "PayTR",
+      "iyzico": "iyzico",
+      "shipping": "Kargo süreci",
+      "shipping_company": "Kargo firması",
+      "shipping_company_placeholder": "Tercih ettiğiniz bir kargo firması var mı?",
+      "shipping_cost": "Kargo ücreti",
+      "shipping_cost_customer": "Müşteri öder",
+      "shipping_cost_merchant": "Biz karşılarız",
+      "return_policy": "İade politikası",
+      "return_policy_placeholder": "İade ve değişim politikanızı açıklayın",
+      "next": "Sonraki: Teknik",
+      "previous": "Önceki"
+    },
+    "technical": {
+      "title": "Teknik Bilgiler",
+      "tech_stack": "Teknoloji yığını",
+      "react_supabase": "React + Supabase (önerilen)",
+      "maintenance": "Bakım hizmeti",
+      "maintenance_title": "Opsiyonel bakım hizmeti",
+      "maintenance_price": "Aylık 2.000 ₺",
+      "maintenance_includes": "Güvenlik güncellemeleri, hata düzeltmeleri ve küçük iyileştirmeler",
+      "maintenance_yes": "Evet, bakım hizmeti istiyorum",
+      "maintenance_no": "Hayır, teşekkürler",
+      "hosting": "Hosting bilgileri",
+      "hosting_title": "Hosting ve alan adı",
+      "hosting_description": "Hostinger üzerinden hosting ve alan adı satın alıp erişim bilgilerini paylaşmanız gerekiyor",
+      "hosting_agree": "Hosting ve alan adı satın almayı kabul ediyorum",
+      "next": "Sonraki: Kontrol",
+      "previous": "Önceki"
+    },
+    "review": {
+      "title": "Bilgilerinizi Kontrol Edin",
+      "subtitle": "Göndermeden önce tüm bilgilerinizi gözden geçirin",
+      "submit": "Formu Gönder",
+      "submitting": "Gönderiliyor...",
+      "success_title": "Teşekkürler!",
+      "success_message": "Bilgileriniz başarıyla ulaştı. En kısa sürede sonraki adımları konuşmak için sizinle iletişime geçeceğim.",
+      "error_title": "Hata",
+      "error_message": "Form gönderilirken bir sorun oluştu. Lütfen tekrar deneyin.",
+      "previous": "Önceki"
+    }
   }
 }

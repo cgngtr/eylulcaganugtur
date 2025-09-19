@@ -2,7 +2,7 @@
 
 A modern web application built with React, TypeScript, and Vite.
 
-## 🚀 Features
+## ✨ Features
 
 - Modern React with TypeScript
 - Fast development with Vite
@@ -12,7 +12,7 @@ A modern web application built with React, TypeScript, and Vite.
 - Data fetching with React Query
 - Type-safe schemas with Zod
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
 - [React](https://reactjs.org/) - UI Library
 - [TypeScript](https://www.typescriptlang.org/) - Type Safety
