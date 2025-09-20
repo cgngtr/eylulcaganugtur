@@ -229,6 +229,16 @@
           "payment": "Payment Integration",
           "payment_note": "(Multiple providers & methods)"
         }
+      },
+      "feature_groups": {
+        "essentials": "Essentials",
+        "growth": "Growth boosters",
+        "commerce": "Commerce add-ons"
+      },
+      "benefits": {
+        "basic": "Best for lean launches and portfolios",
+        "standard": "Recommended for service businesses growing fast",
+        "premium": "Tailored platforms with strategic integrations"
       }
     },
     "cta_section": {
@@ -327,6 +337,30 @@
         "communication": "Regular progress updates via email/video calls",
         "revisions": "Number of revisions included in each package",
         "ownership": "You own 100% of the final code and design"
+      },
+      "visual": {
+        "title": "How payments flow",
+        "subtitle": "Each milestone unlocks the next stage of delivery.",
+        "blocks": [
+          {
+            "key": "deposit",
+            "label": "Booking deposit",
+            "percent": "35",
+            "detail": "Secures your slot and covers strategy + initial design."
+          },
+          {
+            "key": "build",
+            "label": "Build midpoint",
+            "percent": "30",
+            "detail": "Confirms the in-progress build once core pages are implemented."
+          },
+          {
+            "key": "handoff",
+            "label": "Launch & handover",
+            "percent": "35",
+            "detail": "Due when the site is launch-ready and training begins."
+          }
+        ]
       }
     },
     "project_timeline": {
@@ -391,6 +425,12 @@
           "Real-time progress tracking"
         ],
         "availability": "Available for questions and feedback during business hours"
+      },
+      "download_label": "Download project plan (PDF)",
+      "package_summary": {
+        "basic": "Lean launch roadmap that prioritises must-have screens.",
+        "standard": "Balanced plan for service businesses with room for iteration.",
+        "premium": "Fully bespoke programme with stakeholder checkpoints."
       }
     },
     "post_launch": {
@@ -438,7 +478,31 @@
           "Technical support via email"
         ],
         "response": "24-48 hour response time for issues"
-      }
+      },
+      "metrics": [
+        {
+          "label": "Average response time",
+          "value": "< 24h"
+        },
+        {
+          "label": "Uptime monitoring",
+          "value": "99.9%"
+        },
+        {
+          "label": "Repeat clients",
+          "value": "70%"
+        }
+      ],
+      "faq": [
+        {
+          "question": "Can we extend the warranty?",
+          "answer": "Yes — warranty can be extended or converted into a maintenance retainer."
+        },
+        {
+          "question": "Do you support marketing integrations post-launch?",
+          "answer": "Absolutely. I can scope additional integrations or coordinate with your marketing team."
+        }
+      ]
     },
     "legal_info": {
       "title": "Legal & Business Information",
@@ -528,7 +592,8 @@
           "Email service provider (if needed)",
           "Payment processor accounts (for e-commerce)"
         ]
-      }
+      },
+      "extras_hint": "Need help choosing add-ons? I provide recommendations tailored to your goals."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -567,7 +632,26 @@
           "answer": "While I focus on technical development, I can recommend professional copywriters or help you structure your content effectively."
         }
       ]
-    }
+    },
+    "nav": {
+      "hero": "Overview",
+      "pricing": "Pricing",
+      "process": "Process",
+      "tech": "Tech Stack",
+      "payment": "Payment",
+      "timeline": "Timeline",
+      "inclusions": "Deliverables",
+      "post_launch": "Support",
+      "faq": "FAQ"
+    },
+    "hero_secondary_cta": "Explore services overview",
+    "jump_to_pricing": "View pricing",
+    "book_consultation": "Book a consultation",
+    "hero_highlights": [
+      "Collaborative discovery sessions",
+      "Design systems built to own",
+      "Performance budgets baked in"
+    ]
   },
   "client_form": {
     "title": "Client Information Form",
