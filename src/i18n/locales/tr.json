@@ -228,6 +228,16 @@
           "payment": "Ödeme entegrasyonu",
           "payment_note": "(Çoklu sağlayıcı ve yöntemler)"
         }
+      },
+      "feature_groups": {
+        "essentials": "Temel özellikler",
+        "growth": "Büyüme destekleri",
+        "commerce": "Ticaret eklentileri"
+      },
+      "benefits": {
+        "basic": "Başlangıç ve portföy siteleri için ideal",
+        "standard": "Hızla büyüyen işletmeler için önerilir",
+        "premium": "Kapsamlı, entegre platformlar"
       }
     },
     "cta_section": {
@@ -248,7 +258,7 @@
       "title": "Teknoloji Yığını",
       "subtitle": "Hızlı, güvenli ve ölçeklenebilir web siteleri için en güncel teknolojileri kullanıyorum",
       "frontend": {
-        "title": "Ön Yüz",
+        "title": "Frontend",
         "react": "React 18 ve TypeScript",
         "react_desc": "Etkileşimli arayüzler için modern, bileşen tabanlı mimari",
         "styling": "Tailwind CSS + shadcn/ui",
@@ -257,7 +267,7 @@
         "performance_desc": "Hızlı geliştirme ve optimize edilmiş derleme süreci"
       },
       "backend": {
-        "title": "Arka Uç ve Veritabanı",
+        "title": "Backend ve Veritabanı",
         "supabase": "Supabase",
         "supabase_desc": "PostgreSQL veritabanı, kimlik doğrulama ve gerçek zamanlı özelliklerle açık kaynak Firebase alternatifi",
         "features": "Gerçek zamanlı veritabanı • Kimlik doğrulama • Dosya depolama • Edge fonksiyonları",
@@ -267,7 +277,7 @@
         "title": "Hosting ve Dağıtım",
         "netlify": "Netlify / Vercel",
         "netlify_desc": "Otomatik dağıtım ve SSL sertifikalarıyla hızlı, güvenli küresel CDN",
-        "features": "Küresel CDN • Otomatik HTTPS • Sürekli dağıtım • Form işleme"
+        "features": "Küresel CDN • Otomatik HTTPS • Sürekli dağıtım • Form yönetimi"
       },
       "why_this_stack": {
         "title": "Neden Bu Yığın?",
@@ -283,7 +293,7 @@
       "subtitle": "İçinizin rahat etmesi için şeffaf ve net bir ödeme yapısı",
       "down_payment": {
         "title": "Peşinat",
-        "percentage": "Toplam bedelin %35’i",
+        "percentage": "Toplam bedelin %35'i",
         "description": "Geliştirme takviminde yerinizi ayırtmak ve çalışmaya başlamak için ilk ödeme",
         "purpose": "İlk planlama, tasarım taslakları ve proje kurulumunu kapsar"
       },
@@ -291,33 +301,33 @@
         "title": "Ödeme Takvimi",
         "basic": {
           "title": "Başlangıç Paketi ($350)",
-          "down_payment": "$122.50 (%35) – Proje başlangıcı",
-          "final_payment": "$227.50 (%65) – Teslimde",
+          "down_payment": "Proje başlangıcında $122.50 (%35)",
+          "final_payment": "Teslimde $227.50 (%65)",
           "timeline": "Toplam 10 gün"
         },
         "standard": {
           "title": "Standart Paket ($750)",
-          "down_payment": "$262.50 (%35) – Proje başlangıcı",
-          "milestone": "$225.00 (%30) – Geliştirme orta noktası",
-          "final_payment": "$262.50 (%35) – Teslimde",
+          "down_payment": "Proje başlangıcında $262.50 (%35)",
+          "milestone": "Geliştirme orta noktasında $225.00 (%30)",
+          "final_payment": "Teslimde $262.50 (%35)",
           "timeline": "Toplam 21 gün"
         },
         "premium": {
           "title": "Premium Paket ($1500+)",
-          "down_payment": "%35 – Proje başlangıcı",
-          "milestone1": "%25 – Tasarım onayı",
-          "milestone2": "%25 – Geliştirme kilometre taşı",
-          "final_payment": "%15 – Teslimde",
+          "down_payment": "Proje başlangıcında %35",
+          "milestone1": "Tasarım onayı sonrasında %25",
+          "milestone2": "Geliştirme kilometre taşında %25",
+          "final_payment": "Teslimde %15",
           "timeline": "30+ gün, projeye göre"
         }
       },
       "payment_methods": {
         "title": "Kabul Edilen Ödeme Yöntemleri",
         "bank_transfer": "Banka havalesi (Türkiye)",
-        "credit_card": "Kredi / banka kartı",
+        "credit_card": "Kredi veya banka kartı",
         "crypto": "Kripto para (USDT, BTC)",
         "wise": "Wise (uluslararası)",
-        "note": "Tüm ödemeler güvenli şekilde işlenir ve fatura düzenlenir"
+        "note": "Tüm ödemeler güvenle işlenir ve faturalandırılır"
       },
       "contract_terms": {
         "title": "Çalışma Anlaşması",
@@ -326,6 +336,30 @@
         "communication": "E-posta / görüntülü görüşmelerle düzenli durum güncellemeleri",
         "revisions": "Her pakete dahil edilen revizyon sayısı",
         "ownership": "Final kod ve tasarımın %100 sahipliği sizde"
+      },
+      "visual": {
+        "title": "Ödemeler nasıl ilerliyor?",
+        "subtitle": "Her kilometre taşı bir sonraki teslim adımını başlatır.",
+        "blocks": [
+          {
+            "key": "deposit",
+            "label": "Rezervasyon avansı",
+            "percent": "35",
+            "detail": "Proje takviminde yerinizi ayırır, strateji ve ilk tasarımları kapsar."
+          },
+          {
+            "key": "build",
+            "label": "Geliştirme orta noktası",
+            "percent": "30",
+            "detail": "Temel sayfalar tamamlandığında ilerlemeyi onaylar."
+          },
+          {
+            "key": "handoff",
+            "label": "Lansman ve teslim",
+            "percent": "35",
+            "detail": "Site yayına hazır olduğunda ve eğitim başladığında ödenir."
+          }
+        ]
       }
     },
     "project_timeline": {
@@ -353,10 +387,10 @@
         "development": {
           "title": "Geliştirme Aşaması (8-18. günler)",
           "deliverables": [
-            "Ön yüz geliştirme",
-            "Arka uç entegrasyonu",
+            "Frontend geliştirme",
+            "Backend entegrasyonu",
             "Veritabanı kurulumu",
-            "Özellik uygulamaları"
+            "Özellik geliştirmeleri"
           ],
           "outcome": "Tüm temel özellikleriyle çalışan bir web sitesi"
         },
@@ -376,7 +410,7 @@
             "Canlı ortama geçiş",
             "Müşteri eğitim oturumu",
             "Dokümantasyon teslimi",
-            "Final ödeme"
+            "Son ödeme"
           ],
           "outcome": "İçeriğini yönetebileceğiniz canlı web sitesi"
         }
@@ -390,6 +424,12 @@
           "Gerçek zamanlı ilerleme takibi"
         ],
         "availability": "Mesai saatlerinde soru ve geri bildirimler için ulaşılabilir"
+      },
+      "download_label": "Proje planını indir (PDF)",
+      "package_summary": {
+        "basic": "Öncelikli sayfalarla hızlı yayına odaklı plan.",
+        "standard": "Hizmet odaklı işletmeler için dengeli bir proje akışı.",
+        "premium": "Paydaş onayları içeren uçtan uca özel program."
       }
     },
     "post_launch": {
@@ -437,7 +477,31 @@
           "E-posta ile teknik destek"
         ],
         "response": "Sorunlar için 24-48 saat içinde dönüş"
-      }
+      },
+      "metrics": [
+        {
+          "label": "Ortalama yanıt süresi",
+          "value": "< 24 saat"
+        },
+        {
+          "label": "Uptime takibi",
+          "value": "%99,9"
+        },
+        {
+          "label": "Tekrar eden müşteriler",
+          "value": "%70"
+        }
+      ],
+      "faq": [
+        {
+          "question": "Garantiyi uzatabilir miyiz?",
+          "answer": "Evet, garanti süresini uzatabilir veya bakım paketine dönüştürebilirsiniz."
+        },
+        {
+          "question": "Lansman sonrası pazarlama entegrasyonlarına destek oluyor musunuz?",
+          "answer": "Elbette. Ek entegrasyonları kapsamlandırabilir veya pazarlama ekibinizle koordinasyon sağlayabilirim."
+        }
+      ]
     },
     "legal_info": {
       "title": "Yasal ve İş Bilgileri",
@@ -528,7 +592,8 @@
           "E-posta hizmet sağlayıcısı (gerekirse)",
           "Ödeme altyapısı hesapları (e-ticaret için)"
         ]
-      }
+      },
+      "extras_hint": "Hangi eklentilerin gerekli olduğundan emin değilseniz, hedeflerinize uygun öneriler sunabilirim."
     },
     "faq": {
       "title": "Sıkça Sorulan Sorular",
@@ -567,7 +632,26 @@
           "answer": "Teknik geliştirmeye odaklansam da güvendiğim metin yazarlarını önerebilir veya içeriğinizi nasıl yapılandırabileceğiniz konusunda birlikte çalışabiliriz."
         }
       ]
-    }
+    },
+    "nav": {
+      "hero": "Genel Bakış",
+      "pricing": "Paketler",
+      "process": "Süreç",
+      "tech": "Teknoloji",
+      "payment": "Ödemeler",
+      "timeline": "Zaman Çizelgesi",
+      "inclusions": "Teslimatlar",
+      "post_launch": "Destek",
+      "faq": "SSS"
+    },
+    "hero_secondary_cta": "Hizmet özetini incele",
+    "jump_to_pricing": "Paketleri Gör",
+    "book_consultation": "Danışmanlık Al",
+    "hero_highlights": [
+      "Birlikte gerçekleştirdiğimiz keşif oturumları",
+      "Size özel tasarım sistemleri",
+      "Performans odaklı mimari"
+    ]
   },
   "client_form": {
     "title": "Müşteri Bilgi Formu",
