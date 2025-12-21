@@ -1,5 +1,6 @@
 import React from 'react';
 import { TerminalNav, InteractiveTerminal } from '@/components/terminal';
+import { useThemeInit } from '@/lib/useTheme';
 import {
   HeroTerminal,
   ProjectsTerminal,
@@ -14,6 +15,8 @@ import {
 } from '@/components/terminal/sections';
 
 const TerminalHome: React.FC = () => {
+  useThemeInit();
+
   return (
     <div className="min-h-screen bg-terminal-bg-dark">
       {/* Navigation */}

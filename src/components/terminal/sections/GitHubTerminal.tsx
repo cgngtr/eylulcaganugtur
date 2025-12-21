@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TerminalCard } from '../index';
 import { ExternalLink, Calendar, TrendingUp, Github } from 'lucide-react';
+import { getChartColor } from '@/lib/useTheme';
 
 const GITHUB_USERNAME = 'cgngtr';
 const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
@@ -110,7 +111,7 @@ const GitHubTerminal: React.FC = () => {
               </div>
               <div className="border border-terminal-border rounded-lg p-4 bg-terminal-bg-light/30 overflow-x-auto">
                 <img
-                  src={`https://ghchart.rshah.org/97c178/${GITHUB_USERNAME}`}
+                  src={`https://ghchart.rshah.org/${getChartColor()}/${GITHUB_USERNAME}`}
                   alt={`${GITHUB_USERNAME}'s GitHub Contribution Chart`}
                   className="w-full"
                   style={{ filter: 'invert(0.85) hue-rotate(180deg) brightness(1.2) saturate(1.5)' }}

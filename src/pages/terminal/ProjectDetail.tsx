@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { TerminalCard, TerminalNav } from '@/components/terminal';
 import { ArrowLeft, ExternalLink, Github, Calendar, Folder } from 'lucide-react';
+import { useThemeInit } from '@/lib/useTheme';
 
 interface ProjectData {
   slug: string;
@@ -67,6 +68,7 @@ Perfect for roommates, trips, or any shared expenses. Features include expense t
 };
 
 const ProjectDetail: React.FC = () => {
+  useThemeInit();
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? projects[slug] : null;
 

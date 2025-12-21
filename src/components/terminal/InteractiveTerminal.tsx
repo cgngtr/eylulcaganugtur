@@ -116,11 +116,24 @@ const InteractiveTerminal: React.FC = () => {
       </div>
 
       {/* Terminal window */}
-      <div
-        ref={terminalRef}
-        onClick={handleTerminalClick}
-        className="bg-terminal-bg-medium border border-terminal-border rounded-lg p-4 font-mono text-sm h-80 overflow-y-auto cursor-text"
-      >
+      <div className="bg-terminal-bg-medium border border-terminal-border rounded-lg overflow-hidden">
+        {/* macOS title bar */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-terminal-bg-light/50 border-b border-terminal-border">
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+            <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+            <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+          </div>
+          <span className="flex-1 text-center text-terminal-muted text-xs">terminal</span>
+          <div className="w-[52px]" /> {/* Spacer to center title */}
+        </div>
+
+        {/* Terminal content */}
+        <div
+          ref={terminalRef}
+          onClick={handleTerminalClick}
+          className="p-4 font-mono text-sm h-72 overflow-y-auto cursor-text"
+        >
         {/* Lines */}
         <div className="space-y-2">
           {lines.map((line) => (
@@ -159,6 +172,7 @@ const InteractiveTerminal: React.FC = () => {
             <span className="text-terminal-output">{input}</span>
             <TerminalCursor />
           </div>
+        </div>
         </div>
       </div>
     </section>

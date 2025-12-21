@@ -14,7 +14,7 @@ interface Education {
 const education: Education[] = [
   {
     id: '1',
-    degree: 'Computer Engineering',
+    degree: 'Computer Engineering (4th Year)',
     school: 'OSTIM Technical University',
     location: 'Ankara, Türkiye',
     period: '2022 - 2026',

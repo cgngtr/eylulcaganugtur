@@ -36,7 +36,7 @@
     --terminal-directory: 210 79% 66%;     /* #61afee - blue */
     --terminal-command: 42 69% 65%;        /* #e2ba65 - yellow */
     --terminal-output: 240 100% 93%;       /* #d7d7ff - light purple */
-    --terminal-muted: 240 100% 93% / 0.4;  /* #d7d7ff66 */
+    --terminal-muted: 240 30% 60%;         /* #7878a8 - readable muted */
     --terminal-keyword: 355 65% 65%;       /* #e06c75 - red-pink */
     --terminal-constant: 330 50% 76%;      /* #dea3b7 - pink */
     --terminal-border: 240 10% 39%;        /* #58586f */
