@@ -742,5 +742,43 @@
       "error_message": "Form gönderilirken bir sorun oluştu. Lütfen tekrar deneyin.",
       "previous": "Önceki"
     }
+  },
+  "terminal": {
+    "welcome": "eylulcaganugtur.com'a hoş geldiniz - Mevcut komutlar için 'help' yazın",
+    "commands": {
+      "help": "Mevcut komutları listele",
+      "about": "Hakkımda bilgi",
+      "projects": "Projelerimi listele",
+      "skills": "Teknoloji yığınımı göster",
+      "contact": "İletişim bilgilerini al",
+      "social": "Sosyal bağlantıları göster",
+      "clear": "Terminali temizle",
+      "echo": "Metni geri yaz",
+      "whoami": "Kim ziyaret ediyor?",
+      "date": "Güncel tarihi göster",
+      "scroll": "Bir bölüme kaydır",
+      "not_found": "Komut bulunamadı. Mevcut komutlar için 'help' yazın."
+    },
+    "nav": {
+      "intro": "giriş",
+      "projects": "projeler",
+      "experience": "deneyim",
+      "education": "eğitim",
+      "skills": "yetenekler",
+      "blog": "blog",
+      "contact": "iletişim",
+      "resume": "özgeçmiş"
+    },
+    "sections": {
+      "intro": "cat intro.txt",
+      "projects": "ls ./projeler",
+      "experience": "cat deneyim.log",
+      "education": "cat egitim.txt",
+      "skills": "cat stack.json",
+      "blog": "grep -r \"son\" ./blog",
+      "spotify": "sptfy --simdi-caliniyor",
+      "links": "ls ./linkler",
+      "contact": "cat iletisim.txt"
+    }
   }
 }

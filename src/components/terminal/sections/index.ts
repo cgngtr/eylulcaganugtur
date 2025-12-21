@@ -1,0 +1,10 @@
+export { default as HeroTerminal } from './HeroTerminal';
+export { default as ProjectsTerminal } from './ProjectsTerminal';
+export { default as ExperienceTerminal } from './ExperienceTerminal';
+export { default as EducationTerminal } from './EducationTerminal';
+export { default as SkillsTerminal } from './SkillsTerminal';
+export { default as BlogTerminal } from './BlogTerminal';
+export { default as SpotifyTerminal } from './SpotifyTerminal';
+export { default as GitHubTerminal } from './GitHubTerminal';
+export { default as LinksTerminal } from './LinksTerminal';
+export { default as ContactTerminal } from './ContactTerminal';

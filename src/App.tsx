@@ -2,42 +2,70 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+// Old Portfolio Pages
+import OldIndex from "./pages/old/Index";
+import OldProjectDetail from "./pages/old/ProjectDetail";
+import OldProjects from "./pages/old/Projects";
+import OldServices from "./pages/old/Services";
+import OldClientForm from "./pages/old/ClientForm";
+
+// Terminal Portfolio Pages
+import TerminalHome from "./pages/terminal/TerminalHome";
+import ProjectDetail from "./pages/terminal/ProjectDetail";
+
+// Shared Pages
 import NotFound from "./pages/NotFound";
-import ProjectDetail from "./pages/ProjectDetail";
-import Projects from "./pages/Projects";
 import SpotifyTokenHelper from "./pages/SpotifyTokenHelper";
-import ClientForm from "./pages/ClientForm";
-import Services from "./pages/Services";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const queryClient = new QueryClient();
+
+// Component to conditionally render LanguageSwitcher only on /old routes
+const ConditionalLanguageSwitcher = () => {
+  const location = useLocation();
+  const isOldPortfolio = location.pathname.startsWith('/old');
+
+  if (!isOldPortfolio) return null;
+
+  return (
+    <div className="absolute top-4 right-4 z-50">
+      <LanguageSwitcher />
+    </div>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <div className="min-h-screen">
-        {/* Language Switcher - positioned at top right */}
-        <div className="absolute top-4 right-4 z-50">
-          <LanguageSwitcher />
-        </div>
-        
-        <BrowserRouter>
+      <BrowserRouter>
+        <div className="min-h-screen">
+          {/* Language Switcher - only on old portfolio */}
+          <ConditionalLanguageSwitcher />
+
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
-            <Route path="/projects" element={<Projects />} />
+            {/* New Terminal Portfolio */}
+            <Route path="/" element={<TerminalHome />} />
+            <Route path="/project/:slug" element={<ProjectDetail />} />
+
+            {/* Old Portfolio Routes */}
+            <Route path="/old" element={<OldIndex />} />
+            <Route path="/old/project/:id" element={<OldProjectDetail />} />
+            <Route path="/old/projects" element={<OldProjects />} />
+            <Route path="/old/services" element={<OldServices />} />
+            <Route path="/old/client-form" element={<OldClientForm />} />
+
+            {/* Utility Routes */}
             <Route path="/spotify-helper" element={<SpotifyTokenHelper />} />
-            <Route path="/client-form" element={<ClientForm />} />
-            <Route path="/services" element={<Services />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+            {/* Catch-all 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

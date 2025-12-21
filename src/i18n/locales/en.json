@@ -742,5 +742,43 @@
       "error_message": "There was an error submitting your form. Please try again.",
       "previous": "Previous"
     }
+  },
+  "terminal": {
+    "welcome": "Welcome to eylulcaganugtur.com - Type 'help' for available commands",
+    "commands": {
+      "help": "List available commands",
+      "about": "Learn about me",
+      "projects": "List my projects",
+      "skills": "Show my tech stack",
+      "contact": "Get contact information",
+      "social": "Show social links",
+      "clear": "Clear the terminal",
+      "echo": "Echo back text",
+      "whoami": "Who is visiting?",
+      "date": "Show current date",
+      "scroll": "Scroll to a section",
+      "not_found": "Command not found. Type 'help' for available commands."
+    },
+    "nav": {
+      "intro": "intro",
+      "projects": "projects",
+      "experience": "experience",
+      "education": "education",
+      "skills": "skills",
+      "blog": "blog",
+      "contact": "contact",
+      "resume": "resume"
+    },
+    "sections": {
+      "intro": "cat intro.txt",
+      "projects": "ls ./projects",
+      "experience": "cat experience.log",
+      "education": "cat education.txt",
+      "skills": "cat stack.json",
+      "blog": "grep -r \"latest\" ./blog",
+      "spotify": "sptfy --now-playing",
+      "links": "ls ./links",
+      "contact": "cat contact.txt"
+    }
   }
 }

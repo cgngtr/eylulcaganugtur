@@ -21,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				mono: ['Fira Code', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -73,6 +74,26 @@ export default {
 					light: '#b2a7fb',
 					DEFAULT: '#8b5cf6',
 					dark: '#7c3aed',
+				},
+				terminal: {
+					bg: {
+						dark: 'hsl(var(--terminal-bg-dark))',
+						medium: 'hsl(var(--terminal-bg-medium))',
+						light: 'hsl(var(--terminal-bg-light))',
+					},
+					prompt: 'hsl(var(--terminal-prompt))',
+					directory: 'hsl(var(--terminal-directory))',
+					command: 'hsl(var(--terminal-command))',
+					output: 'hsl(var(--terminal-output))',
+					muted: 'hsl(var(--terminal-muted))',
+					keyword: 'hsl(var(--terminal-keyword))',
+					constant: 'hsl(var(--terminal-constant))',
+					border: 'hsl(var(--terminal-border))',
+					selection: 'hsl(var(--terminal-selection))',
+					error: 'hsl(var(--terminal-error))',
+					warning: 'hsl(var(--terminal-warning))',
+					info: 'hsl(var(--terminal-info))',
+					success: 'hsl(var(--terminal-success))',
 				}
 			},
 			borderRadius: {
@@ -96,11 +117,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'cursor-blink': {
+					'0%, 50%': { opacity: '1' },
+					'51%, 100%': { opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'cursor-blink': 'cursor-blink 1s step-end infinite'
 			}
 		}
 	},
