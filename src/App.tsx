@@ -17,7 +17,6 @@ import ClientForm from "./pages/terminal/ClientForm";
 
 // Shared Pages
 import NotFound from "./pages/NotFound";
-import DesignSystemShowcase from "./pages/DesignSystemShowcase";
 import SpotifyTokenHelper from "./pages/SpotifyTokenHelper";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
@@ -61,7 +60,6 @@ const App = () => (
 
             {/* Utility Routes */}
             <Route path="/spotify-helper" element={<SpotifyTokenHelper />} />
-            <Route path="/design-system" element={<DesignSystemShowcase />} />
 
             {/* Catch-all 404 */}
             <Route path="*" element={<NotFound />} />
