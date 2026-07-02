@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TerminalCard } from '../index';
 import { ExternalLink, Calendar, TrendingUp, Github } from 'lucide-react';
-import { getChartColor } from '@/lib/useTheme';
+import { GithubCalendar } from '@/components/ui/github-calendar';
 
 const GITHUB_USERNAME = 'cgngtr';
 const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
@@ -110,11 +110,14 @@ const GitHubTerminal: React.FC = () => {
                 <span>contribution activity</span>
               </div>
               <div className="border border-terminal-border rounded-lg p-4 bg-terminal-bg-light/30 overflow-x-auto">
-                <img
-                  src={`https://ghchart.rshah.org/${getChartColor()}/${GITHUB_USERNAME}`}
-                  alt={`${GITHUB_USERNAME}'s GitHub Contribution Chart`}
-                  className="w-full"
-                  style={{ filter: 'invert(0.85) hue-rotate(180deg) brightness(1.2) saturate(1.5)' }}
+                <GithubCalendar
+                  username={GITHUB_USERNAME}
+                  variant="city-lights"
+                  colorSchema="green"
+                  shape="rounded"
+                  glowIntensity={3}
+                  showTotal={false}
+                  className="min-w-max"
                 />
               </div>
             </div>
