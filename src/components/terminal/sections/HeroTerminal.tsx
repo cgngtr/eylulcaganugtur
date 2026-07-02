@@ -6,8 +6,8 @@ const HeroTerminal: React.FC = () => {
     <TerminalCard command="cat intro.txt" id="intro">
       <div className="space-y-4 text-terminal-output leading-relaxed">
         <p>
-          i'm çağan, a computer engineering student at OSTIM Technical University
-          in Ankara. currently distributing confix and building side projects.
+          i'm çağan, a computer engineering graduate from OSTIM Technical University.
+          currently distributing confix and shipping MIMIC, resolves, and Saatinde.
           i build fullstack web & mobile apps with TypeScript, React, and Next.js.
         </p>
         <p>

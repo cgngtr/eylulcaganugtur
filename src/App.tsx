@@ -9,14 +9,15 @@ import OldIndex from "./pages/old/Index";
 import OldProjectDetail from "./pages/old/ProjectDetail";
 import OldProjects from "./pages/old/Projects";
 import OldServices from "./pages/old/Services";
-import OldClientForm from "./pages/old/ClientForm";
 
 // Terminal Portfolio Pages
 import TerminalHome from "./pages/terminal/TerminalHome";
 import ProjectDetail from "./pages/terminal/ProjectDetail";
+import ClientForm from "./pages/terminal/ClientForm";
 
 // Shared Pages
 import NotFound from "./pages/NotFound";
+import DesignSystemShowcase from "./pages/DesignSystemShowcase";
 import SpotifyTokenHelper from "./pages/SpotifyTokenHelper";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
@@ -50,16 +51,17 @@ const App = () => (
             {/* New Terminal Portfolio */}
             <Route path="/" element={<TerminalHome />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="/client-form" element={<ClientForm />} />
 
             {/* Old Portfolio Routes */}
             <Route path="/old" element={<OldIndex />} />
             <Route path="/old/project/:id" element={<OldProjectDetail />} />
             <Route path="/old/projects" element={<OldProjects />} />
             <Route path="/old/services" element={<OldServices />} />
-            <Route path="/old/client-form" element={<OldClientForm />} />
 
             {/* Utility Routes */}
             <Route path="/spotify-helper" element={<SpotifyTokenHelper />} />
+            <Route path="/design-system" element={<DesignSystemShowcase />} />
 
             {/* Catch-all 404 */}
             <Route path="*" element={<NotFound />} />

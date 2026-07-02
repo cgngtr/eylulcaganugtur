@@ -27,7 +27,7 @@ Landing pages are critical for conversion, but most small businesses and freelan
 
 Confix solves this by providing AI-powered analysis that reviews visual design, UX patterns, copywriting, and conversion optimization—like having a senior UX/CRO consultant review your landing page in 30 seconds.`,
     period: 'Nov 2025 - Present',
-    tech: ['Next.js', 'React', 'TypeScript', 'Prisma', 'Claude AI', 'Tailwind', 'Supabase', 'Polar', 'Resend', 'PostHog'],
+    tech: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind', 'Supabase'],
     images: ['/images/projects/confix.png'],
     live: 'https://confix.dev',
   },
@@ -64,6 +64,42 @@ Perfect for roommates, trips, or any shared expenses. Features include expense t
     tech: ['React', 'TypeScript', 'Tailwind', 'Supabase'],
     images: ['/images/projects/balancr.png'],
     live: 'https://balancr.vercel.app',
+  },
+  mimic: {
+    slug: 'mimic',
+    name: 'MIMIC',
+    description: 'AI voice matching and tweet scheduling',
+    longDescription: `MIMIC matches Twitter voices with AI. It analyzes a handle's recent tweets to build a voice fingerprint, then helps generate tweets, threads, replies, and scheduled content that stays close to the selected persona.
+
+Developed and released in February 2026 at usemimic.app.`,
+    period: 'Feb 2026',
+    tech: [],
+    images: [],
+    live: 'https://usemimic.app/',
+  },
+  resolves: {
+    slug: 'resolves',
+    name: 'resolves',
+    description: 'AI-powered decision coaching',
+    longDescription: `resolves is an AI-powered decision coaching platform. It combines a personal decision profile, simultaneous multi-model AI analysis, crowd wisdom from similar situations, and follow-up outcome tracking.
+
+Developed and released in April 2026 at resolves.app.`,
+    period: 'Apr 2026',
+    tech: [],
+    images: [],
+    live: 'https://resolves.app/',
+  },
+  saatinde: {
+    slug: 'saatinde',
+    name: 'Saatinde',
+    description: 'Online appointment management system',
+    longDescription: `Saatinde is an online appointment management system for service businesses such as lawyers, dentists, and architects. It gives each business a branded booking page, supports upfront payments, automatic reminders, manual appointments, and double-booking prevention.
+
+Developed and released in May 2026 at saatin.de.`,
+    period: 'May 2026',
+    tech: [],
+    images: [],
+    live: 'https://saatin.de/',
   },
 };
 
@@ -151,20 +187,21 @@ const ProjectDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Tech stack */}
-            <div className="space-y-3">
-              <h2 className="text-terminal-keyword text-sm uppercase tracking-wider">Tech Stack</h2>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-sm rounded bg-terminal-bg-light text-terminal-constant"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            {project.tech.length > 0 && (
+              <div className="space-y-3">
+                <h2 className="text-terminal-keyword text-sm uppercase tracking-wider">Tech Stack</h2>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-sm rounded bg-terminal-bg-light text-terminal-constant"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Screenshots */}
             {project.images.length > 0 && (

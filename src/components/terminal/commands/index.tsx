@@ -41,9 +41,9 @@ const aboutCommand: Command = {
     output: (
       <div className="space-y-2">
         <div className="text-terminal-command">Çağan</div>
-        <div className="text-terminal-output">Fullstack Developer · CS Student · Open for Internships</div>
+        <div className="text-terminal-output">Fullstack Developer · Computer Engineering Graduate</div>
         <div className="text-terminal-muted text-sm mt-2">
-          Currently distributing Confix and building side projects.
+          Currently distributing Confix and shipping MIMIC, resolves, and Saatinde.
           <br />
           I build web & mobile apps with TypeScript, React, and Next.js.
         </div>
@@ -61,6 +61,21 @@ const projectsCommand: Command = {
       <div className="space-y-2">
         <div className="text-terminal-muted">Recent projects:</div>
         <div className="pl-2 space-y-1">
+          <div>
+            <span className="text-terminal-directory">→</span>{' '}
+            <span className="text-terminal-command">Saatinde</span>{' '}
+            <span className="text-terminal-muted">- Appointment management</span>
+          </div>
+          <div>
+            <span className="text-terminal-directory">→</span>{' '}
+            <span className="text-terminal-command">resolves</span>{' '}
+            <span className="text-terminal-muted">- AI decision coaching</span>
+          </div>
+          <div>
+            <span className="text-terminal-directory">→</span>{' '}
+            <span className="text-terminal-command">MIMIC</span>{' '}
+            <span className="text-terminal-muted">- AI voice matching</span>
+          </div>
           <div>
             <span className="text-terminal-directory">→</span>{' '}
             <span className="text-terminal-command">Confix</span>{' '}
@@ -97,23 +112,23 @@ const skillsCommand: Command = {
   handler: () => ({
     output: (
       <div className="space-y-2">
-        <div className="text-terminal-muted">Tech Stack:</div>
+        <div className="text-terminal-muted">Core stack:</div>
         <div className="pl-2 space-y-1 text-sm">
           <div>
             <span className="text-terminal-keyword">languages:</span>{' '}
             <span className="text-terminal-prompt">TypeScript, JavaScript, C++, SQL</span>
           </div>
           <div>
-            <span className="text-terminal-keyword">frontend:</span>{' '}
+            <span className="text-terminal-keyword">app_frontend:</span>{' '}
             <span className="text-terminal-prompt">React, React Native, Next.js, Expo, Tailwind</span>
           </div>
           <div>
-            <span className="text-terminal-keyword">backend:</span>{' '}
-            <span className="text-terminal-prompt">Node.js, Supabase, Prisma, PostgreSQL</span>
+            <span className="text-terminal-keyword">backend_data:</span>{' '}
+            <span className="text-terminal-prompt">Node.js, Supabase, PostgreSQL, Prisma</span>
           </div>
           <div>
-            <span className="text-terminal-keyword">ai:</span>{' '}
-            <span className="text-terminal-prompt">Claude AI, Google Gemini, Vertex AI</span>
+            <span className="text-terminal-keyword">ai_ocr:</span>{' '}
+            <span className="text-terminal-prompt">LLM integrations, OCR workflows</span>
           </div>
         </div>
       </div>
@@ -226,7 +241,7 @@ const scrollCommand: Command = {
   description: 'Scroll to a section (e.g., scroll projects)',
   handler: (args) => {
     const section = args[0]?.toLowerCase();
-    const validSections = ['intro', 'projects', 'experience', 'education', 'skills', 'blog', 'spotify', 'links', 'contact'];
+    const validSections = ['intro', 'projects', 'experience', 'education', 'achievements', 'skills', 'blog', 'spotify', 'links', 'contact'];
 
     if (!section) {
       return {

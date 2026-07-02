@@ -48,9 +48,9 @@
     "view_services": "Hizmetler Sayfasını Aç"
   },
   "tech_stack": {
-    "title": "Kullandığım Teknolojiler",
+    "title": "Çekirdek Teknoloji Yığını",
     "description": "Projelerimde tercih ettiğim teknolojiler",
-    "subtitle": "Projelerimde en sık kullandığım teknoloji yığını"
+    "subtitle": "En sık kullandığım çekirdek araçlar"
   },
   "work_process": {
     "title": "Çalışma Sürecim",
@@ -654,9 +654,17 @@
     ]
   },
   "client_form": {
-    "title": "Müşteri Bilgi Formu",
-    "subtitle": "Proje gereksinimlerinizi daha iyi anlayabilmem için lütfen formu doldurun",
-    "back_to_services": "Hizmetlere dön",
+    "title": "Müşteri bilgi formu",
+    "subtitle": "Projeyi doğru kapsamlandırmak için gereken bilgileri paylaşın.",
+    "kicker": "Proje keşif formu",
+    "back_to_services": "Portföye dön",
+    "progress_label": "İlerleme",
+    "current_step": "Adım {{current}} / {{total}}",
+    "step_helper": "Devam etmeden önce bu bölümü tamamlayın.",
+    "scope_note_title": "Gönderdikten sonra",
+    "scope_note": "Yanıtları inceleyip kapsam, zaman planı ve açık sorularla dönüş yapacağım.",
+    "privacy_note_title": "Gizlilik",
+    "privacy_note": "Paylaştığınız bilgiler yalnızca projenizi değerlendirmek ve planlamak için kullanılır.",
     "steps": {
       "brand": "Marka ve Ürünler",
       "design": "Tasarım",
@@ -665,8 +673,8 @@
       "review": "Kontrol"
     },
     "brand": {
-      "title": "Marka ve Ürün Bilgileri",
-      "brand_name": "Marka Adı",
+      "title": "Marka ve ürün bilgileri",
+      "brand_name": "Marka adı",
       "brand_name_placeholder": "Marka adınızı yazın",
       "products": "Satılacak ürünler",
       "products_placeholder": "Hangi ürünleri satacaksınız?",
@@ -682,7 +690,7 @@
       "previous": "Önceki"
     },
     "design": {
-      "title": "Tasarım Tercihleri",
+      "title": "Tasarım tercihleri",
       "color_theme": "Renk teması",
       "color_theme_placeholder": "Belirli renk ya da temalar var mı?",
       "fonts": "Yazı tipi tercihleri",
@@ -691,12 +699,12 @@
       "brand_identity_available": "Evet, mevcut marka materyallerim var (logo, renkler vb.)",
       "brand_identity_needed": "Hayır, marka kimliği tasarımına ihtiyacım var",
       "reference_sites": "Referans web siteleri",
-      "reference_sites_placeholder": "Beğendiğiniz örnek siteler varsa URL’leri paylaşın",
+      "reference_sites_placeholder": "Beğendiğiniz örnek siteler varsa URL'leri paylaşın",
       "next": "Sonraki: Ödeme",
       "previous": "Önceki"
     },
     "payment": {
-      "title": "Ödeme ve Kargo Bilgileri",
+      "title": "Ödeme ve kargo bilgileri",
       "payment_methods": "Ödeme yöntemleri",
       "credit_card": "Kredi kartı",
       "bank_transfer": "Banka havalesi",
@@ -708,14 +716,14 @@
       "shipping_company_placeholder": "Tercih ettiğiniz bir kargo firması var mı?",
       "shipping_cost": "Kargo ücreti",
       "shipping_cost_customer": "Müşteri öder",
-      "shipping_cost_merchant": "Biz karşılarız",
+      "shipping_cost_merchant": "Satıcı karşılar",
       "return_policy": "İade politikası",
       "return_policy_placeholder": "İade ve değişim politikanızı açıklayın",
       "next": "Sonraki: Teknik",
       "previous": "Önceki"
     },
     "technical": {
-      "title": "Teknik Bilgiler",
+      "title": "Teknik bilgiler",
       "tech_stack": "Teknoloji yığını",
       "react_supabase": "React + Supabase (önerilen)",
       "maintenance": "Bakım hizmeti",
@@ -732,14 +740,16 @@
       "previous": "Önceki"
     },
     "review": {
-      "title": "Bilgilerinizi Kontrol Edin",
-      "subtitle": "Göndermeden önce tüm bilgilerinizi gözden geçirin",
-      "submit": "Formu Gönder",
-      "submitting": "Gönderiliyor...",
-      "success_title": "Teşekkürler!",
-      "success_message": "Bilgileriniz başarıyla ulaştı. En kısa sürede sonraki adımları konuşmak için sizinle iletişime geçeceğim.",
-      "error_title": "Hata",
-      "error_message": "Form gönderilirken bir sorun oluştu. Lütfen tekrar deneyin.",
+      "title": "Bilgilerinizi kontrol edin",
+      "subtitle": "E-posta taslağını hazırlamadan önce özeti gözden geçirin.",
+      "submit": "E-postayı hazırla",
+      "submitting": "Hazırlanıyor...",
+      "success_title": "E-posta taslağı hazır",
+      "success_message": "Proje detaylarınızı içeren e-posta taslağı açıldı. Talebi tamamlamak için e-postayı gönderin.",
+      "success_back": "Portföye dön",
+      "error_title": "E-posta taslağı hazırlanamadı",
+      "error_message": "E-posta taslağı hazırlanırken bir sorun oluştu. Lütfen tekrar deneyin.",
+      "not_provided": "Belirtilmedi",
       "previous": "Önceki"
     }
   },

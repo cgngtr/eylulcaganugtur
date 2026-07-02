@@ -14,11 +14,11 @@ interface Education {
 const education: Education[] = [
   {
     id: '1',
-    degree: 'Computer Engineering (4th Year)',
+    degree: 'Computer Engineering',
     school: 'OSTIM Technical University',
     location: 'Ankara, Türkiye',
     period: '2022 - 2026',
-    description: 'Focus on software engineering and web development',
+    description: 'Graduated; focused on software engineering and web development',
   },
 ];
 

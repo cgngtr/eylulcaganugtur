@@ -56,7 +56,7 @@ const ContactTerminal: React.FC = () => {
               Send Message
             </a>
             <a
-              href="/old/client-form"
+              href="/client-form"
               className="inline-flex items-center gap-2 px-4 py-2 bg-terminal-bg-light hover:bg-terminal-selection text-terminal-output rounded-lg transition-colors"
             >
               <MessageSquare className="w-4 h-4" />

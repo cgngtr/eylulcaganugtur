@@ -6,6 +6,7 @@ import {
   ProjectsTerminal,
   ExperienceTerminal,
   EducationTerminal,
+  AchievementsTerminal,
   SkillsTerminal,
   BlogTerminal,
   SpotifyTerminal,
@@ -38,6 +39,9 @@ const TerminalHome: React.FC = () => {
 
         {/* Education */}
         <EducationTerminal />
+
+        {/* Achievements */}
+        <AchievementsTerminal />
 
         {/* Skills */}
         <SkillsTerminal />

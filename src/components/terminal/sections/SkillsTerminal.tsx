@@ -12,24 +12,24 @@ const skillCategories: SkillCategory[] = [
     skills: ['TypeScript', 'JavaScript', 'C++', 'SQL'],
   },
   {
-    name: 'frontend',
-    skills: ['React', 'React Native', 'Next.js', 'Expo', 'Tailwind CSS', 'Framer Motion', 'Tamagui'],
+    name: 'app_frontend',
+    skills: ['React', 'React Native', 'Next.js', 'Expo', 'Tailwind CSS'],
   },
   {
-    name: 'state_and_data',
-    skills: ['Zustand', 'React Query', 'React Hook Form', 'Zod'],
+    name: 'state_forms',
+    skills: ['Zustand', 'TanStack Query', 'React Hook Form', 'Zod'],
   },
   {
-    name: 'backend',
-    skills: ['Node.js', 'Supabase', 'Prisma', 'PostgreSQL', 'Cloudflare R2'],
+    name: 'backend_data',
+    skills: ['Node.js', 'Supabase', 'PostgreSQL', 'Prisma'],
   },
   {
-    name: 'ai_and_ml',
-    skills: ['Claude AI', 'Google Gemini', 'Vertex AI', 'ML Kit OCR'],
+    name: 'infra_tools',
+    skills: ['Vercel', 'Cloudflare R2', 'Resend'],
   },
   {
-    name: 'services',
-    skills: ['Vercel', 'Polar', 'Resend', 'PostHog', 'Better Auth'],
+    name: 'ai_ocr',
+    skills: ['LLM integrations', 'OCR workflows'],
   },
 ];
 

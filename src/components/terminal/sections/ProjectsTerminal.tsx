@@ -17,15 +17,42 @@ interface Project {
 const projects: Project[] = [
   {
     id: '1',
+    slug: 'saatinde',
+    name: 'Saatinde',
+    description: 'Appointment platform with booking pages, upfront payments, reminders, and double-booking protection',
+    period: 'May 2026',
+    tech: [],
+    live: 'https://saatin.de/',
+  },
+  {
+    id: '2',
+    slug: 'resolves',
+    name: 'resolves',
+    description: 'AI decision coaching with personal profiles, multi-model deliberation, crowd wisdom, and outcome follow-ups',
+    period: 'Apr 2026',
+    tech: [],
+    live: 'https://resolves.app/',
+  },
+  {
+    id: '3',
+    slug: 'mimic',
+    name: 'MIMIC',
+    description: 'AI voice matching and tweet scheduling for generating content in a selected Twitter persona',
+    period: 'Feb 2026',
+    tech: [],
+    live: 'https://usemimic.app/',
+  },
+  {
+    id: '4',
     slug: 'confix',
     name: 'Confix',
     description: 'AI-powered landing page analyzer that gives actionable recommendations to improve conversion rates',
     period: 'Nov 2025 - Present',
-    tech: ['Next.js', 'React', 'TypeScript', 'Prisma', 'Claude AI', 'Tailwind'],
+    tech: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind'],
     live: 'https://confix.dev',
   },
   {
-    id: '2',
+    id: '5',
     slug: 'caruso-olive',
     name: 'Caruso Olive',
     description: 'E-commerce website built for a client with full payment integration',
@@ -33,7 +60,7 @@ const projects: Project[] = [
     tech: ['React', 'Tailwind', 'Supabase', 'Iyzico'],
   },
   {
-    id: '3',
+    id: '6',
     slug: 'ostim-publications',
     name: 'OSTIM Institutional Publications',
     description: 'Research platform for OSTIM Technical University',
@@ -41,7 +68,7 @@ const projects: Project[] = [
     tech: ['React', 'MySQL'],
   },
   {
-    id: '4',
+    id: '7',
     slug: 'balancr',
     name: 'Balancr',
     description: 'Helps groups split expenses, track balances, and settle payments—fairly and effortlessly',
@@ -113,17 +140,18 @@ const ProjectsTerminal: React.FC = () => {
                 {project.description}
               </p>
 
-              {/* Tech tags */}
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-xs rounded bg-terminal-bg-light text-terminal-constant"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              {project.tech.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded bg-terminal-bg-light text-terminal-constant"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
             </Link>
           ))}
         </div>

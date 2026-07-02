@@ -60,6 +60,8 @@ const TerminalNav: React.FC = () => {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/${href}`;
     }
     setIsMenuOpen(false);
   };
