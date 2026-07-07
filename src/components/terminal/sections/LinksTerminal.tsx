@@ -1,6 +1,6 @@
 import React from 'react';
 import { TerminalCard } from '../index';
-import { Github, FileText, Globe, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, FileText, Linkedin, Twitter, Mail } from 'lucide-react';
 
 interface Link {
   id: string;
@@ -8,7 +8,7 @@ interface Link {
   description: string;
   url: string;
   icon: React.ReactNode;
-  color: string;
+  iconClass: string;
 }
 
 const links: Link[] = [
@@ -18,7 +18,7 @@ const links: Link[] = [
     description: 'source code & projects',
     url: 'https://github.com/cgngtr',
     icon: <Github className="w-5 h-5" />,
-    color: 'text-terminal-output',
+    iconClass: 'is-github',
   },
   {
     id: 'linkedin',
@@ -26,7 +26,7 @@ const links: Link[] = [
     description: 'professional network',
     url: 'https://linkedin.com/in/eylul-cagan-ugtur',
     icon: <Linkedin className="w-5 h-5" />,
-    color: 'text-terminal-info',
+    iconClass: 'is-blue',
   },
   {
     id: 'twitter',
@@ -34,23 +34,15 @@ const links: Link[] = [
     description: 'thoughts & updates',
     url: 'https://twitter.com/buildincrisis',
     icon: <Twitter className="w-5 h-5" />,
-    color: 'text-terminal-directory',
+    iconClass: 'is-x',
   },
   {
     id: 'resume',
-    name: 'resume.pdf',
-    description: 'download my resume',
-    url: '/resume.pdf',
+    name: 'request-cv',
+    description: 'ask for current resume',
+    url: 'mailto:cgngtr5026@gmail.com?subject=Resume%20request',
     icon: <FileText className="w-5 h-5" />,
-    color: 'text-terminal-command',
-  },
-  {
-    id: 'old-portfolio',
-    name: 'old-portfolio',
-    description: 'previous portfolio design',
-    url: '/old',
-    icon: <Globe className="w-5 h-5" />,
-    color: 'text-terminal-constant',
+    iconClass: 'is-file',
   },
   {
     id: 'email',
@@ -58,7 +50,7 @@ const links: Link[] = [
     description: 'get in touch',
     url: 'mailto:cgngtr5026@gmail.com',
     icon: <Mail className="w-5 h-5" />,
-    color: 'text-terminal-keyword',
+    iconClass: 'is-mail',
   },
 ];
 
@@ -72,27 +64,27 @@ const LinksTerminal: React.FC = () => {
         </div>
 
         {/* Links grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="site-launcher-grid">
           {links.map((link) => (
             <a
               key={link.id}
               href={link.url}
               target={link.url.startsWith('http') ? '_blank' : undefined}
               rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group flex items-center gap-3 p-3 rounded-lg border border-terminal-border hover:border-terminal-prompt hover:bg-terminal-bg-light/50 transition-all"
+              className="site-launcher-tile"
             >
-              <div className={`${link.color}`}>{link.icon}</div>
-              <div className="flex-1 min-w-0">
-                <div className="font-medium text-terminal-output group-hover:text-terminal-command transition-colors">
-                  {link.name}
-                </div>
-                <div className="text-xs text-terminal-muted truncate">
-                  {link.description}
-                </div>
-              </div>
-              <span className="text-terminal-muted group-hover:text-terminal-prompt transition-colors">
-                →
+              <span className={`site-launcher-icon ${link.iconClass}`} aria-hidden="true">
+                {link.icon}
               </span>
+              <span className="min-w-0">
+                <span className="block font-semibold text-terminal-output">
+                  {link.name}
+                </span>
+                <span className="block truncate text-xs text-terminal-muted">
+                  {link.description}
+                </span>
+              </span>
+              <span className="text-terminal-muted" aria-hidden="true">→</span>
             </a>
           ))}
         </div>

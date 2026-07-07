@@ -80,19 +80,19 @@ const GitHubTerminal: React.FC = () => {
     <TerminalCard command="gh contributions" directory="~" id="github">
       <div className="space-y-6">
         {/* Header with GitHub link */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <Github className="w-5 h-5 text-terminal-output" />
-            <span className="text-terminal-command font-mono">@{GITHUB_USERNAME}</span>
+            <Github className="h-5 w-5 text-terminal-output" />
+            <span className="font-mono text-terminal-command">@{GITHUB_USERNAME}</span>
           </div>
           <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-terminal-directory hover:text-terminal-command transition-colors"
+            className="site-button"
           >
-            <ExternalLink className="w-4 h-4" />
-            view profile
+            <ExternalLink className="h-4 w-4" />
+            View GitHub profile
           </a>
         </div>
 
@@ -109,64 +109,63 @@ const GitHubTerminal: React.FC = () => {
                 <Calendar className="w-4 h-4" />
                 <span>contribution activity</span>
               </div>
-              <div className="border border-terminal-border rounded-lg p-4 bg-terminal-bg-light/30 overflow-x-auto">
+              <div className="site-contribution-shell">
                 <GithubCalendar
                   username={GITHUB_USERNAME}
                   variant="city-lights"
                   colorSchema="green"
                   shape="rounded"
-                  glowIntensity={3}
+                  glowIntensity={0}
                   showTotal={false}
-                  className="min-w-max"
                 />
               </div>
             </div>
 
             {/* Stats Grid */}
             {stats && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="border border-terminal-border rounded-lg p-3 bg-terminal-bg-light/30">
-                  <div className="flex items-center gap-2 mb-1">
-                    <TrendingUp className="w-4 h-4 text-terminal-success" />
-                    <span className="text-xs text-terminal-muted">total</span>
+              <div className="site-stat-strip">
+                <div className="site-stat-card">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4 text-terminal-success" />
+                    <span>total</span>
                   </div>
-                  <div className="text-lg font-bold text-terminal-output font-mono">
+                  <div className="site-stat-number">
                     {stats.total.toLocaleString()}
                   </div>
-                  <div className="text-xs text-terminal-muted mt-1">contributions</div>
+                  <span>contributions</span>
                 </div>
 
-                <div className="border border-terminal-border rounded-lg p-3 bg-terminal-bg-light/30">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Calendar className="w-4 h-4 text-terminal-info" />
-                    <span className="text-xs text-terminal-muted">this year</span>
+                <div className="site-stat-card">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-terminal-info" />
+                    <span>this year</span>
                   </div>
-                  <div className="text-lg font-bold text-terminal-output font-mono">
+                  <div className="site-stat-number">
                     {stats.thisYear.toLocaleString()}
                   </div>
-                  <div className="text-xs text-terminal-muted mt-1">contributions</div>
+                  <span>contributions</span>
                 </div>
 
-                <div className="border border-terminal-border rounded-lg p-3 bg-terminal-bg-light/30">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Calendar className="w-4 h-4 text-terminal-prompt" />
-                    <span className="text-xs text-terminal-muted">this month</span>
+                <div className="site-stat-card">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-terminal-prompt" />
+                    <span>this month</span>
                   </div>
-                  <div className="text-lg font-bold text-terminal-output font-mono">
+                  <div className="site-stat-number">
                     {stats.thisMonth.toLocaleString()}
                   </div>
-                  <div className="text-xs text-terminal-muted mt-1">contributions</div>
+                  <span>contributions</span>
                 </div>
 
-                <div className="border border-terminal-border rounded-lg p-3 bg-terminal-bg-light/30">
-                  <div className="flex items-center gap-2 mb-1">
-                    <TrendingUp className="w-4 h-4 text-terminal-constant" />
-                    <span className="text-xs text-terminal-muted">max streak</span>
+                <div className="site-stat-card">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4 text-terminal-constant" />
+                    <span>max streak</span>
                   </div>
-                  <div className="text-lg font-bold text-terminal-output font-mono">
+                  <div className="site-stat-number">
                     {stats.maxStreak}
                   </div>
-                  <div className="text-xs text-terminal-muted mt-1">days</div>
+                  <span>days</span>
                 </div>
               </div>
             )}

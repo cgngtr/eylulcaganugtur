@@ -16,7 +16,7 @@ const education: Education[] = [
     id: '1',
     degree: 'Computer Engineering',
     school: 'OSTIM Technical University',
-    location: 'Ankara, Türkiye',
+    location: 'Ankara, Turkey',
     period: '2022 - 2026',
     description: 'Graduated; focused on software engineering and web development',
   },
@@ -27,40 +27,35 @@ const EducationTerminal: React.FC = () => {
     <TerminalCard command="cat education.txt" id="education">
       <div className="space-y-6">
         {education.map((edu) => (
-          <div
-            key={edu.id}
-            className="flex items-start gap-4 p-4 rounded-lg border border-terminal-border hover:border-terminal-directory transition-colors"
-          >
-            {/* Icon */}
-            <div className="p-3 rounded-lg bg-terminal-bg-light">
-              <GraduationCap className="w-6 h-6 text-terminal-directory" />
+          <article key={edu.id} className="site-record">
+            <div className="site-record-icon">
+              <GraduationCap className="h-5 w-5" />
             </div>
 
-            {/* Content */}
-            <div className="flex-1">
+            <div className="min-w-0 flex-1">
               <h3 className="text-lg font-semibold text-terminal-command">
                 {edu.degree}
               </h3>
               <p className="text-terminal-output/80">{edu.school}</p>
 
-              <div className="flex flex-wrap items-center gap-3 text-sm text-terminal-muted mt-2">
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-terminal-muted">
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
+                  <MapPin className="h-4 w-4" />
                   {edu.location}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="h-4 w-4" />
                   {edu.period}
                 </span>
               </div>
 
               {edu.description && (
-                <p className="text-sm text-terminal-output/60 mt-2">
+                <p className="mt-2 text-sm leading-6 text-terminal-output/70">
                   {edu.description}
                 </p>
               )}
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </TerminalCard>

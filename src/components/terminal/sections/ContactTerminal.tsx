@@ -1,40 +1,60 @@
 import React from 'react';
 import { TerminalCard } from '../index';
 import { Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const istanbulTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+  timeZone: 'Europe/Istanbul',
+});
 
 const ContactTerminal: React.FC = () => {
+  const [localTime, setLocalTime] = React.useState(() => istanbulTimeFormatter.format(new Date()));
+
+  React.useEffect(() => {
+    const interval = window.setInterval(() => setLocalTime(istanbulTimeFormatter.format(new Date())), 30_000);
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <TerminalCard command="cat contact.txt" id="contact">
       <div className="space-y-6">
         {/* Contact info */}
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <Mail className="w-5 h-5 text-terminal-command" />
-            <div>
-              <div className="text-terminal-muted text-xs">email</div>
-              <a
-                href="mailto:cgngtr5026@gmail.com"
-                className="text-terminal-directory hover:text-terminal-command transition-colors"
-              >
-                cgngtr5026@gmail.com
-              </a>
-            </div>
+        <div className="grid gap-3 md:grid-cols-3">
+          <a href="mailto:cgngtr5026@gmail.com" className="site-link-tile">
+            <span className="site-link-icon">
+              <Mail className="h-4 w-4" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-xs text-terminal-muted">email</span>
+              <span className="block truncate font-semibold text-terminal-output">cgngtr5026@gmail.com</span>
+            </span>
+          </a>
+
+          <div className="site-info-tile">
+            <span className="site-link-icon">
+              <MapPin className="h-4 w-4" />
+            </span>
+            <span>
+              <span className="block text-xs text-terminal-muted">location</span>
+              <span className="font-semibold text-terminal-output">Ankara, Turkey</span>
+            </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <MapPin className="w-5 h-5 text-terminal-command" />
-            <div>
-              <div className="text-terminal-muted text-xs">location</div>
-              <span className="text-terminal-output">Ankara, Türkiye</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Clock className="w-5 h-5 text-terminal-command" />
-            <div>
-              <div className="text-terminal-muted text-xs">timezone</div>
-              <span className="text-terminal-output">UTC+3</span>
-            </div>
+          <div className="site-info-tile site-status-tile">
+            <span className="site-link-icon">
+              <Clock className="h-4 w-4" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-xs text-terminal-muted">local status</span>
+              <span className="site-status-line" aria-label={`Local status: ${localTime} (UTC+3), Online`}>
+                <span className="site-clock">{localTime}</span>
+                <small>(UTC+3)</small>
+                <span className="site-online-pill">Online</span>
+              </span>
+            </span>
           </div>
         </div>
 
@@ -44,32 +64,32 @@ const ContactTerminal: React.FC = () => {
         {/* CTA */}
         <div className="space-y-4">
           <p className="text-terminal-output/80">
-            Want to discuss your project? Let's work together to bring your ideas to life.
+            Project discussion and scope review are available by email or the intake form.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <a
               href="mailto:cgngtr5026@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-terminal-prompt/10 hover:bg-terminal-prompt/20 text-terminal-prompt rounded-lg transition-colors"
+              className="site-button is-primary"
             >
-              <Mail className="w-4 h-4" />
-              Send Message
+              <Mail className="h-4 w-4" />
+              Send message
             </a>
-            <a
-              href="/client-form"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-terminal-bg-light hover:bg-terminal-selection text-terminal-output rounded-lg transition-colors"
+            <Link
+              to="/client-form"
+              className="site-button"
             >
-              <MessageSquare className="w-4 h-4" />
-              Hire Me
-            </a>
+              <MessageSquare className="h-4 w-4" />
+              Start a project
+            </Link>
           </div>
         </div>
 
         {/* Availability status */}
-        <div className="flex items-center gap-2 p-3 bg-terminal-success/5 border border-terminal-success/20 rounded-lg">
-          <span className="w-2 h-2 rounded-full bg-terminal-success animate-pulse" />
-          <span className="text-terminal-success text-sm">
-            Open for Internships
+        <div className="site-record items-center">
+          <span className="h-2 w-2 rounded-full bg-terminal-success" />
+          <span className="text-sm text-terminal-success">
+            Available for freelance projects, not seeking roles or internships
           </span>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TerminalCard } from '../index';
-import { Calendar, Building2 } from 'lucide-react';
+import { Calendar, Building2, MapPin } from 'lucide-react';
 
 interface Experience {
   id: string;
@@ -17,7 +17,7 @@ const experiences: Experience[] = [
     id: '1',
     title: 'Summer Intern',
     company: 'OSTIM Technical University',
-    location: 'Ankara, Türkiye · Remote',
+    location: 'Ankara, Turkey · Remote',
     period: 'Jun 2025 - Jul 2025',
     description: [
       'Web development internship focusing on modern frontend technologies',
@@ -30,7 +30,7 @@ const experiences: Experience[] = [
     id: '2',
     title: 'Summer Intern',
     company: 'Asisguard',
-    location: 'Türkiye',
+    location: 'Turkey',
     period: 'Jul 2023',
     description: [
       'Worked with OpenCV library using C++',
@@ -45,55 +45,52 @@ const ExperienceTerminal: React.FC = () => {
   return (
     <TerminalCard command="cat experience.log" id="experience">
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
-          <div
-            key={exp.id}
-            className="relative pl-6 pb-6 border-l border-terminal-border last:pb-0"
-          >
-            {/* Timeline dot */}
-            <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-terminal-prompt" />
+        {experiences.map((exp) => (
+          <article key={exp.id} className="site-record">
+            <div className="site-record-icon">
+              <Building2 className="h-5 w-5" />
+            </div>
 
-            {/* Header */}
-            <div className="mb-2">
+            <div className="min-w-0 flex-1">
               <h3 className="text-lg font-semibold text-terminal-command">
                 {exp.title}
               </h3>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-terminal-muted mt-1">
+
+              <div className="mt-1 flex flex-wrap items-center gap-3 text-sm text-terminal-muted">
                 <span className="flex items-center gap-1">
-                  <Building2 className="w-4 h-4" />
+                  <Building2 className="h-4 w-4" />
                   {exp.company}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                  <MapPin className="h-4 w-4" />
+                  {exp.location}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Calendar className="h-4 w-4" />
                   {exp.period}
                 </span>
               </div>
-            </div>
 
-            {/* Description */}
-            <ul className="list-none space-y-1 text-sm text-terminal-output/80 mb-3">
-              {exp.description.map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-terminal-prompt mt-1">→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            {/* Tech tags */}
-            {exp.tech && (
-              <div className="flex flex-wrap gap-2">
-                {exp.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-0.5 text-xs rounded bg-terminal-bg-light text-terminal-constant"
-                  >
-                    {tech}
-                  </span>
+              <ul className="mb-3 mt-3 list-none space-y-1 text-sm text-terminal-output/80">
+                {exp.description.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1 text-terminal-prompt">→</span>
+                    {item}
+                  </li>
                 ))}
-              </div>
-            )}
-          </div>
+              </ul>
+
+              {exp.tech && (
+                <div className="flex flex-wrap gap-2">
+                  {exp.tech.map((tech) => (
+                    <span key={tech} className="site-chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
         ))}
       </div>
     </TerminalCard>

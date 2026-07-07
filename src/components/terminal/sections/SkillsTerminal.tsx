@@ -13,59 +13,45 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'app_frontend',
-    skills: ['React', 'React Native', 'Next.js', 'Expo', 'Tailwind CSS'],
+    skills: ['React', 'React Native', 'Next.js', 'Expo'],
   },
   {
     name: 'state_forms',
-    skills: ['Zustand', 'TanStack Query', 'React Hook Form', 'Zod'],
+    skills: ['Zustand', 'TanStack Query', 'Zod'],
   },
   {
     name: 'backend_data',
     skills: ['Node.js', 'Supabase', 'PostgreSQL', 'Prisma'],
   },
-  {
-    name: 'infra_tools',
-    skills: ['Vercel', 'Cloudflare R2', 'Resend'],
-  },
-  {
-    name: 'ai_ocr',
-    skills: ['LLM integrations', 'OCR workflows'],
-  },
 ];
+
+const longestCategoryName = Math.max(
+  ...skillCategories.map((category) => category.name.length),
+);
 
 const SkillsTerminal: React.FC = () => {
   return (
     <TerminalCard command="cat stack.json" id="skills">
       <div className="space-y-1 text-sm">
-        {/* JSON opening brace */}
         <div className="text-terminal-output">{'{'}</div>
 
-        {skillCategories.map((category, catIndex) => (
-          <div key={category.name} className="pl-4">
-            {/* Category name */}
-            <span className="text-terminal-keyword">"{category.name}"</span>
-            <span className="text-terminal-output">: [</span>
+        {skillCategories.map((category, categoryIndex) => {
+          const padding = ' '.repeat(longestCategoryName - category.name.length + 3);
+          const values = category.skills.map((skill) => `"${skill}"`).join(', ');
 
-            {/* Skills */}
-            <div className="pl-4">
-              {category.skills.map((skill, skillIndex) => (
-                <div key={skill}>
-                  <span className="text-terminal-prompt">"{skill}"</span>
-                  {skillIndex < category.skills.length - 1 && (
-                    <span className="text-terminal-output">,</span>
-                  )}
-                </div>
-              ))}
+          return (
+            <div key={category.name} className="whitespace-pre pl-4">
+              <span className="text-terminal-keyword">"{category.name}"</span>
+              <span className="text-terminal-output">:{padding}[</span>
+              <span className="text-terminal-prompt">{values}</span>
+              <span className="text-terminal-output">]</span>
+              {categoryIndex < skillCategories.length - 1 && (
+                <span className="text-terminal-output">,</span>
+              )}
             </div>
+          );
+        })}
 
-            <span className="text-terminal-output">]</span>
-            {catIndex < skillCategories.length - 1 && (
-              <span className="text-terminal-output">,</span>
-            )}
-          </div>
-        ))}
-
-        {/* JSON closing brace */}
         <div className="text-terminal-output">{'}'}</div>
       </div>
     </TerminalCard>

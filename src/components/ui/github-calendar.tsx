@@ -1,5 +1,6 @@
 import * as React from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { createPortal } from "react-dom"
 
 import { cn } from "@/lib/utils"
 
@@ -10,6 +11,8 @@ type ContributionLevel =
   | "THIRD_QUARTILE"
   | "FOURTH_QUARTILE"
 
+
+type ContributionApiLevel = 0 | 1 | 2 | 3 | 4
 interface ContributionDay {
   color: string
   contributionCount: number
@@ -18,8 +21,17 @@ interface ContributionDay {
 }
 
 interface GithubContributionData {
-  contributions: ContributionDay[][]
-  totalContributions: number
+  contributions: ContributionDay[]
+}
+
+interface GithubApiContribution {
+  date: string
+  count: number
+  level: ContributionApiLevel
+}
+
+interface GithubContributionApiData {
+  contributions: GithubApiContribution[]
 }
 
 interface GithubCalendarProps {
@@ -109,7 +121,23 @@ function getShapeClass(shape: GithubCalendarProps["shape"] = "rounded") {
       return "rounded-sm"
     case "rounded":
     default:
-      return "rounded-[3px]"
+      return "rounded-[0.08rem]"
+  }
+}
+
+function getLevelValue(level: ContributionLevel) {
+  switch (level) {
+    case "FIRST_QUARTILE":
+      return 1
+    case "SECOND_QUARTILE":
+      return 2
+    case "THIRD_QUARTILE":
+      return 3
+    case "FOURTH_QUARTILE":
+      return 4
+    case "NONE":
+    default:
+      return 0
   }
 }
 
@@ -129,6 +157,101 @@ function getContributionLabel(day: ContributionDay) {
   return `${prefix} ${contributionText} on ${formatContributionDate(day.date)}`
 }
 
+const HIDDEN_OLDER_WEEKS = 27
+const CONTRIBUTION_CALENDAR_DAYS = 365 * 2 - HIDDEN_OLDER_WEEKS * 7
+const CONTRIBUTION_COLORS_BY_LEVEL: Record<ContributionApiLevel, string> = {
+  0: "#ebedf0",
+  1: "#9be9a8",
+  2: "#40c463",
+  3: "#30a14e",
+  4: "#216e39",
+}
+const CONTRIBUTION_LEVEL_BY_API_LEVEL: Record<ContributionApiLevel, ContributionLevel> = {
+  0: "NONE",
+  1: "FIRST_QUARTILE",
+  2: "SECOND_QUARTILE",
+  3: "THIRD_QUARTILE",
+  4: "FOURTH_QUARTILE",
+}
+const EMPTY_CONTRIBUTION_COLOR = CONTRIBUTION_COLORS_BY_LEVEL[0]
+
+function getContributionCalendarRange() {
+  const now = new Date()
+  const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()))
+  const endDate = new Date(today)
+  endDate.setUTCDate(endDate.getUTCDate() + ((7 - endDate.getUTCDay()) % 7))
+
+  const rangeStart = new Date(endDate)
+  rangeStart.setUTCDate(rangeStart.getUTCDate() - (CONTRIBUTION_CALENDAR_DAYS - 1))
+
+  const startDate = new Date(rangeStart)
+  startDate.setUTCDate(startDate.getUTCDate() - ((startDate.getUTCDay() + 6) % 7))
+
+  return { startDate, endDate }
+}
+
+function getContributionYears() {
+  const { startDate, endDate } = getContributionCalendarRange()
+  const years: number[] = []
+
+  for (let year = startDate.getUTCFullYear(); year <= endDate.getUTCFullYear(); year++) {
+    years.push(year)
+  }
+
+  return years
+}
+
+function completeContributionCalendar(contributions: ContributionDay[]) {
+  const daysByDate = new Map<string, ContributionDay>()
+
+  for (const day of contributions) {
+    daysByDate.set(day.date, day)
+  }
+
+  const toDateKey = (date: Date) => {
+    const year = date.getUTCFullYear()
+    const month = String(date.getUTCMonth() + 1).padStart(2, "0")
+    const day = String(date.getUTCDate()).padStart(2, "0")
+
+    return `${year}-${month}-${day}`
+  }
+  const addDays = (date: Date, days: number) => {
+    const next = new Date(date)
+    next.setUTCDate(next.getUTCDate() + days)
+
+    return next
+  }
+  const { startDate, endDate } = getContributionCalendarRange()
+  const weeks: ContributionDay[][] = []
+  let week: ContributionDay[] = []
+  let cursor = new Date(startDate)
+
+  while (cursor.getTime() <= endDate.getTime()) {
+    const date = toDateKey(cursor)
+    week.push(
+      daysByDate.get(date) ?? {
+        color: EMPTY_CONTRIBUTION_COLOR,
+        contributionCount: 0,
+        contributionLevel: "NONE",
+        date,
+      }
+    )
+
+    if (week.length === 7) {
+      weeks.push(week)
+      week = []
+    }
+
+    cursor = addDays(cursor, 1)
+  }
+
+  if (week.length > 0) {
+    weeks.push(week)
+  }
+
+  return weeks
+}
+
 export function GithubCalendar({
   username,
   variant = "default",
@@ -144,6 +267,7 @@ export function GithubCalendar({
   const [hoveredDay, setHoveredDay] = React.useState<ContributionDay | null>(null)
   const [tooltipPos, setTooltipPos] = React.useState({ x: 0, y: 0 })
   const tooltipRef = React.useRef<HTMLDivElement>(null)
+  const calendarRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     const controller = new AbortController()
@@ -159,8 +283,10 @@ export function GithubCalendar({
         setLoading(true)
         setError(null)
 
+        const years = getContributionYears()
+        const yearParams = years.map((year) => `y=${year}`).join("&")
         const response = await fetch(
-          `https://github-contributions-api.deno.dev/${username}.json`,
+          `https://github-contributions-api.jogruber.de/v4/${username}?${yearParams}`,
           { signal: controller.signal }
         )
 
@@ -168,8 +294,15 @@ export function GithubCalendar({
           throw new Error("Failed to fetch GitHub contribution data")
         }
 
-        const jsonData = (await response.json()) as GithubContributionData
-        setData(jsonData)
+        const jsonData = (await response.json()) as GithubContributionApiData
+        const contributions = jsonData.contributions.map((contribution) => ({
+          color: CONTRIBUTION_COLORS_BY_LEVEL[contribution.level] ?? EMPTY_CONTRIBUTION_COLOR,
+          contributionCount: contribution.count,
+          contributionLevel: CONTRIBUTION_LEVEL_BY_API_LEVEL[contribution.level] ?? "NONE",
+          date: contribution.date,
+        }))
+
+        setData({ contributions })
       } catch (err) {
         if (controller.signal.aborted) return
         setError(err instanceof Error ? err.message : "An error occurred")
@@ -206,17 +339,36 @@ export function GithubCalendar({
     }
   }, [hoveredDay, tooltipPos.x])
 
-  function positionTooltip(element: HTMLElement, day: ContributionDay) {
-    const cellRect = element.getBoundingClientRect()
+  const weeks = React.useMemo(
+    () => completeContributionCalendar(data?.contributions ?? []),
+    [data]
+  )
+  const visibleContributions = weeks.reduce(
+    (total, week) =>
+      total + week.reduce((weekTotal, day) => weekTotal + day.contributionCount, 0),
+    0
+  )
+
+  React.useLayoutEffect(() => {
+    if (loading || error || weeks.length === 0) return
+
+    const scroller = calendarRef.current?.parentElement
+    if (!scroller) return
+
+    scroller.scrollLeft = scroller.scrollWidth - scroller.clientWidth
+  }, [error, loading, weeks.length])
+
+  function positionTooltip(event: React.MouseEvent<HTMLElement>, day: ContributionDay) {
+    const viewportPadding = 8
     const x = Math.min(
-      Math.max(cellRect.left + cellRect.width / 2, 96),
-      window.innerWidth - 96
+      Math.max(event.clientX + 8, viewportPadding),
+      window.innerWidth - viewportPadding
     )
 
     setHoveredDay(day)
     setTooltipPos({
       x,
-      y: Math.max(cellRect.top - 44, 8),
+      y: Math.max(event.clientY - 34, viewportPadding),
     })
   }
 
@@ -247,12 +399,41 @@ export function GithubCalendar({
     )
   }
 
-  const weeks = data?.contributions ?? []
   const shapeClass = getShapeClass(shape)
   const isMinimal = variant === "minimal"
 
+  const tooltip = typeof document === "undefined"
+    ? null
+    : createPortal(
+        <AnimatePresence>
+          {hoveredDay && (
+            <motion.div
+              initial={{ opacity: 0, y: 8, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 5, scale: 0.94 }}
+              transition={{ duration: 0.16 }}
+              ref={tooltipRef}
+              className="pointer-events-none fixed z-[9999] max-w-[calc(100vw-1rem)] whitespace-nowrap rounded-md border border-terminal-border bg-terminal-bg-dark px-3 py-1.5 text-xs text-terminal-output shadow-xl"
+              style={{
+                left: tooltipPos.x,
+                top: tooltipPos.y,
+              }}
+            >
+              <span className="mr-1 font-bold text-terminal-command">
+                {hoveredDay.contributionCount.toLocaleString()}
+              </span>
+              <span className="text-terminal-muted">
+                contributions on {formatContributionDate(hoveredDay.date)}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )
+
   return (
-    <div className={cn("flex w-max max-w-full flex-col gap-4", className)}>
+    <div ref={calendarRef} className={cn("flex min-w-0 max-w-full flex-col gap-4", className)}>
+      {tooltip}
       {showTotal && (
         <div className="flex flex-wrap items-center justify-between gap-3 text-terminal-output">
           <div className="flex items-center gap-2">
@@ -266,43 +447,22 @@ export function GithubCalendar({
             <span className="text-sm font-semibold">@{username}</span>
           </div>
           <span className="text-sm text-terminal-muted">
-            {data?.totalContributions.toLocaleString()} contributions in the last year
+            {visibleContributions.toLocaleString()} contributions in the shown range
           </span>
         </div>
       )}
 
       <div
-        className="relative flex w-max max-w-full flex-nowrap gap-[3px]"
+        className="relative mx-auto flex w-max flex-nowrap gap-[0.16rem]"
         onMouseLeave={() => setHoveredDay(null)}
+        role="img"
+        aria-label={`GitHub contribution calendar for ${username}`}
       >
-        <AnimatePresence>
-          {hoveredDay && (
-            <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.94 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 5, scale: 0.94 }}
-              transition={{ duration: 0.16 }}
-              ref={tooltipRef}
-              className="pointer-events-none fixed z-[9999] max-w-[calc(100vw-1rem)] whitespace-nowrap rounded-md border border-terminal-border bg-terminal-bg-dark px-3 py-1.5 text-xs text-terminal-output shadow-xl"
-              style={{
-                left: tooltipPos.x,
-                top: tooltipPos.y,
-                transform: "translateX(-50%)",
-              }}
-            >
-              <span className="mr-1 font-bold text-terminal-command">
-                {hoveredDay.contributionCount.toLocaleString()}
-              </span>
-              <span className="text-terminal-muted">
-                contributions on {formatContributionDate(hoveredDay.date)}
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {weeks.map((week, weekIndex) => (
-          <div key={weekIndex} className="flex w-[14px] flex-col gap-[3px]">
+          <div key={weekIndex} className="flex w-[0.72rem] flex-col gap-[0.16rem]">
             {week.map((day, dayIndex) => {
+              const levelValue = getLevelValue(day.contributionLevel)
               const isGlowing =
                 variant === "city-lights" && day.contributionCount > 0
               const glowSize =
@@ -311,30 +471,27 @@ export function GithubCalendar({
               return (
                 <motion.div
                   key={day.date}
-                  aria-label={getContributionLabel(day)}
+                  aria-hidden="true"
+                  data-date={day.date}
+                  data-level={levelValue}
                   className={cn(
-                    "aspect-square w-full border transition-colors duration-200 focus:outline-none focus:ring-1 focus:ring-terminal-command focus:ring-offset-1 focus:ring-offset-terminal-bg-medium",
-                    getLevelClass(day.contributionLevel, colorSchema),
+                    "github-contribution-day aspect-square w-full border transition-colors duration-200",
+                    colorSchema === "green"
+                      ? "github-contribution-day-green"
+                      : getLevelClass(day.contributionLevel, colorSchema),
                     isGlowing && "relative z-10",
                     shapeClass,
                     isMinimal && "scale-75 rounded-full"
                   )}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  onBlur={() => setHoveredDay(null)}
-                  onFocus={(event) => positionTooltip(event.currentTarget, day)}
-                  onMouseEnter={(event) =>
-                    positionTooltip(event.currentTarget, day)
-                  }
-                  role="img"
-                  style={
-                    isGlowing
-                      ? {
-                          boxShadow: `0 0 ${glowSize}px ${glowColors[colorSchema]}`,
-                        }
-                      : undefined
-                  }
-                  tabIndex={0}
+                  onMouseEnter={(event) => positionTooltip(event, day)}
+                  style={{
+                    "--level": levelValue,
+                    ...(isGlowing
+                      ? { boxShadow: `0 0 ${glowSize}px ${glowColors[colorSchema]}` }
+                      : {}),
+                  } as React.CSSProperties}
                   transition={{
                     delay: weekIndex * 0.01 + dayIndex * 0.01,
                     type: "spring",
