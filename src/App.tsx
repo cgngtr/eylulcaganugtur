@@ -17,7 +17,6 @@ import ClientForm from "./pages/terminal/ClientForm";
 
 // Shared Pages
 import NotFound from "./pages/NotFound";
-import SpotifyTokenHelper from "./pages/SpotifyTokenHelper";
 import DesignSystemShowcase from "./pages/DesignSystemShowcase";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 
@@ -43,7 +42,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen">
+        <div className="min-h-screen site-route-frame">
           {/* Language Switcher - only on old portfolio */}
           <ConditionalLanguageSwitcher />
 
@@ -60,7 +59,6 @@ const App = () => (
             <Route path="/old/services" element={<OldServices />} />
 
             {/* Utility Routes */}
-            <Route path="/spotify-helper" element={<SpotifyTokenHelper />} />
             <Route path="/design-system" element={<DesignSystemShowcase />} />
 
             {/* Catch-all 404 */}

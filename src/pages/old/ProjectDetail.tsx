@@ -26,34 +26,6 @@ const ProjectDetail = () => {
         'Cross-platform UI'
       ]
     },
-    '2': {
-      title: 'Project 2',
-      description: 'This project is an admin panel developed for e-commerce platforms. It stands out with its user-friendly interface and advanced analytics features.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+2',
-      technologies: ['Next.js', 'MongoDB', 'Express', 'Node.js'],
-      githubUrl: '#',
-      liveUrl: '#',
-      features: [
-        'Real-time analytics',
-        'User management',
-        'Product catalog',
-        'Order tracking'
-      ]
-    },
-    '3': {
-      title: 'Project 3',
-      description: 'Mobile app development project. A fitness application developed for iOS and Android platforms using React Native.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+3',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Expo'],
-      githubUrl: '#',
-      liveUrl: '#',
-      features: [
-        'Offline usage',
-        'Personalized training programs',
-        'Progress tracking',
-        'Social sharing features'
-      ]
-    }
   };
   
   const project = projects[id as keyof typeof projects];
@@ -64,9 +36,9 @@ const ProjectDetail = () => {
         <div className="text-center">
           <h1 className="text-3xl font-bold text-[#b2a7fb] mb-4">Project Not Found</h1>
           <p className="text-muted-foreground mb-6">The project you are looking for does not exist.</p>
-          <Link to="/">
+          <Link to="/old/projects">
             <Button className="bg-[#b2a7fb] text-white hover:bg-[#a295fa]">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
+              <ArrowLeft className="w-4 h-4 mr-2" /> Back to archived projects
             </Button>
           </Link>
         </div>
@@ -78,8 +50,8 @@ const ProjectDetail = () => {
     <div className="min-h-screen py-4 px-2 sm:px-3 md:px-4 mx-auto">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
-          <Link to="/" className="text-[#b2a7fb] hover:text-[#a295fa] flex items-center">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
+          <Link to="/old/projects" className="text-[#b2a7fb] hover:text-[#a295fa] flex items-center">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to archived projects
           </Link>
         </div>
         

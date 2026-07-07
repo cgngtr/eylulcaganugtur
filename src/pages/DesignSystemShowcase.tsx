@@ -6,18 +6,18 @@ const designSystemCss = `
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700;800;900&display=swap');
 
 .ds-page {
-  --ds-accent-light-h: 10;
-  --ds-accent-light-s: 25%;
-  --ds-accent-light-l: 65%;
+  --ds-accent-light-h: 316;
+  --ds-accent-light-s: 28%;
+  --ds-accent-light-l: 58%;
   --ds-accent-h: var(--ds-accent-light-h);
   --ds-accent-s: var(--ds-accent-light-s);
   --ds-accent-l: var(--ds-accent-light-l);
-  --ds-bg: hsl(var(--ds-accent-h) calc(var(--ds-accent-s) - var(--ds-accent-s) * 0.7) calc(var(--ds-accent-l) - var(--ds-accent-l) * 0.9));
-  --ds-fg: #fcfcfa;
-  --ds-muted-fg: rgba(252, 252, 250, 0.64);
-  --ds-soft-fg: rgba(252, 252, 250, 0.42);
+  --ds-bg: #080a10;
+  --ds-fg: #e6eaf5;
+  --ds-muted-fg: rgba(216, 217, 236, 0.7);
+  --ds-soft-fg: rgba(149, 150, 172, 0.55);
   --ds-accent: hsl(var(--ds-accent-h) var(--ds-accent-s) var(--ds-accent-l));
-  --ds-accent-strong: #f26969;
+  --ds-accent-strong: #b978a9;
   --ds-surface: hsla(var(--ds-accent-h), var(--ds-accent-s), var(--ds-accent-l), 0.1);
   --ds-surface-2: hsla(var(--ds-accent-h), var(--ds-accent-s), calc(var(--ds-accent-l) + 4%), 0.15);
   --ds-surface-3: hsla(var(--ds-accent-h), var(--ds-accent-s), calc(var(--ds-accent-l) + 8%), 0.22);
@@ -36,9 +36,9 @@ const designSystemCss = `
   --ds-ease-disc: cubic-bezier(0.175, 0.885, 0.32, 1.15);
   min-height: 100vh;
   background:
-    radial-gradient(circle at 26% 7%, hsla(10, 45%, 30%, 0.18), transparent 30rem),
-    radial-gradient(circle at 72% 26%, hsla(350, 48%, 24%, 0.12), transparent 26rem),
-    linear-gradient(180deg, #110f0e 0%, var(--ds-bg) 42%, #0d0c0b 100%);
+    radial-gradient(circle at 26% 7%, rgba(185, 120, 169, 0.16), transparent 30rem),
+    radial-gradient(circle at 72% 26%, rgba(99, 111, 137, 0.14), transparent 26rem),
+    linear-gradient(180deg, #0d1019 0%, var(--ds-bg) 42%, #080a10 100%);
   color: var(--ds-fg);
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-weight: 500;
@@ -66,21 +66,22 @@ const designSystemCss = `
 }
 
 .ds-shell {
-  display: grid;
-  grid-template-columns: minmax(13rem, 17rem) minmax(0, 1fr);
   min-height: 100vh;
 }
 
 .ds-sidebar {
   position: sticky;
-  top: 0;
-  height: 100vh;
-  border-right: 1px solid rgba(252, 252, 250, 0.07);
-  background: linear-gradient(180deg, rgba(17, 14, 13, 0.92), rgba(17, 14, 13, 0.66));
-  padding: 1rem 0.75rem;
+  top: 0.75rem;
+  z-index: 5;
+  width: min(calc(100% - 1rem), 26rem);
+  margin: 0.75rem auto 0;
+  border: 1px solid rgba(252, 252, 250, 0.07);
+  border-radius: var(--ds-radius);
+  background: linear-gradient(180deg, rgba(13, 16, 25, 0.92), rgba(13, 16, 25, 0.66));
+  padding: 0.85rem 0.75rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
   backdrop-filter: blur(18px);
 }
 
@@ -99,11 +100,11 @@ const designSystemCss = `
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 32% 28%, #fff1ee 0 10%, transparent 11%),
-    conic-gradient(from 220deg, #f26969, #d8aaa0, #382524, #f26969);
-  box-shadow: var(--ds-edge-highlight), 0 0 0 0.2rem rgba(242, 105, 105, 0.08);
+    radial-gradient(circle at 32% 28%, #e6eaf5 0 10%, transparent 11%),
+    conic-gradient(from 220deg, #b978a9, #9596ac, #21232c, #b978a9);
+  box-shadow: var(--ds-edge-highlight), 0 0 0 0.2rem rgba(185, 120, 169, 0.1);
   font-weight: 800;
-  color: #140f0e;
+  color: #080a10;
   letter-spacing: -0.08em;
 }
 
@@ -125,7 +126,7 @@ const designSystemCss = `
 }
 
 .ds-sidebar-menu {
-  margin-top: 9rem;
+  margin-top: 0.9rem;
   display: grid;
   gap: 0.28rem;
 }
@@ -165,6 +166,7 @@ const designSystemCss = `
 }
 
 .ds-sidebar-note {
+  margin: 0;
   color: var(--ds-soft-fg);
   font-size: 0.72rem;
   line-height: 1.35;
@@ -216,17 +218,17 @@ const designSystemCss = `
 
 .ds-pixel-title {
   margin: 0.4rem 0 0.8rem;
-  color: #f26969;
+  color: #b978a9;
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-size: clamp(2.25rem, 8vw, 4.95rem);
   font-weight: 900;
   letter-spacing: -0.085em;
   line-height: 0.82;
   text-shadow:
-    0.045em 0 #2b1616,
-    -0.045em 0 #fff6f0,
-    0 0.045em #2b1616,
-    0.09em 0.09em 0 #691f25,
+    0.045em 0 #151827,
+    -0.045em 0 #e6eaf5,
+    0 0.045em #151827,
+    0.09em 0.09em 0 #5b506a,
     0.13em 0.13em 0 rgba(0, 0, 0, 0.55);
 }
 
@@ -264,23 +266,23 @@ const designSystemCss = `
 .ds-button:hover {
   transform: translateY(-0.08rem);
   background: var(--ds-surface-3);
-  border-color: rgba(242, 105, 105, 0.38);
+  border-color: rgba(185, 120, 169, 0.38);
 }
 
 .ds-button.is-primary {
-  background: linear-gradient(180deg, #f26969, #b94d50);
+  background: linear-gradient(180deg, #b978a9, #835075);
   border-color: rgba(255, 255, 255, 0.18);
-  color: #180d0d;
+  color: #080a10;
 }
 
 .ds-avatar-card {
   width: min(10.8rem, 32vw);
   aspect-ratio: 1;
-  border: 0.18rem solid #f4cbc5;
+  border: 0.18rem solid #c7b7d4;
   border-radius: 28% 36% 30% 34%;
   padding: 0.4rem;
-  background: linear-gradient(145deg, #1b1514, #3a2020);
-  box-shadow: var(--ds-edge-highlight), 0 0 0 0.22rem #111, 0.5rem 0.6rem 0 #f26969, 0 1.5rem 4rem rgba(0,0,0,0.52);
+  background: linear-gradient(145deg, #21232c, #2f354a);
+  box-shadow: var(--ds-edge-highlight), 0 0 0 0.22rem #080a10, 0.5rem 0.6rem 0 #b978a9, 0 1.5rem 4rem rgba(0,0,0,0.52);
   transform: rotate(6deg);
 }
 
@@ -289,11 +291,11 @@ const designSystemCss = `
   height: 100%;
   border-radius: 24% 32% 26% 30%;
   background:
-    radial-gradient(circle at 44% 36%, #f7cab7 0 7%, transparent 8%),
-    radial-gradient(circle at 58% 36%, #1a0c0d 0 3%, transparent 4%),
-    linear-gradient(135deg, transparent 0 38%, rgba(242,105,105,0.65) 39% 45%, transparent 46%),
-    radial-gradient(circle at 48% 42%, #70412d 0 24%, transparent 25%),
-    linear-gradient(145deg, #67352e, #151215 58%, #7d3338);
+    radial-gradient(circle at 44% 36%, #d8b0ca 0 7%, transparent 8%),
+    radial-gradient(circle at 58% 36%, #0f1118 0 3%, transparent 4%),
+    linear-gradient(135deg, transparent 0 38%, rgba(185,120,169,0.65) 39% 45%, transparent 46%),
+    radial-gradient(circle at 48% 42%, #5b506a 0 24%, transparent 25%),
+    linear-gradient(145deg, #835075, #0f1118 58%, #5b506a);
   position: relative;
   overflow: hidden;
 }
@@ -379,7 +381,7 @@ const designSystemCss = `
 .ds-card h3,
 .ds-card h4 {
   margin: 0;
-  color: #f4d5d0;
+  color: #d8d9ec;
   letter-spacing: -0.02em;
 }
 
@@ -503,7 +505,7 @@ const designSystemCss = `
 }
 
 .ds-display-sample {
-  color: #f26969;
+  color: #b978a9;
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-size: clamp(2rem, 7vw, 4rem);
   font-weight: 900;
@@ -545,8 +547,8 @@ const designSystemCss = `
   align-items: center;
   justify-content: space-between;
   min-height: 1.65rem;
-  background: linear-gradient(90deg, #d8ccc6, #6aa6a0);
-  color: #1c1413;
+  background: linear-gradient(90deg, #d8d9ec, #9596ac);
+  color: #080a10;
   padding: 0 0.45rem;
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-size: 0.65rem;
@@ -571,9 +573,9 @@ const designSystemCss = `
   gap: 0.75rem;
   padding: 0.7rem;
   background:
-    linear-gradient(90deg, rgba(242,105,105,0.12) 1px, transparent 1px),
-    linear-gradient(rgba(252,252,250,0.08) 1px, transparent 1px),
-    #1b625b;
+    linear-gradient(90deg, rgba(185,120,169,0.12) 1px, transparent 1px),
+    linear-gradient(rgba(230,234,245,0.08) 1px, transparent 1px),
+    #2f354a;
   background-size: 18px 18px;
 }
 
@@ -834,7 +836,7 @@ const designSystemCss = `
 
 .ds-play-button:hover {
   transform: scale(1.05);
-  background: rgba(242,105,105,0.16);
+  background: rgba(185,120,169,0.16);
 }
 
 .ds-link-grid {
@@ -852,7 +854,7 @@ const designSystemCss = `
   border-radius: 0.62rem;
   background: rgba(252,252,250,0.055);
   box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(0,0,0,0.18);
-  color: #c8b7b2;
+  color: #b8bed5;
   padding: 0.5rem;
   text-decoration: none;
   font-weight: 900;
@@ -861,7 +863,7 @@ const designSystemCss = `
 
 .ds-link-tile:hover {
   transform: translateY(-0.08rem) rotate(-0.35deg);
-  background: rgba(242,105,105,0.12);
+  background: rgba(185,120,169,0.12);
   color: var(--ds-fg);
 }
 
@@ -879,10 +881,10 @@ const designSystemCss = `
   box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.28), 0.14rem 0.14rem 0 rgba(0,0,0,0.34);
 }
 
-.ds-link-icon.is-youtube { background: linear-gradient(180deg, #ff605a, #b91922); }
-.ds-link-icon.is-twitch { background: linear-gradient(180deg, #bd7cff, #6b2ab7); }
-.ds-link-icon.is-x { background: linear-gradient(180deg, #707983, #20262b); }
-.ds-link-icon.is-instagram { background: linear-gradient(135deg, #f7b35e, #d92f72 52%, #6942d8); }
+.ds-link-icon.is-youtube { background: linear-gradient(180deg, #b978a9, #835075); }
+.ds-link-icon.is-twitch { background: linear-gradient(180deg, #c7b7d4, #5b506a); }
+.ds-link-icon.is-x { background: linear-gradient(180deg, #636f89, #21232c); }
+.ds-link-icon.is-instagram { background: linear-gradient(135deg, #9596ac, #b978a9 52%, #5b506a); }
 .ds-link-icon.is-reddit { background: linear-gradient(180deg, #ff845c, #c43816); }
 .ds-link-icon.is-blue { background: linear-gradient(180deg, #67c8ff, #2472d7); }
 .ds-link-icon.is-github { background: linear-gradient(180deg, #f3f0ea, #59616a); color: #171717; }
@@ -897,7 +899,7 @@ const designSystemCss = `
   align-items: center;
   border-radius: 0.5rem;
   background: rgba(252,252,250,0.06);
-  color: #d8aaa0;
+  color: #c7b7d4;
   padding: 0.08rem 0.35rem;
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-weight: 900;
@@ -935,14 +937,14 @@ const designSystemCss = `
   position: relative;
   min-height: 10.5rem;
   overflow: visible;
-  background: linear-gradient(180deg, rgba(219, 71, 64, 0.14), rgba(219, 71, 64, 0.1));
-  border-color: rgba(219, 71, 64, 0.24);
+  background: linear-gradient(180deg, rgba(185, 120, 169, 0.16), rgba(185, 120, 169, 0.1));
+  border-color: rgba(185, 120, 169, 0.24);
   transition: transform 0.35s cubic-bezier(0.17, 0.89, 0.32, 1.18), background 180ms ease;
 }
 
 .ds-server-card:hover {
   transform: scale(1.02);
-  background: linear-gradient(180deg, rgba(219, 71, 64, 0.2), rgba(219, 71, 64, 0.13));
+  background: linear-gradient(180deg, rgba(185, 120, 169, 0.22), rgba(185, 120, 169, 0.14));
 }
 
 .ds-server-card:active {
@@ -957,7 +959,7 @@ const designSystemCss = `
 }
 
 .ds-server-name {
-  color: #f26969;
+  color: #b978a9;
   font-size: 1.24rem;
   font-weight: 900;
   letter-spacing: -0.04em;
@@ -967,7 +969,7 @@ const designSystemCss = `
   display: inline-flex;
   align-items: center;
   gap: 0.32rem;
-  color: #cbb4af;
+  color: #c7b7d4;
   font-size: 0.86rem;
 }
 
@@ -988,7 +990,7 @@ const designSystemCss = `
   top: 3.05rem;
   width: 2rem;
   height: 1.35rem;
-  border: 0.22rem solid #f26969;
+  border: 0.22rem solid #b978a9;
   border-radius: 0.65rem;
 }
 
@@ -1000,7 +1002,7 @@ const designSystemCss = `
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
-  background: #f26969;
+  background: #b978a9;
 }
 
 .ds-discord-glyph::before { left: 0.43rem; }
@@ -1015,9 +1017,9 @@ const designSystemCss = `
   border-radius: 1.2rem;
   border: 1px solid rgba(255,255,255,0.15);
   background:
-    radial-gradient(circle at 46% 35%, #f3c1aa 0 0.54rem, transparent 0.58rem),
-    radial-gradient(circle at 60% 36%, #120a0a 0 0.18rem, transparent 0.2rem),
-    linear-gradient(135deg, #7a3927 0 30%, #171316 31% 62%, #aa4b49);
+    radial-gradient(circle at 46% 35%, #d8b0ca 0 0.54rem, transparent 0.58rem),
+    radial-gradient(circle at 60% 36%, #080a10 0 0.18rem, transparent 0.2rem),
+    linear-gradient(135deg, #835075 0 30%, #0f1118 31% 62%, #5b506a);
   box-shadow: 0 1rem 2rem rgba(0,0,0,0.45);
   transform: rotate(10deg);
   transition: transform 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.15);
@@ -1056,7 +1058,7 @@ const designSystemCss = `
 }
 
 .ds-repo-arrow {
-  color: #f26969;
+  color: #b978a9;
   font-size: 1.15rem;
 }
 
@@ -1088,7 +1090,7 @@ const designSystemCss = `
   width: 0.16rem;
   height: calc(0.32rem + var(--bar) * 0.15rem);
   border-radius: 999px;
-  background: #f26969;
+  background: #b978a9;
   opacity: 0.7;
 }
 
@@ -1113,7 +1115,7 @@ const designSystemCss = `
   width: 2.65rem;
   height: 1.35rem;
   border-radius: 999px;
-  background: rgba(242,105,105,0.2);
+  background: rgba(185,120,169,0.2);
   padding: 0.18rem;
 }
 
@@ -1123,16 +1125,16 @@ const designSystemCss = `
   width: 0.98rem;
   height: 0.98rem;
   border-radius: 50%;
-  background: #f26969;
+  background: #b978a9;
   transform: translateX(1.25rem);
-  box-shadow: 0 0 0.65rem rgba(242,105,105,0.38);
+  box-shadow: 0 0 0.65rem rgba(185,120,169,0.38);
 }
 
 .ds-hotkey {
   border-radius: 0.38rem;
-  background: #120f0e;
+  background: #080a10;
   box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.14), 0 0.12rem 0 rgba(0,0,0,0.4);
-  color: #f4d5d0;
+  color: #d8d9ec;
   padding: 0.18rem 0.38rem;
   font-family: "Roboto Condensed", system-ui, sans-serif;
   font-size: 0.68rem;
@@ -1189,7 +1191,7 @@ const designSystemCss = `
 
 .ds-principle strong {
   display: block;
-  color: #f4d5d0;
+  color: #d8d9ec;
   font-size: 0.9rem;
   font-weight: 800;
 }
@@ -1393,7 +1395,7 @@ const designSystemCss = `
 }
 
 .ds-motion-token strong {
-  color: #f4d5d0;
+  color: #d8d9ec;
   font-size: 0.8rem;
   font-weight: 800;
 }
@@ -1424,7 +1426,7 @@ const designSystemCss = `
   inset-block: 0;
   width: var(--bar-width);
   border-radius: inherit;
-  background: linear-gradient(90deg, #f26969, #d8aaa0);
+  background: linear-gradient(90deg, #b978a9, #9596ac);
 }
 
 .ds-motion-stage {
@@ -1433,7 +1435,7 @@ const designSystemCss = `
   overflow: hidden;
   border-radius: var(--ds-radius);
   background:
-    linear-gradient(90deg, rgba(242,105,105,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185,120,169,0.09) 1px, transparent 1px),
     linear-gradient(rgba(252,252,250,0.06) 1px, transparent 1px),
     rgba(0,0,0,0.22);
   background-size: 22px 22px;
@@ -1446,7 +1448,7 @@ const designSystemCss = `
   position: absolute;
   inset: 0;
   width: 48%;
-  background: linear-gradient(90deg, transparent, rgba(242,105,105,0.16), transparent);
+  background: linear-gradient(90deg, transparent, rgba(185,120,169,0.16), transparent);
   animation: ds-scan 4.8s var(--ds-ease-soft) infinite;
 }
 
@@ -1455,7 +1457,7 @@ const designSystemCss = `
   width: 8.6rem;
   height: 8.6rem;
   margin: 0.25rem auto 1rem;
-  border: 1px dashed rgba(244,213,208,0.24);
+  border: 1px dashed rgba(216,217,236,0.24);
   border-radius: 50%;
   animation: ds-orbit 7s linear infinite;
 }
@@ -1465,7 +1467,7 @@ const designSystemCss = `
   content: "";
   position: absolute;
   border-radius: 50%;
-  box-shadow: 0 0 1rem rgba(242,105,105,0.24);
+  box-shadow: 0 0 1rem rgba(185,120,169,0.24);
 }
 
 .ds-orbit-demo::before {
@@ -1473,7 +1475,7 @@ const designSystemCss = `
   height: 1.55rem;
   top: -0.78rem;
   left: calc(50% - 0.78rem);
-  background: #f26969;
+  background: #b978a9;
 }
 
 .ds-orbit-demo::after {
@@ -1481,7 +1483,7 @@ const designSystemCss = `
   height: 0.9rem;
   right: 0.68rem;
   bottom: 0.68rem;
-  background: #d8aaa0;
+  background: #9596ac;
 }
 
 .ds-orbit-core {
@@ -1491,7 +1493,7 @@ const designSystemCss = `
   place-items: center;
   border-radius: 1.1rem;
   background: var(--ds-surface-2);
-  color: #f4d5d0;
+  color: #d8d9ec;
   font-weight: 900;
   transform: rotate(-12deg);
 }
@@ -1524,7 +1526,7 @@ const designSystemCss = `
   width: 0.58rem;
   height: 0.58rem;
   border-radius: 50%;
-  background: #f26969;
+  background: #b978a9;
 }
 
 .ds-marquee-demo {
@@ -1535,12 +1537,14 @@ const designSystemCss = `
   background: rgba(0,0,0,0.28);
   margin-top: 0.8rem;
   padding: 0.52rem 0;
+  contain: paint;
 }
 
 .ds-marquee-demo span {
-  display: inline-block;
+  display: block;
+  width: max-content;
   min-width: 200%;
-  color: #f4d5d0;
+  color: #d8d9ec;
   font-weight: 900;
   white-space: nowrap;
   animation: ds-marquee 8s linear infinite;
@@ -1554,9 +1558,9 @@ const designSystemCss = `
   gap: 0.45rem;
   margin-top: 0.9rem;
   border-radius: 0.62rem;
-  background: linear-gradient(180deg, #f26969, #b94d50);
-  box-shadow: var(--ds-edge-highlight), 0 0.32rem 0 #5f2426;
-  color: #180d0d;
+  background: linear-gradient(180deg, #b978a9, #835075);
+  box-shadow: var(--ds-edge-highlight), 0 0.32rem 0 #3a2437;
+  color: #080a10;
   padding: 0.6rem 0.8rem;
   font-weight: 900;
   text-decoration: none;
@@ -1607,7 +1611,7 @@ const designSystemCss = `
 }
 
 .ds-motion-rule strong {
-  color: #f26969;
+  color: #b978a9;
   font-weight: 900;
 }
 
@@ -1682,7 +1686,7 @@ const designSystemCss = `
 
 .ds-card:not(.ds-server-card):hover {
   transform: translateY(-0.1rem);
-  border-color: rgba(242,105,105,0.18);
+  border-color: rgba(185,120,169,0.18);
   background: var(--ds-surface-2);
 }
 
@@ -1733,17 +1737,17 @@ const designSystemCss = `
 }
 
 .ds-appear-demo:hover {
-  background: rgba(242,105,105,0.12);
+  background: rgba(185,120,169,0.12);
   transform: translateY(-0.08rem);
 }
 
 .ds-appear-demo.is-selected {
-  background: rgba(242,105,105,0.16);
-  box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(242,105,105,0.22);
+  background: rgba(185,120,169,0.16);
+  box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(185,120,169,0.22);
 }
 
 .ds-appear-demo.is-selected::before {
-  background: linear-gradient(90deg, #f26969, #f4d5d0);
+  background: linear-gradient(90deg, #b978a9, #d8d9ec);
 }
 
 .ds-appear-demo strong,
@@ -1754,7 +1758,7 @@ const designSystemCss = `
 }
 
 .ds-appear-demo strong {
-  color: #f4d5d0;
+  color: #d8d9ec;
   font-weight: 900;
 }
 
@@ -1770,7 +1774,7 @@ const designSystemCss = `
   position: absolute;
   inset: auto 0 0;
   height: 0.22rem;
-  background: linear-gradient(90deg, #f26969, transparent);
+  background: linear-gradient(90deg, #b978a9, transparent);
 }
 
 .ds-appear-demo.is-rise:hover {
@@ -1800,7 +1804,7 @@ const designSystemCss = `
   width: 38%;
   opacity: 0;
   transform: translateX(-120%);
-  background: linear-gradient(90deg, transparent, rgba(242,105,105,0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(185,120,169,0.18), transparent);
 }
 
 .ds-appear-demo.is-glint:hover::after {
@@ -1809,16 +1813,26 @@ const designSystemCss = `
 }
 
 
+@media (min-width: 1160px) {
+  .ds-sidebar {
+    position: fixed;
+    top: 50%;
+    left: clamp(1rem, 2vw, 1.5rem);
+    width: clamp(10.5rem, 14vw, 13rem);
+    max-height: calc(100vh - 2rem);
+    margin: 0;
+    translate: 0 -50%;
+    overflow-y: auto;
+  }
+}
+
 @media (max-width: 960px) {
   .ds-shell {
     display: block;
   }
 
   .ds-sidebar {
-    position: relative;
-    height: auto;
-    border-right: 0;
-    border-bottom: 1px solid rgba(252, 252, 250, 0.07);
+    width: min(calc(100% - 1rem), 26rem);
   }
 
   .ds-sidebar-menu {
@@ -1827,7 +1841,7 @@ const designSystemCss = `
   }
 
   .ds-sidebar-note {
-    margin-top: 1rem;
+    margin-top: 0;
   }
 
   .ds-topbar {
@@ -1835,7 +1849,7 @@ const designSystemCss = `
   }
 
   .ds-main {
-    width: min(100% - 1rem, var(--ds-content));
+    width: min(calc(100% - 1rem), var(--ds-content));
     padding-top: 2rem;
   }
 
@@ -1865,6 +1879,22 @@ const designSystemCss = `
   .ds-sidebar-menu {
     grid-template-columns: 1fr;
   }
+
+  .ds-card {
+    max-width: 100%;
+  }
+
+  .ds-motion-token {
+    grid-template-columns: 1fr;
+  }
+
+  .ds-marquee-demo span {
+    width: auto;
+    min-width: 0;
+    white-space: normal;
+    line-height: 1.45;
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1879,36 +1909,36 @@ const designSystemCss = `
 `;
 
 const colorTokens = [
-  { name: "Background", value: "hsl(10 7.5% 6.5%)", note: "Ana zemin" },
-  { name: "Foreground", value: "#fcfcfa", note: "Yüksek kontrast metin" },
-  { name: "Accent", value: "hsl(10 25% 65%)", note: "Dusty salmon" },
-  { name: "Accent strong", value: "#f26969", note: "Pixel başlık ve CTA" },
-  { name: "Surface", value: "hsla(10,25%,65%,.10)", note: "Kart dolgusu" },
-  { name: "Surface raised", value: "hsla(10,25%,69%,.15)", note: "Hover ve aktif" },
-  { name: "Border", value: "hsla(10,25%,71%,.22)", note: "Yumuşak kontur" },
-  { name: "Muted text", value: "rgba(252,252,250,.64)", note: "İkincil metin" },
+  { name: "Background", value: "hsl(229 19% 7%)", note: "Favicon ink-black base" },
+  { name: "Foreground", value: "#e6eaf5", note: "Cold code text" },
+  { name: "Accent", value: "hsl(316 28% 58%)", note: "Muted avatar magenta" },
+  { name: "Accent strong", value: "#b978a9", note: "Pixel title and CTA" },
+  { name: "Surface", value: "hsla(316,28%,58%,.10)", note: "Card fill" },
+  { name: "Surface raised", value: "hsla(316,28%,62%,.15)", note: "Hover and active state" },
+  { name: "Border", value: "hsla(227,22%,24%,.72)", note: "Sampled slate contour" },
+  { name: "Muted text", value: "rgba(216,217,236,.70)", note: "Secondary text" },
 ];
 
 const principles = [
   {
-    title: "Sıcak siyah taban",
-    copy: "Tam siyah yerine kahverengi-siyah zemin. Kartlar aynı hue üstünden alfa ile yükseliyor.",
+    title: "Warm black base",
+    copy: "Brown-black instead of pure black. Cards lift with alpha layers from the same hue.",
   },
   {
-    title: "Masonry ritmi",
-    copy: "Eş kart grid'i yok. Farklı yükseklikler, düşük boşluk ve dergi panosu hissi var.",
+    title: "Masonry rhythm",
+    copy: "No identical card grid. Varied heights, tight gaps, and a personal archive-board feel.",
   },
   {
-    title: "Retro ama okunur",
-    copy: "Pixel sticker, Win98 pencere ve yoğun küçük UI detayları var; gövde metni sade kalıyor.",
+    title: "Retro, still readable",
+    copy: "Pixel sticker, Win98 window, and compact UI details carry the mood while body text stays plain.",
   },
 ];
 
 const componentNotes = [
-  "Kartlar kendi küçük objesine dönüşmeli: player, pencere, server widget, kontak paneli.",
-  "İkonlar düz text değil, pixel tile veya fiziksel medya metaforu taşımalı.",
-  "Hover efektleri kartın kişiliğini göstermeli: CD çıkar, avatar döner, tile zıplar.",
-  "Veri ve link blokları sadece liste değil, minik ürün arayüzü gibi davranmalı.",
+  "Cards should become small objects: player, window, server widget, contact panel.",
+  "Icons should feel like pixel tiles or physical-media metaphors, not plain inline text.",
+  "Hover states should express the object: a CD slides out, an avatar turns, a tile nudges.",
+  "Data and link blocks should behave like small product interfaces, not static lists.",
 ];
 
 const calendarLevels = [
@@ -1979,7 +2009,7 @@ const DesignSystemShowcase = () => {
   return (
     <div className="ds-page">
       <style>{designSystemCss}</style>
-      <div className="ds-topbar">Design system preview - route scoped, mevcut siteye uygulanmadı</div>
+      <div className="ds-topbar">Design system preview - the current route shell now uses these tokens</div>
 
       <div className="ds-shell">
         <aside className="ds-sidebar" aria-label="Design system navigation">
@@ -2002,7 +2032,7 @@ const DesignSystemShowcase = () => {
           </div>
 
           <p className="ds-sidebar-note">
-            Bu sayfa extracted style guide olarak izole çalışır. Global token veya mevcut route stilleri değiştirilmedi.
+            Read this page as an isolated style guide; the global route tokens and terminal shell now derive from this language.
           </p>
         </aside>
 
@@ -2014,12 +2044,12 @@ const DesignSystemShowcase = () => {
                   <div className="ds-kicker">New styling direction</div>
                   <h1 className="ds-pixel-title">IndieWeb System</h1>
                   <p>
-                    Referanstaki sıcak karanlık zemin, dusty salmon aksan, masonry kartlar ve eski internet dokusunu tek sayfalık bir design system showcase olarak çıkardım.
+                    The live portfolio system uses a warm dark base, dusty salmon accent, masonry rhythm, and old-internet texture.
                   </p>
                   <div className="ds-hero-actions">
-                    <a className="ds-button is-primary" href="#tokens">Tokenları gör</a>
-                    <a className="ds-button" href="#components">Komponent dili</a>
-                    <Link className="ds-button" to="/">Ana sayfaya dön</Link>
+                    <a className="ds-button is-primary" href="#tokens">View tokens</a>
+                    <a className="ds-button" href="#components">Component language</a>
+                    <Link className="ds-button" to="/">Back to homepage</Link>
                   </div>
                 </div>
 
@@ -2035,7 +2065,7 @@ const DesignSystemShowcase = () => {
           <section className="ds-section" aria-labelledby="dna-title">
             <div className="ds-section-heading">
               <h2 id="dna-title">Extracted design DNA</h2>
-              <p>Kaynak görüntü ve CSS'ten çıkarılan ana kararlar. Uygulama değil, yön gösteren izole prototip.</p>
+              <p>Core decisions extracted into the live portfolio system so future sections keep the same palette, spacing, motion, and terminal-object language.</p>
             </div>
             <div className="ds-principles">
               {principles.map((principle) => (
@@ -2050,13 +2080,13 @@ const DesignSystemShowcase = () => {
           <section className="ds-section" id="tokens" aria-labelledby="tokens-title">
             <div className="ds-section-heading">
               <h2 id="tokens-title">Tokens</h2>
-              <p>CSS değişkenleri doğrudan referanstaki mantığı takip ediyor: tek hue, alfa yüzeyler, inset highlight ve küçük radius sistemi.</p>
+              <p>The CSS variables follow the source logic directly: one hue, alpha surfaces, inset highlights, and a compact radius system.</p>
             </div>
 
             <div className="ds-masonry">
               <article className="ds-card">
                 <h3>Color system</h3>
-                <p>Palette koyu mod öncelikli. Aksan tonu içerikten çok yüzey hiyerarşisini kuruyor.</p>
+                <p>The palette is dark-mode first. The accent sets surface hierarchy more than content decoration.</p>
                 <div className="ds-token-grid" style={{ marginTop: "0.8rem" }}>
                   {colorTokens.map((token) => (
                     <div className="ds-token" key={token.name}>
@@ -2073,7 +2103,7 @@ const DesignSystemShowcase = () => {
 
               <article className="ds-card">
                 <h3>Typography</h3>
-                <p>Sayfa fontu Roboto Condensed. Display tarafı sticker gibi sıkı ve kırmızı; gövde tarafı dar, küçük, yüksek kontrastlı.</p>
+                <p>The page font is Roboto Condensed. Display text is tight, red, and sticker-like; body text stays narrow, compact, and high contrast.</p>
                 <div className="ds-type-specimen" style={{ marginTop: "0.8rem" }}>
                   <div className="ds-type-row">
                     <strong>Display</strong>
@@ -2081,7 +2111,7 @@ const DesignSystemShowcase = () => {
                   </div>
                   <div className="ds-type-row">
                     <strong>Body</strong>
-                    <span className="ds-body-sample">Kompakt kartlar, kısa cümleler ve düşük yoğunluklu gölgelerle kişisel arşiv hissi.</span>
+                    <span className="ds-body-sample">Compact cards, short sentences, and low-distance shadows create a personal archive feel.</span>
                   </div>
                   <div className="ds-type-row">
                     <strong>Label</strong>
@@ -2093,15 +2123,15 @@ const DesignSystemShowcase = () => {
               <article className="ds-card">
                 <h3>Radius, shadow, edge</h3>
                 <ul>
-                  <li>Radius: 0.75rem kart, 0.48rem küçük kontrol.</li>
-                  <li>Edge: üstten 1px beyaz inset highlight.</li>
-                  <li>Shadow: düşük mesafe, siyah alfa, kartı zeminden hafif ayırır.</li>
+                  <li>Radius: 0.75rem card, 0.48rem compact control.</li>
+                  <li>Edge: 1px white inset highlight from the top.</li>
+                  <li>Shadow: short distance, black alpha, enough lift to separate cards from the base.</li>
                 </ul>
               </article>
 
               <article className="ds-card">
-                <h3>Token snippet</h3>
-                <p>Global'e taşınacaksa bu blok theme dosyasına aday. Şimdilik sadece showcase içinde scoped.</p>
+                <h3>Token recipe</h3>
+                <p>A compact variable set for warm surfaces, salmon accents, soft borders, and the inset highlights used across the interface.</p>
                 <pre className="ds-code" style={{ marginTop: "0.8rem" }}><code>{tokenSnippet}</code></pre>
               </article>
             </div>
@@ -2110,13 +2140,13 @@ const DesignSystemShowcase = () => {
           <section className="ds-section" id="components" aria-labelledby="components-title">
             <div className="ds-section-heading">
               <h2 id="components-title">Components</h2>
-              <p>Burada düz kartları, küçük internet objelerine çevirdim: CD'li player, pixel social tiles, canlı contact paneli, server widget ve mini state board.</p>
+              <p>Flat cards become small internet objects: a CD player, pixel social tiles, live contact panel, server widget, and mini state board.</p>
             </div>
 
             <div className="ds-masonry">
               <article className="ds-card ds-note-card">
                 <h3>Personal note card</h3>
-                <p>Basit about kartı yerine bantlanmış defter parçası: solda görsel anı, sağda kısa satırlar ve küçük arşiv hissi.</p>
+                <p>Instead of a generic about card: a taped notebook fragment with a visual memory on the left and short archive lines on the right.</p>
                 <div className="ds-note-grid">
                   <div className="ds-note-polaroid" aria-hidden="true" />
                   <div className="ds-note-lines" aria-hidden="true">
@@ -2145,7 +2175,7 @@ const DesignSystemShowcase = () => {
                   </span>
                   <a className="ds-play-button" href="#components" aria-label="Open track sample" />
                 </div>
-                <p>Hover'da disk kapaktan çıkar. Component artık sadece bilgi satırı değil, fiziksel obje gibi davranıyor.</p>
+                <p>On hover, the disc slides out of the sleeve. The component behaves like a physical object, not a static information row.</p>
               </article>
 
               <article className="ds-card">
@@ -2164,7 +2194,7 @@ const DesignSystemShowcase = () => {
                     <div className="ds-window-portrait" />
                   </div>
                 </div>
-                <p>Eski işletim sistemi penceresi destek karakter. Ana UI'ı ele geçirmeden görsel hikaye kuruyor.</p>
+                <p>The old operating-system window is a supporting character. It builds visual story without taking over the main UI.</p>
               </article>
 
               <article className="ds-card">
@@ -2182,9 +2212,9 @@ const DesignSystemShowcase = () => {
               <article className="ds-card ds-contact-card">
                 <h3>Contacts panel</h3>
                 <p>
-                  For me it's currently <span className="ds-clock">03:40</span> <small>(UTC+3)</small> and I'm <span className="ds-online-pill">Online</span>.
+                  Local status: <span className="ds-clock">03:40</span> <small>(UTC+3)</small> · <span className="ds-online-pill">Online</span>.
                 </p>
-                <p>Contact metni de komponent: saat, presence ve ulaşım aksiyonları aynı ritimde.</p>
+                <p>Contact content is a component too: time, presence, and actions follow the same rhythm.</p>
                 <div className="ds-contact-actions">
                   <a className="ds-link-tile" href="#components"><span className="ds-link-icon is-blue">D</span>Discord</a>
                   <a className="ds-link-tile" href="#components"><span className="ds-link-icon is-mail">M</span>Email</a>
@@ -2223,7 +2253,7 @@ const DesignSystemShowcase = () => {
 
               <article className="ds-card">
                 <h3>Contribution heatmap</h3>
-                <p>Küçük veri görselleri kart dokusuna iyi oturuyor. Accent dışı tek istisna yeşil veri tonu.</p>
+                <p>Small data visuals sit well in the card texture. The green data tone is the only non-accent exception.</p>
                 <div className="ds-calendar" aria-hidden="true">
                   {calendarLevels.map((level, index) => (
                     <span key={`${level}-${index}`} style={{ "--level": level } as CSSProperties} />
@@ -2269,13 +2299,13 @@ const DesignSystemShowcase = () => {
           <section className="ds-section" id="motion" aria-labelledby="motion-title">
             <div className="ds-section-heading">
               <h2 id="motion-title">Animation system</h2>
-              <p>Bu stil için hareket dili küçük, fiziksel ve okunaklı: transform/opacity öncelikli, objeye karakter veren hover'lar, düşük frekanslı ambient hareket ve reduced-motion fallback.</p>
+              <p>Motion for this style stays small, physical, and readable: transform/opacity first, object-specific hover states, low-frequency ambient motion, and a reduced-motion fallback.</p>
             </div>
 
             <div className="ds-motion-layout">
               <article className="ds-card">
                 <h3>Motion tokens</h3>
-                <p>Tekrarlanabilir süre ve easing seti. Kartlar bu değerleri kullanır, global uygulama stillerini değiştirmez.</p>
+                <p>Repeatable duration and easing values. Cards and the current route shell use the same rhythm.</p>
                 <div className="ds-motion-token-list">
                   <div className="ds-motion-token">
                     <strong>instant</strong>
@@ -2357,7 +2387,7 @@ const DesignSystemShowcase = () => {
 
               <article className="ds-card">
                 <h3>Appear patterns</h3>
-                <p>Seçili default: Modal / overshoot scale. Diğerlerini hover ederek preview alabiliriz.</p>
+                <p>Selected default: modal / overshoot scale. Hover the others to preview alternate entrance patterns.</p>
                 <div className="ds-appear-grid">
                   <div className="ds-appear-demo is-rise">
                     <strong>Rise</strong>
@@ -2391,7 +2421,7 @@ const DesignSystemShowcase = () => {
           <section className="ds-section" id="rules" aria-labelledby="rules-title">
             <div className="ds-section-heading">
               <h2 id="rules-title">Implementation rules</h2>
-              <p>Bu sistemi ana siteye taşıma kararı verilirse korunması gereken sınırlar.</p>
+              <p>Boundaries to keep if this system moves further into the live site.</p>
             </div>
 
             <div className="ds-masonry">
@@ -2407,22 +2437,22 @@ const DesignSystemShowcase = () => {
               <article className="ds-card">
                 <h3>Do not</h3>
                 <ul>
-                  <li>Mevcut terminal temasının tokenlarını ezme.</li>
-                  <li>Tüm sayfaları aynı anda bu stile çevirme.</li>
-                  <li>Generic glassmorphism veya mor gradient ekleme.</li>
-                  <li>Uzun metinleri küçük kartların içine sıkıştırma.</li>
+                  <li>Do not break terminal behavior; move visual tokens through the shared source.</li>
+                  <li>Do not leave utility routes or the 404 screen outside the route shell update.</li>
+                  <li>Do not add generic glassmorphism or purple gradients.</li>
+                  <li>Do not pack long copy into small cards.</li>
                 </ul>
               </article>
 
               <article className="ds-card">
-                <h3>Rollout önerisi</h3>
-                <p>Önce bu sayfa üstünden karar ver. Sonra hero, about ve online bloklarını ayrı PR mantığında taşı. Terminal route'u bağımsız kalmalı.</p>
+                <h3>Consistent objects</h3>
+                <p>The same terminal cards, compact controls, and object-style accents can support dense sections without making them look like separate products.</p>
               </article>
             </div>
           </section>
 
           <footer className="ds-footer">
-            Extracted from the provided reference CSS and screenshot. Route: <strong>/design-system</strong>. Scope: showcase only.
+            Live portfolio system reference. Scope: shared tokens, component language, motion rules, and responsive behavior.
           </footer>
         </main>
       </div>

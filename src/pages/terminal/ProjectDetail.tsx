@@ -103,6 +103,37 @@ Developed and released in May 2026 at saatin.de.`,
   },
 };
 
+interface ProjectScreenshotProps {
+  image: string;
+  projectName: string;
+  index: number;
+}
+
+const ProjectScreenshot: React.FC<ProjectScreenshotProps> = ({ image, projectName, index }) => {
+  const [hasError, setHasError] = React.useState(false);
+
+  return (
+    <div className="site-card relative aspect-video overflow-hidden rounded-xl border-terminal-border bg-terminal-bg-medium/70">
+      {!hasError && (
+        <img
+          src={image}
+          alt={`${projectName} screenshot ${index + 1}`}
+          className="h-full w-full object-cover"
+          onError={() => setHasError(true)}
+        />
+      )}
+      {hasError && (
+        <div className="absolute inset-0 grid place-items-center bg-[linear-gradient(135deg,rgba(185,120,169,0.12),transparent_45%),rgba(0,0,0,0.18)] p-6 text-center">
+          <div>
+            <div className="font-mono text-sm font-semibold text-terminal-command">{projectName}</div>
+            <div className="mt-2 text-sm text-terminal-muted">Screenshot unavailable</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ProjectDetail: React.FC = () => {
   useThemeInit();
   const { slug } = useParams<{ slug: string }>();
@@ -110,9 +141,9 @@ const ProjectDetail: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-terminal-bg-dark text-terminal-output">
+      <div className="min-h-screen text-terminal-output">
         <TerminalNav />
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="site-main mx-auto px-4 py-8 sm:px-6">
           <TerminalCard command={`cat ./projects/${slug || 'unknown'}.md`} directory="~/projects">
             <div className="text-terminal-error">
               <p>Error: Project not found</p>
@@ -127,13 +158,13 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-terminal-bg-dark text-terminal-output">
+    <div className="min-h-screen text-terminal-output">
       <TerminalNav />
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="site-main mx-auto px-4 py-8 sm:px-6">
         {/* Back link */}
         <Link
           to="/#projects"
-          className="inline-flex items-center gap-2 text-terminal-muted hover:text-terminal-directory transition-colors mb-6"
+          className="site-button mb-6 font-mono text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           cd ../projects
@@ -160,9 +191,10 @@ const ProjectDetail: React.FC = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 hover:bg-terminal-bg-light rounded-md transition-colors"
+                    className="site-button font-mono text-sm"
+                    aria-label={`View GitHub repository for ${project.name}`}
                   >
-                    <Github className="w-5 h-5 text-terminal-output/70 hover:text-terminal-output" />
+                    <Github className="h-4 w-4" />
                   </a>
                 )}
                 {project.live && (
@@ -170,7 +202,7 @@ const ProjectDetail: React.FC = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-terminal-prompt/10 hover:bg-terminal-prompt/20 text-terminal-prompt rounded-md transition-colors text-sm"
+                    className="site-button is-primary font-mono text-sm"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Visit Site
@@ -209,24 +241,12 @@ const ProjectDetail: React.FC = () => {
                 <h2 className="text-terminal-keyword text-sm uppercase tracking-wider">Screenshot</h2>
                 <div className="space-y-4">
                   {project.images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative aspect-video rounded-lg border border-terminal-border overflow-hidden bg-terminal-bg-medium"
-                    >
-                      <img
-                        src={image}
-                        alt={`${project.name} screenshot ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          // Hide broken images
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center text-terminal-muted text-sm">
-                        {/* Placeholder text shown if image fails */}
-                        <span className="hidden">Screenshot {index + 1}</span>
-                      </div>
-                    </div>
+                    <ProjectScreenshot
+                      key={image}
+                      image={image}
+                      projectName={project.name}
+                      index={index}
+                    />
                   ))}
                 </div>
               </div>

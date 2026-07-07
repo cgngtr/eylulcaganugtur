@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Github, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 const Projects = () => {
   // Project data defined here (in a real application, this could be fetched from an API)
@@ -13,41 +12,6 @@ const Projects = () => {
       image: 'https://i.ibb.co/gZ8Y9MCq/Group-6-1.png',
       technologies: ['React Native', 'TypeScript', 'Expo', 'Supabase', 'React Context API', 'React Hook Form + Zod']
     },
-    {
-      id: '2',
-      title: 'Project 2',
-      description: 'This project is an admin panel developed for e-commerce platforms.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+2',
-      technologies: ['Next.js', 'MongoDB', 'Express', 'Node.js']
-    },
-    {
-      id: '3',
-      title: 'Project 3',
-      description: 'Mobile app development project. A fitness application developed for iOS and Android platforms using React Native.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+3',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Expo']
-    },
-    {
-      id: '4',
-      title: 'Project 4',
-      description: 'An AI-powered content management system.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+4',
-      technologies: ['Python', 'TensorFlow', 'Django', 'PostgreSQL']
-    },
-    {
-      id: '5',
-      title: 'Project 5',
-      description: 'A blockchain-based digital asset management platform.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+5',
-      technologies: ['Solidity', 'Ethereum', 'Web3.js', 'React']
-    },
-    {
-      id: '6',
-      title: 'Project 6',
-      description: 'A messaging application developed for real-time communication.',
-      image: 'https://via.placeholder.com/800x400/0f1118/666666?text=Project+6',
-      technologies: ['Socket.io', 'Express', 'MongoDB', 'React']
-    }
   ];
   
   return (
@@ -65,13 +29,13 @@ const Projects = () => {
           </div>
           
           <p className="text-muted-foreground mb-6">
-            All of my projects are listed here. You can click on a project card to see its details.
+            Archived project from the previous portfolio version. Current case studies live on the terminal homepage.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <Link 
-                to={`/project/${project.id}`} 
+                to={`/old/project/${project.id}`}
                 key={project.id}
                 className="bg-[#171717] rounded-lg overflow-hidden hover:ring-2 hover:ring-[#b2a7fb] transition-all duration-300"
               >
