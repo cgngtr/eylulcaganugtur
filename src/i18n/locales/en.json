@@ -7,10 +7,10 @@
   "profile": {
     "available_to_work": "Open to Work",
     "name": "Çağan",
-    "title": "Full Stack Developer",
-    "intro": "I'm a Full Stack Developer",
+    "title": "Full-stack Developer",
+    "intro": "Full-stack Developer",
     "language": "English & Turkish",
-    "location": "Türkiye",
+    "location": "Turkey",
     "timezone": "UTC+3",
     "night_owl": "Night Owl",
     "coffee_addict": "Coffee Enthusiast",
@@ -324,7 +324,7 @@
       },
       "payment_methods": {
         "title": "Accepted Payment Methods",
-        "bank_transfer": "Bank Transfer (Türkiye)",
+        "bank_transfer": "Bank Transfer (Turkey)",
         "credit_card": "Credit/Debit Card",
         "crypto": "Cryptocurrency (USDT, BTC)",
         "wise": "Wise (International)",
@@ -616,8 +616,8 @@
           "answer": "Yes! All websites include a user-friendly content management system (CMS) that allows you to update text, images, and pages easily."
         },
         {
-          "question": "What payment methods do you accept?",
-          "answer": "I accept bank transfers (Türkiye), credit/debit cards, cryptocurrency (USDT, BTC), and Wise for international payments."
+          "question": "What payment methods are accepted?",
+          "answer": "Accepted methods are bank transfers (Turkey), credit/debit cards, cryptocurrency (USDT, BTC), and Wise for international payments."
         },
         {
           "question": "Do you work with international clients?",

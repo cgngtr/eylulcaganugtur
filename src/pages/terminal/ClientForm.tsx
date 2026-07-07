@@ -220,13 +220,13 @@ const ClientForm = () => {
     }
   };
 
-  const FieldError = ({ message }: { message?: string }) => {
+  const FieldError = ({ id, message }: { id: string; message?: string }) => {
     if (!message) {
       return null;
     }
 
     return (
-      <p className="text-sm text-destructive" role="alert">
+      <p id={id} className="text-sm text-destructive" role="alert">
         {message}
       </p>
     );
@@ -245,18 +245,21 @@ const ClientForm = () => {
                 placeholder={t("client_form.brand.brand_name_placeholder")}
                 className="border-border/70 bg-background/80 focus-visible:ring-primary/40"
                 aria-invalid={Boolean(errors.brand?.brandName)}
+                aria-describedby={errors.brand?.brandName ? "brandName-error" : undefined}
               />
-              <FieldError message={errors.brand?.brandName?.message} />
+              <FieldError id="brandName-error" message={errors.brand?.brandName?.message} />
             </div>
 
-            <div className="space-y-3">
-              <Label>{t("client_form.brand.products")}</Label>
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium leading-none text-foreground">
+                {t("client_form.brand.products")}
+              </legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 {PRODUCT_OPTIONS.map((product) => (
                   <label
                     key={product}
                     htmlFor={product}
-                    className="flex cursor-pointer items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-start"
                   >
                     <Checkbox
                       id={product}
@@ -276,8 +279,8 @@ const ClientForm = () => {
                   </label>
                 ))}
               </div>
-              <FieldError message={errors.brand?.products?.message} />
-            </div>
+              <FieldError id="brand-products-error" message={errors.brand?.products?.message} />
+            </fieldset>
 
             {watchedValues.brand.products.includes("other_products") && (
               <div className="space-y-2">
@@ -291,8 +294,10 @@ const ClientForm = () => {
               </div>
             )}
 
-            <div className="space-y-3">
-              <Label>{t("client_form.brand.product_photos")}</Label>
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium leading-none text-foreground">
+                {t("client_form.brand.product_photos")}
+              </legend>
               <RadioGroup
                 value={watchedValues.brand.productPhotosAvailable}
                 onValueChange={(value) => setValue("brand.productPhotosAvailable", value as "available" | "needed")}
@@ -302,14 +307,14 @@ const ClientForm = () => {
                   <label
                     key={value}
                     htmlFor={`product-photos-${value}`}
-                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-border/70 bg-background/60 p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-center"
                   >
                     <RadioGroupItem value={value} id={`product-photos-${value}`} />
                     <span className="text-sm">{t(`client_form.brand.product_photos_${value}`)}</span>
                   </label>
                 ))}
               </RadioGroup>
-            </div>
+            </fieldset>
 
             <div className="space-y-2">
               <Label htmlFor="productDetails">{t("client_form.brand.product_details")}</Label>
@@ -320,8 +325,9 @@ const ClientForm = () => {
                 rows={5}
                 className="border-border/70 bg-background/80 focus-visible:ring-primary/40"
                 aria-invalid={Boolean(errors.brand?.productDetails)}
+                aria-describedby={errors.brand?.productDetails ? "productDetails-error" : undefined}
               />
-              <FieldError message={errors.brand?.productDetails?.message} />
+              <FieldError id="productDetails-error" message={errors.brand?.productDetails?.message} />
             </div>
           </div>
         );
@@ -350,8 +356,10 @@ const ClientForm = () => {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <Label>{t("client_form.design.brand_identity")}</Label>
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium leading-none text-foreground">
+                {t("client_form.design.brand_identity")}
+              </legend>
               <RadioGroup
                 value={watchedValues.design.brandIdentityAvailable}
                 onValueChange={(value) => setValue("design.brandIdentityAvailable", value as "available" | "needed")}
@@ -361,14 +369,14 @@ const ClientForm = () => {
                   <label
                     key={value}
                     htmlFor={`brand-identity-${value}`}
-                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-border/70 bg-background/60 p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-center"
                   >
                     <RadioGroupItem value={value} id={`brand-identity-${value}`} />
                     <span className="text-sm">{t(`client_form.design.brand_identity_${value}`)}</span>
                   </label>
                 ))}
               </RadioGroup>
-            </div>
+            </fieldset>
 
             <div className="space-y-2">
               <Label htmlFor="referenceSites">{t("client_form.design.reference_sites")}</Label>
@@ -385,14 +393,16 @@ const ClientForm = () => {
       case "payment":
         return (
           <div className="space-y-6">
-            <div className="space-y-3">
-              <Label>{t("client_form.payment.payment_methods")}</Label>
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium leading-none text-foreground">
+                {t("client_form.payment.payment_methods")}
+              </legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 {PAYMENT_METHOD_OPTIONS.map((method) => (
                   <label
                     key={method}
                     htmlFor={method}
-                    className="flex cursor-pointer items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-start"
                   >
                     <Checkbox
                       id={method}
@@ -412,8 +422,8 @@ const ClientForm = () => {
                   </label>
                 ))}
               </div>
-              <FieldError message={errors.payment?.paymentMethods?.message} />
-            </div>
+              <FieldError id="payment-methods-error" message={errors.payment?.paymentMethods?.message} />
+            </fieldset>
 
             <div className="space-y-2">
               <Label htmlFor="shippingCompany">{t("client_form.payment.shipping_company")}</Label>
@@ -425,8 +435,10 @@ const ClientForm = () => {
               />
             </div>
 
-            <div className="space-y-3">
-              <Label>{t("client_form.payment.shipping_cost")}</Label>
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-medium leading-none text-foreground">
+                {t("client_form.payment.shipping_cost")}
+              </legend>
               <RadioGroup
                 value={watchedValues.payment.shippingCost}
                 onValueChange={(value) => setValue("payment.shippingCost", value as "customer" | "merchant")}
@@ -436,14 +448,14 @@ const ClientForm = () => {
                   <label
                     key={value}
                     htmlFor={`shipping-cost-${value}`}
-                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-border/70 bg-background/60 p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-center"
                   >
                     <RadioGroupItem value={value} id={`shipping-cost-${value}`} />
                     <span className="text-sm">{t(`client_form.payment.shipping_cost_${value}`)}</span>
                   </label>
                 ))}
               </RadioGroup>
-            </div>
+            </fieldset>
 
             <div className="space-y-2">
               <Label htmlFor="returnPolicy">{t("client_form.payment.return_policy")}</Label>
@@ -454,8 +466,9 @@ const ClientForm = () => {
                 rows={4}
                 className="border-border/70 bg-background/80 focus-visible:ring-primary/40"
                 aria-invalid={Boolean(errors.payment?.returnPolicy)}
+                aria-describedby={errors.payment?.returnPolicy ? "returnPolicy-error" : undefined}
               />
-              <FieldError message={errors.payment?.returnPolicy?.message} />
+              <FieldError id="returnPolicy-error" message={errors.payment?.returnPolicy?.message} />
             </div>
           </div>
         );
@@ -467,12 +480,12 @@ const ClientForm = () => {
               <p className="mt-2 text-sm text-foreground">{t("client_form.technical.react_supabase")}</p>
             </div>
 
-            <div className="space-y-3 rounded-xl border border-border/70 bg-background/60 p-4">
-              <div>
-                <Label>{t("client_form.technical.maintenance_title")}</Label>
-                <p className="mt-2 text-sm font-medium text-primary">{t("client_form.technical.maintenance_price")}</p>
-                <p className="text-sm text-muted-foreground">{t("client_form.technical.maintenance_includes")}</p>
-              </div>
+            <fieldset className="space-y-3 rounded-xl border border-border/70 bg-background/60 p-4">
+              <legend className="px-1 text-sm font-medium text-foreground">
+                {t("client_form.technical.maintenance_title")}
+              </legend>
+              <p className="mt-2 text-sm font-medium text-primary">{t("client_form.technical.maintenance_price")}</p>
+              <p className="text-sm text-muted-foreground">{t("client_form.technical.maintenance_includes")}</p>
               <RadioGroup
                 value={watchedValues.technical.maintenance}
                 onValueChange={(value) => setValue("technical.maintenance", value as "yes" | "no")}
@@ -482,29 +495,30 @@ const ClientForm = () => {
                   <label
                     key={value}
                     htmlFor={`maintenance-${value}`}
-                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-border/70 bg-card p-3 transition hover:border-primary/40"
+                    className="site-link-tile cursor-pointer items-center"
                   >
                     <RadioGroupItem value={value} id={`maintenance-${value}`} />
                     <span className="text-sm">{t(`client_form.technical.maintenance_${value}`)}</span>
                   </label>
                 ))}
               </RadioGroup>
-            </div>
+            </fieldset>
 
             <div className="space-y-4 rounded-xl border border-border/70 bg-background/60 p-4">
               <div>
                 <Label>{t("client_form.technical.hosting_title")}</Label>
                 <p className="mt-2 text-sm text-muted-foreground">{t("client_form.technical.hosting_description")}</p>
               </div>
-              <label htmlFor="hosting-agree" className="flex cursor-pointer items-start gap-3 rounded-xl border border-border/70 bg-card p-3 transition hover:border-primary/40">
+              <label htmlFor="hosting-agree" className="site-link-tile cursor-pointer items-start">
                 <Checkbox
                   id="hosting-agree"
                   checked={watchedValues.technical.hostingAgree}
                   onCheckedChange={(checked) => setValue("technical.hostingAgree", checked === true, { shouldValidate: true })}
+                  aria-describedby={errors.technical?.hostingAgree ? "hosting-agree-error" : undefined}
                 />
                 <span className="text-sm leading-5">{t("client_form.technical.hosting_agree")}</span>
               </label>
-              <FieldError message={errors.technical?.hostingAgree?.message} />
+              <FieldError id="hosting-agree-error" message={errors.technical?.hostingAgree?.message} />
             </div>
           </div>
         );
@@ -558,10 +572,10 @@ const ClientForm = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-terminal-bg-dark text-terminal-output font-mono">
+      <div className="min-h-screen text-terminal-output font-mono">
         <TerminalNav />
         <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-xl items-center justify-center px-4 py-10">
-          <Card className="w-full border-terminal-border bg-terminal-bg-medium shadow-2xl shadow-terminal-prompt/10">
+          <Card className="site-card w-full border-terminal-border/70 bg-terminal-bg-medium/90">
             <CardHeader className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-terminal-prompt/10 text-terminal-prompt">
                 <Check className="h-8 w-8" />
@@ -570,7 +584,7 @@ const ClientForm = () => {
               <CardDescription className="text-terminal-output/70">{t("client_form.review.success_message")}</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full bg-terminal-prompt text-terminal-bg-dark hover:bg-terminal-prompt/90" onClick={() => navigate("/")}>
+              <Button className="site-button is-primary w-full" onClick={() => navigate("/")}>
                 {t("client_form.review.success_back")}
               </Button>
             </CardContent>
@@ -581,15 +595,15 @@ const ClientForm = () => {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-terminal-bg-dark text-terminal-output font-mono">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--terminal-prompt)/0.16),transparent_34%),radial-gradient(circle_at_bottom_right,hsl(var(--terminal-directory)/0.1),transparent_30%)]" />
+    <div className="relative min-h-screen overflow-hidden text-terminal-output font-mono">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--primary)/0.18),transparent_34%),radial-gradient(circle_at_bottom_right,hsl(var(--accent)/0.12),transparent_30%)]" />
       <TerminalNav />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
+      <div className="site-main relative mx-auto px-4 py-8 sm:px-6 lg:py-12">
         <Button
           variant="outline"
           onClick={() => navigate("/")}
-          className="mb-6 border-terminal-border bg-terminal-bg-medium text-terminal-output hover:bg-terminal-bg-light"
+          className="site-button mb-6"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           {t("client_form.back_to_services")}
@@ -597,14 +611,14 @@ const ClientForm = () => {
 
         <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
           <aside className="space-y-4 lg:sticky lg:top-8 lg:self-start">
-            <Card className="overflow-hidden border-terminal-border bg-terminal-bg-medium shadow-2xl shadow-terminal-prompt/5">
+            <Card className="site-card overflow-hidden border-terminal-border/70 bg-terminal-bg-medium/90">
               <CardHeader className="space-y-4">
-                <Badge variant="secondary" className="w-fit gap-2 border border-terminal-border bg-terminal-bg-light text-terminal-command hover:bg-terminal-bg-light">
+                <Badge variant="secondary" className="site-chip w-fit gap-2">
                   <Sparkles className="h-3.5 w-3.5" />
                   {t("client_form.kicker")}
                 </Badge>
                 <div>
-                  <CardTitle className="text-3xl leading-tight text-terminal-command">{t("client_form.title")}</CardTitle>
+                  <h1 className="text-3xl font-semibold leading-tight tracking-tight text-terminal-command">{t("client_form.title")}</h1>
                   <CardDescription className="mt-3 text-base text-terminal-output/70">{t("client_form.subtitle")}</CardDescription>
                 </div>
               </CardHeader>
@@ -634,13 +648,13 @@ const ClientForm = () => {
                           }
                         }}
                         disabled={!isReachable}
-                        className={`flex w-full items-center gap-3 rounded-xl border px-3 py-2 text-left transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                        className={`site-link-tile w-full text-left disabled:cursor-not-allowed disabled:opacity-50 ${
                           isActive
-                            ? "border-terminal-prompt/50 bg-terminal-prompt/10 text-terminal-prompt"
-                            : "border-terminal-border bg-terminal-bg-dark/50 text-terminal-muted hover:border-terminal-prompt/30 hover:text-terminal-output"
+                            ? "border-primary/40 bg-primary/10 text-terminal-prompt"
+                            : "text-terminal-muted"
                         }`}
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-terminal-bg-dark">
+                        <span className="site-link-icon">
                           {isComplete ? <Check className="h-4 w-4" /> : <StepIcon className="h-4 w-4" />}
                         </span>
                         <span className="text-sm font-medium">{t(`client_form.steps.${step}`)}</span>
@@ -651,7 +665,7 @@ const ClientForm = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-terminal-border bg-terminal-bg-medium/80">
+            <Card className="site-card border-terminal-border/70 bg-terminal-bg-medium/80">
               <CardContent className="space-y-4 p-4 text-sm text-terminal-muted">
                 <div>
                   <p className="font-medium text-terminal-output">{t("client_form.scope_note_title")}</p>
@@ -668,11 +682,11 @@ const ClientForm = () => {
 
           <main>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-              <Card className="border-terminal-border bg-terminal-bg-medium shadow-2xl shadow-terminal-prompt/5">
+              <Card className="site-card border-terminal-border/70 bg-terminal-bg-medium/90">
                 <CardHeader className="border-b border-terminal-border">
                   <div className="flex items-start gap-4">
-                    <div className="rounded-2xl bg-terminal-prompt/10 p-3 text-terminal-prompt">
-                      <CurrentStepIcon className="h-6 w-6" />
+                    <div className="site-record-icon">
+                      <CurrentStepIcon className="h-5 w-5" />
                     </div>
                     <div>
                       <p className="text-sm text-terminal-muted">
@@ -692,18 +706,18 @@ const ClientForm = () => {
                   variant="outline"
                   onClick={prevStep}
                   disabled={currentStepIndex === 0}
-                  className="border-terminal-border bg-terminal-bg-medium text-terminal-output hover:bg-terminal-bg-light"
+                  className="site-button"
                 >
                   <ChevronLeft className="mr-2 h-4 w-4" />
                   {t("client_form.brand.previous")}
                 </Button>
 
                 {currentStep === "review" ? (
-                  <Button type="submit" disabled={isSubmitting} className="bg-terminal-prompt text-terminal-bg-dark shadow-lg shadow-terminal-prompt/20 hover:bg-terminal-prompt/90">
+                  <Button type="submit" disabled={isSubmitting} className="site-button is-primary">
                     {isSubmitting ? t("client_form.review.submitting") : t("client_form.review.submit")}
                   </Button>
                 ) : (
-                  <Button type="button" onClick={nextStep} className="bg-terminal-prompt text-terminal-bg-dark shadow-lg shadow-terminal-prompt/20 hover:bg-terminal-prompt/90">
+                  <Button type="button" onClick={nextStep} className="site-button is-primary">
                     {currentStep === "brand" && t("client_form.brand.next")}
                     {currentStep === "design" && t("client_form.design.next")}
                     {currentStep === "payment" && t("client_form.payment.next")}
