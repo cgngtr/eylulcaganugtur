@@ -46,26 +46,26 @@ export const themes: Record<string, TerminalTheme> = {
     chartColor: '97c178',            // green
   },
 
-  // ppy Dark - Same colors, near-black background
+  // ppy Dark - favicon-synced ink / code-blue / muted magenta system
   ppyDark: {
     name: 'ppyDark',
-    bgDark: '240 20% 6%',            // #0e0e14 - near black with purple tint
-    bgMedium: '240 18% 10%',         // #15151f
-    bgLight: '240 15% 16%',          // #22222e
-    prompt: '95 38% 62%',            // #97c178 - green (same)
-    directory: '210 79% 66%',        // #61afee - blue (same)
-    command: '42 69% 65%',           // #e2ba65 - yellow (same)
-    output: '240 100% 93%',          // #d7d7ff - light purple (same)
-    muted: '240 25% 55%',            // #6e6e96 - slightly adjusted for darker bg
-    keyword: '355 65% 65%',          // #e06c75 - red-pink (same)
-    constant: '330 50% 76%',         // #dea3b7 - pink (same)
-    border: '240 12% 25%',           // #373748 - darker border
-    selection: '240 15% 18%',        // #282836
-    error: '354 94% 72%',            // #fb7283 (same)
-    warning: '42 73% 65%',           // #e5bc66 (same)
-    info: '207 74% 62%',             // #5da8e6 (same)
-    success: '95 38% 62%',           // #97c178 (same)
-    chartColor: '97c178',            // green (same)
+    bgDark: '229 19% 7%',             // ink black
+    bgMedium: '229 18% 10%',          // deep blue-black card base
+    bgLight: '227 22% 24%',           // sampled slate lift
+    prompt: '316 28% 58%',            // muted magenta accent
+    directory: '237 12% 63%',         // code-screen lavender
+    command: '222 52% 86%',           // pale code text
+    output: '225 40% 94%',            // cold off-white
+    muted: '237 12% 63%',             // compact secondary text
+    keyword: '316 28% 58%',           // avatar magenta emphasis
+    constant: '300 15% 66%',          // soft purple constant
+    border: '227 22% 24%',            // sampled slate border
+    selection: '229 18% 15%',         // active fill
+    error: '346 55% 66%',
+    warning: '36 45% 66%',
+    info: '221 16% 46%',
+    success: '133 35% 56%',
+    chartColor: 'b978a9',             // accent chart color
   },
 
   // Dracula - Popular dark theme with purple/pink accents
