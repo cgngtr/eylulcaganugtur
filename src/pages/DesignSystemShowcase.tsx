@@ -906,25 +906,6 @@ const designSystemCss = `
   letter-spacing: 0.06em;
 }
 
-.ds-online-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  border-radius: 999px;
-  background: rgba(155, 210, 102, 0.18);
-  color: #bfe98f;
-  padding: 0.13rem 0.44rem;
-  font-weight: 900;
-}
-
-.ds-online-pill::before {
-  content: "";
-  width: 0.72rem;
-  height: 0.72rem;
-  border-radius: 50%;
-  border: 0.16rem solid currentColor;
-  box-shadow: 0 0 0.8rem rgba(191, 233, 143, 0.35);
-}
 
 .ds-contact-actions {
   display: grid;
@@ -2212,7 +2193,7 @@ const DesignSystemShowcase = () => {
               <article className="ds-card ds-contact-card">
                 <h3>Contacts panel</h3>
                 <p>
-                  Local status: <span className="ds-clock">03:40</span> <small>(UTC+3)</small> · <span className="ds-online-pill">Online</span>.
+                  Local time: <span className="ds-clock">03:40</span> <small>(UTC+3)</small>.
                 </p>
                 <p>Contact content is a component too: time, presence, and actions follow the same rhythm.</p>
                 <div className="ds-contact-actions">

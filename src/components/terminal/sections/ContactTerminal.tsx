@@ -48,11 +48,10 @@ const ContactTerminal: React.FC = () => {
               <Clock className="h-4 w-4" />
             </span>
             <span className="min-w-0">
-              <span className="block text-xs text-terminal-muted">local status</span>
-              <span className="site-status-line" aria-label={`Local status: ${localTime} (UTC+3), Online`}>
+              <span className="block text-xs text-terminal-muted">local time</span>
+              <span className="site-status-line" aria-label={`Local time: ${localTime} (UTC+3)`}>
                 <span className="site-clock">{localTime}</span>
                 <small>(UTC+3)</small>
-                <span className="site-online-pill">Online</span>
               </span>
             </span>
           </div>

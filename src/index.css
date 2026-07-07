@@ -926,26 +926,6 @@
     box-shadow: inset 0 0.0625rem 0 rgba(255,255,255,0.08);
   }
 
-  .site-online-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    border-radius: 999px;
-    background: rgba(155, 210, 102, 0.18);
-    color: #bfe98f;
-    padding: 0.13rem 0.44rem;
-    font-size: 0.72rem;
-    font-weight: 900;
-  }
-
-  .site-online-pill::before {
-    content: "";
-    width: 0.72rem;
-    height: 0.72rem;
-    border: 0.16rem solid currentColor;
-    border-radius: 50%;
-    box-shadow: 0 0 0.8rem rgba(191, 233, 143, 0.35);
-  }
 
   .site-contact-actions {
     display: grid;
