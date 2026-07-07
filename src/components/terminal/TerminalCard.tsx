@@ -17,16 +17,14 @@ const TerminalCard: React.FC<TerminalCardProps> = ({
   id,
 }) => {
   return (
-    <section id={id} className={`mb-8 w-full ${className}`}>
-      {/* Prompt Line */}
+    <section id={id} className={`site-reveal mb-8 w-full ${className}`}>
       <TerminalPrompt
         command={command}
         directory={directory}
-        className="mb-3"
+        className="mb-3 px-1"
       />
 
-      {/* Output Area */}
-      <div className="bg-terminal-bg-medium border border-terminal-border rounded-lg p-6 text-terminal-output font-mono">
+      <div className="site-card site-card-hover p-5 font-mono text-terminal-output sm:p-6">
         {children}
       </div>
     </section>

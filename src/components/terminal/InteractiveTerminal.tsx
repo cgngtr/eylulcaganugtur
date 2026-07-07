@@ -107,18 +107,16 @@ const InteractiveTerminal: React.FC = () => {
   };
 
   return (
-    <section id="terminal" className="mb-8 w-full">
-      {/* Prompt line */}
-      <div className="flex items-center gap-2 font-mono text-sm mb-3">
-        <span className="text-terminal-prompt font-bold">$</span>
+    <section id="terminal" className="site-reveal mb-8 w-full">
+      <div className="mb-3 flex items-center gap-2 px-1 font-mono text-sm">
+        <span className="font-bold text-terminal-prompt">$</span>
         <span className="text-terminal-directory">~</span>
         <span className="text-terminal-command">./interactive-terminal</span>
       </div>
 
-      {/* Terminal window */}
-      <div className="bg-terminal-bg-medium border border-terminal-border rounded-lg overflow-hidden">
+      <div className="site-card site-terminal-shell overflow-hidden">
         {/* macOS title bar */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-terminal-bg-light/50 border-b border-terminal-border">
+        <div className="flex items-center gap-2 border-b border-terminal-border/80 bg-terminal-bg-light/50 px-4 py-3">
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
             <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
@@ -135,7 +133,7 @@ const InteractiveTerminal: React.FC = () => {
           className="p-4 font-mono text-sm h-72 overflow-y-auto cursor-text"
         >
         {/* Lines */}
-        <div className="space-y-2">
+        <div className="space-y-2" role="log" aria-live="polite" aria-relevant="additions text">
           {lines.map((line) => (
             <div key={line.id}>
               {line.type === 'input' ? (
@@ -163,8 +161,8 @@ const InteractiveTerminal: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
+              aria-label="Interactive terminal command input"
               className="absolute inset-0 w-full opacity-0"
-              autoFocus
               autoComplete="off"
               spellCheck={false}
             />

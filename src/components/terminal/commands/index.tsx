@@ -41,7 +41,7 @@ const aboutCommand: Command = {
     output: (
       <div className="space-y-2">
         <div className="text-terminal-command">Çağan</div>
-        <div className="text-terminal-output">Fullstack Developer · Computer Engineering Graduate</div>
+        <div className="text-terminal-output">Full-stack Developer · Computer Engineering Graduate</div>
         <div className="text-terminal-muted text-sm mt-2">
           Currently distributing Confix and shipping MIMIC, resolves, and Saatinde.
           <br />
@@ -241,7 +241,7 @@ const scrollCommand: Command = {
   description: 'Scroll to a section (e.g., scroll projects)',
   handler: (args) => {
     const section = args[0]?.toLowerCase();
-    const validSections = ['intro', 'projects', 'experience', 'education', 'achievements', 'skills', 'blog', 'spotify', 'links', 'contact'];
+    const validSections = ['intro', 'profile', 'terminal', 'projects', 'experience', 'education', 'achievements', 'skills', 'spotify', 'github', 'links', 'contact'];
 
     if (!section) {
       return {
@@ -272,7 +272,8 @@ const scrollCommand: Command = {
     setTimeout(() => {
       const element = document.getElementById(section);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
       }
     }, 100);
 

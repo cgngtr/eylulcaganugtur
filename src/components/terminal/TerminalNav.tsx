@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  FileDown,
-  Menu,
-  X,
   Home,
   FolderOpen,
   Code2,
   GraduationCap,
   Trophy,
   Layers,
-  FileText,
   MessageSquare
 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface NavItem {
   id: string;
@@ -27,137 +24,122 @@ const navItems: NavItem[] = [
   { id: 'education', label: 'education', href: '#education', icon: <GraduationCap className="w-4 h-4" /> },
   { id: 'achievements', label: 'achievements', href: '#achievements', icon: <Trophy className="w-4 h-4" /> },
   { id: 'skills', label: 'skills', href: '#skills', icon: <Layers className="w-4 h-4" /> },
-  { id: 'blog', label: 'blog', href: '#blog', icon: <FileText className="w-4 h-4" /> },
   { id: 'contact', label: 'contact', href: '#contact', icon: <MessageSquare className="w-4 h-4" /> },
 ];
 
 const TerminalNav: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('intro');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomeRoute = location.pathname === '/';
+  const [activeSection, setActiveSection] = useState<string>(isHomeRoute ? 'intro' : '');
 
-  // Handle scroll to detect active section
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+    if (!isHomeRoute) {
+      setActiveSection('');
+      return;
+    }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let closestSectionId = navItems[0].id;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      for (const item of navItems) {
+        const section = document.getElementById(item.id);
+        if (!section) continue;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+          setActiveSection(item.id);
+          return;
+        }
+
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSectionId = item.id;
         }
       }
+
+      setActiveSection(closestSectionId);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomeRoute]);
+
+  useEffect(() => {
+    if (!isHomeRoute || !location.hash) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      const element = document.getElementById(location.hash.slice(1));
+      if (!element) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [isHomeRoute, location.hash]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+
+    if (!isHomeRoute) {
+      navigate(`/${href}`);
+      return;
+    }
+
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = `/${href}`;
-    }
-    setIsMenuOpen(false);
+    if (!element) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+    window.history.replaceState(null, '', href);
+  };
+
+  const renderNavLink = (item: NavItem) => {
+    const isActive = isHomeRoute && activeSection === item.id;
+
+    return (
+      <a
+        key={item.id}
+        href={isHomeRoute ? item.href : `/${item.href}`}
+        aria-current={isActive ? 'page' : undefined}
+        onClick={(e) => handleNavClick(e, item.href)}
+        className={`site-side-link ${
+          isActive
+            ? 'is-active'
+            : ''
+        }`}
+      >
+        <span className="site-side-icon" aria-hidden="true">
+          {item.icon}
+        </span>
+        <span className="truncate">{item.label}</span>
+      </a>
+    );
   };
 
   return (
-    <nav className="bg-terminal-bg-dark">
-      <div className="max-w-4xl mx-auto px-4 py-4">
-        {/* Top Row: whoami + resume */}
-        <div className="flex items-start justify-between mb-4">
-          {/* Left: whoami command and name */}
-          <div className="font-mono">
-            <div className="text-sm text-terminal-muted">
-              <span className="text-terminal-directory">~</span>
-              <span className="text-terminal-muted"> $ </span>
-              <span className="text-terminal-output">whoami</span>
-            </div>
-            <h1 className="text-xl font-bold text-terminal-output mt-1">
-              cagan ugtur
-            </h1>
-          </div>
-
-          {/* Right: Resume button */}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 text-terminal-output hover:text-terminal-command font-mono text-sm transition-colors"
-          >
-            <FileDown className="w-4 h-4" />
-            resume
-          </a>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-terminal-output hover:text-terminal-command transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Desktop Navigation Grid */}
-        <div className="hidden md:grid grid-cols-4 gap-x-8 gap-y-2 font-mono text-sm">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={`flex items-center gap-2 transition-colors ${
-                activeSection === item.id
-                  ? 'text-terminal-command'
-                  : 'text-terminal-muted hover:text-terminal-output'
-              }`}
-            >
-              {item.icon}
-              {item.label}
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-terminal-border pt-4">
-            <div className="grid grid-cols-2 gap-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`flex items-center gap-2 font-mono text-sm py-2 transition-colors ${
-                    activeSection === item.id
-                      ? 'text-terminal-command'
-                      : 'text-terminal-muted hover:text-terminal-output'
-                  }`}
-                >
-                  {item.icon}
-                  {item.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Resume Button Mobile */}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-terminal-output font-mono text-sm mt-4 pt-4 border-t border-terminal-border"
-            >
-              <FileDown className="w-4 h-4" />
-              resume
-            </a>
-          </div>
-        )}
+    <aside className="site-side-rail" aria-label="Portfolio sections">
+      <div className="site-side-meta" aria-hidden="true">
+        <span>~/sections</span>
+        <span>{navItems.length} files</span>
       </div>
-    </nav>
+
+      <nav className="site-side-nav" aria-label="Portfolio sections">
+        {navItems.map(renderNavLink)}
+      </nav>
+
+      <div className="site-side-tail" aria-hidden="true">
+        <span />
+        <span />
+      </div>
+    </aside>
   );
 };
 
